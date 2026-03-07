@@ -16,6 +16,10 @@ export default defineConfig(({ command }) => ({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
+      workbox: {
+        navigateFallback: '/ELibPortal/index.html',
+        navigateFallbackDenylist: [/^\/ELibPortal\/(bukvar|reading-room|encyclopedia|dictionary-presentation|bukvar-presentation|reading-room-presentation)\//],
+      },
       manifest: {
         name: 'Школьная библиотека',
         short_name: 'Школа',
