@@ -28,7 +28,7 @@ export default defineConfig(({ command }) => ({
       },
     }),
   ],
-  base: command === 'build' ? '/school-library/' : '/',
+  base: command === 'build' ? '/ELibPortal/' : '/',
   define: {
     __BUILD_NUMBER__: JSON.stringify(process.env.GITHUB_RUN_NUMBER ?? 'dev'),
     __BUILD_DATE__: JSON.stringify(new Date().toISOString().slice(0, 10)),
