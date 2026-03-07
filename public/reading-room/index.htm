@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Библиотека. Осень "1В"</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>📚 Библиотека</h1>
+        <button id="themeToggle" class="theme-toggle" aria-label="Переключить тему" title="Переключить тему"></button>
+        <!-- <p>Только книги из рекомендованного списка для чтения с детьми.</p> -->
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#russkie-narodnye">Народные</a></li>
+            <li><a href="#skazki-pro-zhivotnyh">Про животных</a></li>
+            <li><a href="#literatura-dlya-chteniya">С родителями</a></li>
+        </ul>
+    </nav>
+    
+    <section id="russkie-narodnye">
+        <div>
+            <h2>Русские народные сказки</h2>
+            <p>Классические русские народные сказки для знакомства с фольклором.</p>
+            <ul>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/kurochka_ryaba" target="_blank" class="book-link">Курочка Ряба</a>
+                        <button class="read-btn" data-book="Курочка Ряба">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/kolobok" target="_blank" class="book-link">Колобок</a>
+                        <button class="read-btn" data-book="Колобок">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/bratya_grimm_volk_i_semero_kozlyat" target="_blank" class="book-link">Волк и семеро козлят</a>
+                        <button class="read-btn" data-book="Волк и семеро козлят">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/repka" target="_blank" class="book-link">Репка</a>
+                        <button class="read-btn" data-book="Репка">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/tri_medvedya" target="_blank" class="book-link">Три медведя</a>
+                        <button class="read-btn" data-book="Три медведя">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/masha_i_medved" target="_blank" class="book-link">Машенька и медведь</a>
+                        <button class="read-btn" data-book="Машенька и медведь">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/teremok" target="_blank" class="book-link">Теремок</a>
+                        <button class="read-btn" data-book="Теремок">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/gusi_lebedi" target="_blank" class="book-link">Гуси-лебеди</a>
+                        <button class="read-btn" data-book="Гуси-лебеди">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/po-shhuchemu-veleniyu" target="_blank" class="book-link">По щучьему велению</a>
+                        <button class="read-btn" data-book="По щучьему велению">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/sestrica_aljonushka_i_bratec_ivanushka" target="_blank" class="book-link">Сестрица Алёнушка и братец Иванушка</a>
+                        <button class="read-btn" data-book="Сестрица Алёнушка и братец Иванушка">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/russkaya-narodnaya-snegurochka" target="_blank" class="book-link">Снегурочка</a>
+                        <button class="read-btn" data-book="Снегурочка">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/carevna_lyagushka" target="_blank" class="book-link">Царевна-Лягушка</a>
+                        <button class="read-btn" data-book="Царевна-Лягушка">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/morozko" target="_blank" class="book-link">Морозко</a>
+                        <button class="read-btn" data-book="Морозко">📖</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="skazki-pro-zhivotnyh">
+        <div>
+            <h2>Сказки про животных</h2>
+            <h3>Корней Чуковский</h3>
+            <ul>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/chukovskij_mukha_cokotukha" target="_blank" class="book-link">Муха цокотуха</a>
+                        <button class="read-btn" data-book="Муха цокотуха">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/chukovskij_tarakanishhe" target="_blank" class="book-link">Тараканище</a>
+                        <button class="read-btn" data-book="Тараканище">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/audioskazki/kradenoe_solnce" target="_blank" class="book-link">Краденое солнце</a>
+                        <button class="read-btn" data-book="Краденое солнце">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/chukovskij-putanica" target="_blank" class="book-link">Путаница</a>
+                        <button class="read-btn" data-book="Путаница">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/chukovskij_fedorino_gore" target="_blank" class="book-link">Федорино горе</a>
+                        <button class="read-btn" data-book="Федорино горе">📖</button>
+                    </div>
+                </li>
+            </ul>
+            <h3>Самуил Маршак</h3>
+            <ul>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/marshak-vot-kakoj-rasseyannyj" target="_blank" class="book-link">Человек рассеянный</a>
+                        <button class="read-btn" data-book="Человек рассеянный">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/marshak-bagazh" target="_blank" class="book-link">Дама сдавала в багаж</a>
+                        <button class="read-btn" data-book="Дама сдавала в багаж">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/marshak-usatyj-polosatyj" target="_blank" class="book-link">Усатый полосатый</a>
+                        <button class="read-btn" data-book="Усатый полосатый">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/skazka_ob_umnom_myshonke" target="_blank" class="book-link">Сказка об умном мышонке</a>
+                        <button class="read-btn" data-book="Сказка об умном мышонке">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/marshak_skazka_o_glupom_myshonke" target="_blank" class="book-link">Сказка о глупом мышонке</a>
+                        <button class="read-btn" data-book="Сказка о глупом мышонке">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/stihi/raznocvetnaya-kniga" target="_blank" class="book-link">Разноцветные страницы</a>
+                        <button class="read-btn" data-book="Разноцветные страницы">📖</button>
+                    </div>
+                </li>
+            </ul>
+            <h3>Виталий Бианки</h3>
+            <ul>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/bianki-khvosty" target="_blank" class="book-link">Хвосты</a>
+                        <button class="read-btn" data-book="Хвосты">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/chej_nos_luchshe" target="_blank" class="book-link">Чей нос лучше</a>
+                        <button class="read-btn" data-book="Чей нос лучше">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/bianki-kto-chem-pojot" target="_blank" class="book-link">Кто чем поёт?</a>
+                        <button class="read-btn" data-book="Кто чем поёт?">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/bianki-kak-muravishka-domoj-speshil" target="_blank" class="book-link">Как муравьишка домой спешил</a>
+                        <button class="read-btn" data-book="Как муравьишка домой спешил">📖</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="literatura-dlya-chteniya">
+        <div>
+            <h2>Литература для чтения вместе с родителями/слушания</h2>
+            <ul>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/mamin_sibiryak_seraya_shejka" target="_blank" class="book-link">Серая шейка - Д. Н. Мамин-Сибиряк</a>
+                        <button class="read-btn" data-book="Серая шейка">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/mamin_sibiryak_aljonushkiny_skazki" target="_blank" class="book-link">Алёнушкины сказки - Д. Н. Мамин-Сибиряк</a>
+                        <button class="read-btn" data-book="Алёнушкины сказки">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/dal-starik-godovik" target="_blank" class="book-link">Старик-годовик - В. И. Даль (сборник сказок)</a>
+                        <button class="read-btn" data-book="Старик-годовик">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/chukovskij_ajbolit" target="_blank" class="book-link">Айболит - К. И. Чуковский (в стихах и прозе)</a>
+                        <button class="read-btn" data-book="Айболит">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/barmalej" target="_blank" class="book-link">Бармалей - К. И. Чуковский</a>
+                        <button class="read-btn" data-book="Бармалей">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/tolstoj_zolotoj_klyuchik_ili_priklyucheniya_buratino" target="_blank" class="book-link">Золотой ключик, или приключения Буратино - А. Н. Толстой</a>
+                        <button class="read-btn" data-book="Золотой ключик">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/nikolaj_nosov" target="_blank" class="book-link">Рассказы - Н. Н. Носов</a>
+                        <button class="read-btn" data-book="Рассказы Носова">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/uspenskij-krokodil-gena-i-ego-druzya" target="_blank" class="book-link">Крокодил Гена и его друзья - Э. Успенский</a>
+                        <button class="read-btn" data-book="Крокодил Гена">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://uspenskij-eduard-pisatel.larec-skazok.ru/strashnyj-gospodin-au" target="_blank" class="book-link">Жуткий господин Ау - Э. Успенский</a>
+                        <button class="read-btn" data-book="Жуткий господин Ау">📖</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="book-item">
+                        <a href="https://nukadeti.ru/skazki/deniskiny-rasskazy" target="_blank" class="book-link">Денискины рассказы - В. Драгунский</a>
+                        <button class="read-btn" data-book="Денискины рассказы">📖</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 V labs Школа программирования </p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

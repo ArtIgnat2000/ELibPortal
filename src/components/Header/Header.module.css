@@ -1,0 +1,106 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(8px);
+  background: color-mix(in srgb, var(--color-surface) 90%, transparent);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 3.75rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logoIcon {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.logoTitle {
+  display: block;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.logoTagline {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex: 1;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.navLink {
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition);
+  white-space: nowrap;
+}
+
+.navLink:hover {
+  color: var(--color-text);
+  background: var(--color-surface-2);
+}
+
+.navLink.active {
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+  font-weight: 600;
+}
+
+.themeBtn {
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform var(--transition), background var(--transition);
+}
+
+.themeBtn:hover {
+  transform: rotate(20deg) scale(1.1);
+  background: var(--color-border);
+}
+
+/* Mobile: hide nav labels, show only first letter */
+@media (max-width: 640px) {
+  .logoTagline { display: none; }
+  .nav { gap: 0; }
+  .navLink { padding: 0.375rem 0.5rem; font-size: 0.8125rem; }
+}
+
+@media (max-width: 480px) {
+  .logoTitle { font-size: 0.875rem; }
+}

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Электронная Библиотека</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="presentation-container">
+        <!-- Слайд 1: Титульный -->
+        <div class="slide slide-1 active">
+            <div class="slide-number">1</div>
+            <div class="decoration decoration-1"></div>
+            <div class="decoration decoration-2"></div>
+            <div class="decoration decoration-star" style="top: 30%; right: 15%;">★</div>
+            <div class="decoration decoration-book" style="bottom: 25%; left: 10%;">📚</div>
+            
+            <div class="content">
+                <h1 style="font-size: 3.5rem; color: white; text-shadow: 3px 3px 8px rgba(0,0,0,0.3); margin-bottom: 0.5rem; font-weight: 800;">Школьная<br>Библиотека</h1>
+                <div class="subtitle" style="font-size: 1.6rem; color: #667eea; font-weight: 600; margin-bottom: 2rem; display: none;">Умный помощник для чтения ✨</div>
+                <div style="display: inline-block; padding: 1.5rem; border-radius: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); box-shadow: 0 12px 35px rgba(102, 126, 234, 0.35); margin-top: 2.5rem; margin-bottom: 2.5rem;">
+                    <div style="background: white; padding: 0.8rem; border-radius: 12px;">
+                        <img src="img/qr_Elib_site.png" alt="QR-код электронной библиотеки" style="width: 140px; height: 140px; display: block; border-radius: 8px;">
+                    </div>
+                </div>
+                <p style="font-size: 1rem; color: #667eea; margin-top: 0.8rem; margin-bottom: 1rem; font-weight: 600; display: none;">Отсканируй и начни читать!</p>
+                <div style="background: white; padding: 1rem 2rem; border-radius: 18px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); margin-top: 1.5rem;">
+                    <p style="font-size: 1.05rem; color: #2d3748; font-weight: 700; margin: 0;">Игнатьев Виктор, Игнатьев Николай | НААШ 186</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 2: Как выглядит приложение -->
+        <div class="slide slide-2">
+            <div class="slide-number">2</div>
+            <div class="decoration decoration-1"></div>
+            <div class="decoration decoration-2"></div>
+            <div class="decoration decoration-star" style="top: 15%; left: 10%;">✨</div>
+            
+            <div class="content">
+                <h2 style="font-size: 1.8rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.15); margin-bottom: 0.5rem;">Как выглядит приложение</h2>
+                <p style="font-size: 0.95rem; margin-bottom: 0.8rem; font-weight: 500; color: #2d3748;">Главная страница Школьной библиотеки</p>
+                
+                <div style="background: white; padding: 0.8rem; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); max-width: 60%; margin: 0 auto;">
+                    <img src="img/lib_mail_page.png" alt="Главная страница библиотеки" style="width: 100%; max-height: 50vh; object-fit: contain; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.12); display: block;">
+                </div>
+                
+                <div style="display: flex; gap: 0.8rem; justify-content: center; margin-top: 0.8rem; flex-wrap: wrap;">
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 0.4rem 1rem; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.12);">
+                        <p style="font-size: 0.8rem; font-weight: 600; color: #2d3748; margin: 0;">📚 Все книги</p>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 0.4rem 1rem; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.12);">
+                        <p style="font-size: 0.8rem; font-weight: 600; color: #2d3748; margin: 0;">🎯 Поиск</p>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 0.4rem 1rem; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.12);">
+                        <p style="font-size: 0.8rem; font-weight: 600; color: #2d3748; margin: 0;">📊 Прогресс</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 3: Что это такое -->
+        <div class="slide slide-3">
+            <div class="slide-number">3</div>
+            <div class="decoration decoration-1"></div>
+            <div class="decoration decoration-2"></div>
+            <div class="decoration decoration-book" style="top: 20%; left: 15%;">📖</div>
+            
+            <div class="content">
+                <h2 style="font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.15); margin-bottom: 0.8rem;">Что это такое?</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 1rem; font-weight: 500;">Это волшебное место, где живут сотни интересных книг!</p>
+                
+                <div style="display: flex; gap: 1rem; max-width: 900px; width: 100%; margin-top: 1rem;">
+                    <!-- Блок 1: Книги для чтения на каникулах -->
+                    <div style="flex: 1; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+                        <h3 style="font-size: 1.1rem; color: #2d3748; font-weight: bold; margin-bottom: 0.8rem; text-align: center;">📚 Книги для чтения на каникулах</h3>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 10px;">
+                                <p style="font-size: 0.9rem; color: #2d3748; font-weight: 600; margin: 0;">☀️ Летние</p>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 10px;">
+                                <p style="font-size: 0.9rem; color: #2d3748; font-weight: 600; margin: 0;">🍂 Осенние</p>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 10px;">
+                                <p style="font-size: 0.9rem; color: #2d3748; font-weight: 600; margin: 0;">❄️ Зимние</p>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 10px;">
+                                <p style="font-size: 0.9rem; color: #2d3748; font-weight: 600; margin: 0;">🌸 Весенние</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Блок 2: Литература в учебные дни -->
+                    <div style="flex: 1; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 1rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+                        <h3 style="font-size: 1.1rem; color: #2d3748; font-weight: bold; margin-bottom: 0.8rem; text-align: center;">📖 Литература в учебные дни</h3>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 10px;">
+                                <p style="font-size: 0.9rem; color: #2d3748; font-weight: 600; margin: 0;">✍️ Учить стихи наизусть</p>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 10px;">
+                                <p style="font-size: 0.9rem; color: #2d3748; font-weight: 600; margin: 0;">📕 Читать книги и рассказы</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 1rem; border-radius: 20px; margin-top: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,0.15); max-width: 900px; width: 100%;">
+                    <p style="font-size: 1rem; font-weight: bold; color: #2d3748; line-height: 1.3; margin: 0; text-align: center;">
+                        Читай то, что задают в школе, когда удобно!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 4: Читать или Слушать -->
+        <div class="slide slide-4">
+            <div class="slide-number">4</div>
+            <div class="decoration decoration-1"></div>
+            <div class="decoration decoration-2"></div>
+            <div class="decoration decoration-star" style="top: 25%; left: 15%;">🎧</div>
+            <div class="decoration decoration-book" style="bottom: 25%; right: 15%;">📖</div>
+            
+            <div class="content">
+                <h2 style="font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.15); margin-bottom: 0.8rem;">Читать или Слушать</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 1rem; font-weight: 500;">Это пример книги, которую можно читать или слушать</p>
+                
+                <div style="background: white; padding: 0.8rem; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); max-width: 70%; margin: 0 auto 1rem;">
+                    <img src="img/sample_book.png" alt="Пример книги" style="width: 100%; max-height: 45vh; object-fit: contain; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.12); display: block;">
+                </div>
+                
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap;">
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 0.8rem 1.5rem; border-radius: 15px; box-shadow: 0 6px 18px rgba(0,0,0,0.15);">
+                        <p style="font-size: 1.1rem; font-weight: 700; color: white; margin: 0;">📖 Читать</p>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 0.8rem 1.5rem; border-radius: 15px; box-shadow: 0 6px 18px rgba(0,0,0,0.15);">
+                        <p style="font-size: 1.1rem; font-weight: 700; color: white; margin: 0;">🎧 Слушать</p>
+                    </div>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 1rem 1.5rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); max-width: 800px; width: 100%;">
+                    <p style="font-size: 1rem; font-weight: bold; color: #2d3748; margin-bottom: 0.6rem;">Это очень важно и удобно! ✨</p>
+                    <p style="font-size: 0.9rem; color: #2d3748; font-weight: 600; margin: 0; line-height: 1.4;">
+                        🌙 Слушай перед сном • 🚗 В дороге на машине • 🏃 На беговой тренировке
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 5: Возможности -->
+        <div class="slide slide-5">
+            <div class="slide-number">5</div>
+            <div class="decoration decoration-1"></div>
+            <div class="decoration decoration-2"></div>
+            <div class="decoration decoration-book" style="top: 20%; right: 15%;">💻</div>
+            
+            <div class="content">
+                <h2 style="font-size: 2.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.15); margin-bottom: 1.2rem;">Возможности</h2>
+                <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 800px;">
+                    <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 1.1rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
+                        <span style="font-size: 2.5rem;">💻</span>
+                        <span style="font-size: 1.1rem; color: white; font-weight: 600;">Читай на компьютере, телефоне или планшете</span>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 1.1rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
+                        <span style="font-size: 2.5rem;">🎯</span>
+                        <span style="font-size: 1.1rem; color: white; font-weight: 600;">Выбирай книги по интересам</span>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.1rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
+                        <span style="font-size: 2.5rem;">📊</span>
+                        <span style="font-size: 1.1rem; color: white; font-weight: 600;">Отслеживай свой прогресс</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 6: Три крутые фишки -->
+        <div class="slide slide-6">
+            <div class="slide-number">6</div>
+            <div class="decoration decoration-1"></div>
+            <div class="decoration decoration-2"></div>
+            <div class="decoration decoration-star" style="top: 15%; right: 20%;">⭐</div>
+            
+            <div class="content">
+                <h2 style="font-size: 2.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.15); margin-bottom: 1.2rem;">Три крутые фишки</h2>
+                <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 850px;">
+                    <div style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); padding: 1.1rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
+                        <span style="font-size: 2.5rem;">✅</span>
+                        <span style="font-size: 1.1rem; color: white; font-weight: 600;"><strong>Видишь свой прогресс</strong> — сколько прочитал, сколько осталось</span>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.1rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
+                        <span style="font-size: 2.5rem;">🔍</span>
+                        <span style="font-size: 1.1rem; color: white; font-weight: 600;"><strong>Найди любую книгу</strong> за секунду</span>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 1.1rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
+                        <span style="font-size: 2.5rem;">🔄</span>
+                        <span style="font-size: 1.1rem; color: white; font-weight: 600;"><strong>Быстро переходи</strong> между разделами</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 7: Индикатор прогресса -->
+        <div class="slide slide-7">
+            <div class="slide-number">7</div>
+            <div class="decoration decoration-1"></div>
+            <div class="decoration decoration-2"></div>
+            <div class="decoration decoration-star" style="bottom: 30%; right: 25%;">🌟</div>
+            
+            <div class="content">
+                <h2 style="font-size: 2.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.15); margin-bottom: 1.2rem;">Видишь свой прогресс</h2>
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.3rem 1.8rem; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 1.5rem;">
+                    <p style="font-size: 1.4rem; margin-bottom: 1rem; color: white; font-weight: bold;">Прочитано 13 из 20 книг</p>
+                    
+                    <div style="background: rgba(255,255,255,0.3); border-radius: 50px; height: 45px; position: relative; overflow: hidden; box-shadow: inset 0 4px 8px rgba(0,0,0,0.1);">
+                        <div style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); width: 65%; height: 100%; border-radius: 50px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: bold; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">65%</div>
+                    </div>
+                    
+                    <p style="font-size: 1.2rem; margin-top: 1rem; color: white; font-weight: 600;"><strong>Осталось ещё 7 книг</strong> — ты на пути! 🎯</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 8: Поиск и фильтры -->
+        <div class="slide slide-8">
+            <div class="slide-number">8</div>
+            <div class="decoration decoration-1"></div>
+            <div class="decoration decoration-2"></div>
+            <div class="decoration decoration-book" style="top: 25%; left: 20%;">🔎</div>
+            
+            <div class="content">
+                <h2 style="font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.15); margin-bottom: 1.2rem;">Поиск и фильтры</h2>
+                
+                <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 1rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 1rem; max-width: 600px; width: 100%;">
+                    <div style="font-size: 1rem; color: rgba(255,255,255,0.9); margin-bottom: 0.6rem;">Ты пишешь:</div>
+                    <div style="font-size: 1.4rem; color: white; margin-bottom: 0.8rem; font-weight: bold;">"Остров сокровищ"</div>
+                    <div style="height: 2.3rem; margin-bottom: 0.8rem;"></div>
+                    <div style="background: rgba(255,255,255,0.25); padding: 0.6rem 1rem; border-radius: 15px; font-size: 1rem; color: #2d3748; font-weight: 600;">Бац! Книга найдена! ✅</div>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 1rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); max-width: 600px; width: 100%;">
+                    <div style="font-size: 1rem; color: rgba(255,255,255,0.9); margin-bottom: 0.6rem;">Или:</div>
+                    <div style="font-size: 1.4rem; color: white; margin-bottom: 0.8rem; font-weight: bold;">"Покажи мне..."</div>
+                    <div style="display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; margin-bottom: 0.8rem;">
+                        <div style="background: rgba(255,255,255,0.3); padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 0.95rem; color: #2d3748; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.15); cursor: pointer; transition: all 0.3s;">фантастику</div>
+                        <div style="background: rgba(255,255,255,0.3); padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 0.95rem; color: #2d3748; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.15); cursor: pointer; transition: all 0.3s;">приключения</div>
+                        <div style="background: rgba(255,255,255,0.3); padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 0.95rem; color: #2d3748; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.15); cursor: pointer; transition: all 0.3s;">классику</div>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.25); padding: 0.6rem 1rem; border-radius: 15px; font-size: 1rem; color: #2d3748; font-weight: 600;">Готово! Только нужные книги ✅</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 9: Мультиплатформенность -->
+        <div class="slide slide-9">
+            <div class="slide-number">9</div>
+            <div class="decoration decoration-1"></div>
+            <div class="decoration decoration-2"></div>
+            <div class="decoration decoration-star" style="top: 20%; right: 15%;">✨</div>
+            
+            <div class="content">
+                <h2 style="font-size: 2.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.15); margin-bottom: 0.8rem;">Работает везде!</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 500;">На компьютере, в дороге на телефоне, на планшете — везде красиво и удобно!</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 450px; width: 100%;">
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
+                        <div style="background: white; padding: 0.8rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); flex-shrink: 0;">
+                            <img src="img/computer.svg" alt="Компьютер" style="width: 50px; height: 50px; display: block;">
+                        </div>
+                        <div style="font-size: 1.2rem; color: white; font-weight: 700; text-align: left;">Компьютер</div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 1rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
+                        <div style="background: white; padding: 0.8rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); flex-shrink: 0;">
+                            <img src="img/phone.svg" alt="Телефон" style="width: 50px; height: 50px; display: block;">
+                        </div>
+                        <div style="font-size: 1.2rem; color: white; font-weight: 700; text-align: left;">Телефон</div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 1rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
+                        <div style="background: white; padding: 0.8rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); flex-shrink: 0;">
+                            <img src="img/tablet.svg" alt="Планшет" style="width: 50px; height: 50px; display: block;">
+                        </div>
+                        <div style="font-size: 1.2rem; color: white; font-weight: 700; text-align: left;">Планшет</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 10: Главное -->
+        <div class="slide slide-10">
+            <div class="slide-number">10</div>
+            <div class="decoration decoration-1"></div>
+            <div class="decoration decoration-2"></div>
+            <div class="decoration decoration-book" style="bottom: 20%; left: 25%;">❤️</div>
+            
+            <div class="content">
+                <h2 style="font-size: 2.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.15); margin-bottom: 1.5rem;">Главное — это просто!</h2>
+                
+                <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 800px; margin-bottom: 1.5rem;">
+                    <div style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); padding: 1.2rem 1.5rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
+                        <span style="font-size: 2.5rem;">🔍</span>
+                        <span style="font-size: 1.2rem; color: white; font-weight: 600;"><strong>Легко найти</strong> интересную книгу</span>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.2rem 1.5rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
+                        <span style="font-size: 2.5rem;">📈</span>
+                        <span style="font-size: 1.2rem; color: white; font-weight: 600;"><strong>Видеть,</strong> как ты растёшь</span>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 1.2rem 1.5rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
+                        <span style="font-size: 2.5rem;">😊</span>
+                        <span style="font-size: 1.2rem; color: white; font-weight: 600;"><strong>Читать</strong> с удовольствием!</span>
+                    </div>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 1rem 2rem; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); display: inline-block;">
+                    <div style="font-size: 1.4rem; color: white; font-weight: bold;">Вот и вся магия! ✨</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 11: Задачи в разработке -->
+        <div class="slide slide-11">
+            <div class="slide-number">11</div>
+            <div class="decoration decoration-1"></div>
+            <div class="decoration decoration-2"></div>
+            <div class="decoration decoration-star" style="top: 18%; right: 18%;">🚀</div>
+            <div class="decoration decoration-book" style="bottom: 22%; left: 15%;">🧩</div>
+            
+            <div class="content">
+                <h2 style="font-size: 2.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.12); margin-bottom: 0.8rem;">Задачи в разработке</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 1.2rem; font-weight: 600; color: #2d3748;">Что появится дальше в Школьной библиотеке</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 850px; width: 100%;">
+                    <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 1.2rem 1.4rem; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1rem;">
+                        <span style="font-size: 2.4rem;">📥</span>
+                        <div style="text-align: left;">
+                            <div style="font-size: 1.2rem; color: white; font-weight: 700;">Добавлять свои книги</div>
+                            <div style="font-size: 0.95rem; color: rgba(255,255,255,0.9); font-weight: 500;">Личные подборки для каждого класса</div>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); padding: 1.2rem 1.4rem; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1rem;">
+                        <span style="font-size: 2.4rem;">🛠️</span>
+                        <div style="text-align: left;">
+                            <div style="font-size: 1.2rem; color: white; font-weight: 700;">Загрузка и корректировка базового списка</div>
+                            <div style="font-size: 0.95rem; color: rgba(255,255,255,0.9); font-weight: 500;">Без участия программиста</div>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.2rem 1.4rem; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1rem;">
+                        <span style="font-size: 2.4rem;">🤖</span>
+                        <div style="text-align: left;">
+                            <div style="font-size: 1.2rem; color: white; font-weight: 700;">Интеграция с Телеграм-ботом</div>
+                            <div style="font-size: 0.95rem; color: rgba(255,255,255,0.9); font-weight: 500;">Уведомления и быстрый доступ к книгам</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 12: Благодарности -->
+        <div class="slide slide-12">
+            <div class="slide-number">12</div>
+            <div class="decoration decoration-1"></div>
+            <div class="decoration decoration-2"></div>
+            <div class="decoration decoration-star" style="top: 20%; right: 15%;">⭐</div>
+            
+            <div class="content">
+                <h2 style="font-size: 2.2rem; margin-bottom: 0.8rem;">Благодарности</h2>
+                <div style="display: flex; flex-direction: column; gap: 0.8rem; max-width: 900px; width: 100%; margin-top: 1rem;">
+                    <div class="feature" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 0.8rem; border-radius: 16px; display: flex; align-items: center; gap: 0.8rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                        <span class="feature-icon" style="font-size: 2.5rem;">👨‍👩‍👦</span>
+                        <div style="text-align: left;">
+                            <div style="font-size: 1.4rem; font-weight: bold; color: white; margin-bottom: 0.2rem;">Моя семья</div>
+                            <div style="font-size: 1.05rem; color: #2d3748; font-weight: 600;">Папа, Мама — за поддержку и вдохновение</div>
+                        </div>
+                    </div>
+                    <div class="feature" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 0.8rem; border-radius: 16px; display: flex; align-items: center; gap: 0.8rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                        <span class="feature-icon" style="font-size: 2.5rem;">🤝</span>
+                        <div style="text-align: left;">
+                            <div style="font-size: 1.4rem; font-weight: bold; color: white; margin-bottom: 0.2rem;">Родители одноклассников</div>
+                            <div style="font-size: 1.05rem; color: #2d3748; font-weight: 600;">За обратную связь и помощь в тестировании сайта</div>
+                        </div>
+                    </div>
+                    <div class="feature" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 0.8rem; border-radius: 16px; display: flex; align-items: center; gap: 0.8rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                        <img src="img/logo_naash2.jpg" alt="Логотип НААШ" style="width: 55px; height: 55px; border-radius: 50%; object-fit: cover; background: white; padding: 4px;">
+                        <div style="text-align: left;">
+                            <div style="font-size: 1.4rem; font-weight: bold; color: white; margin-bottom: 0.2rem;">НААШ 186</div>
+                            <div style="font-size: 1.05rem; color: #2d3748; font-weight: 600;">За возможность развиваться и создавать проекты</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: center; gap: 1.2rem; margin-top: 1rem;">
+                    <div style="text-align: center;">
+                        <div style="width: 65px; height: 65px; border-radius: 50%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 0.3rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                            <span style="font-size: 2.2rem;">💝</span>
+                        </div>
+                        <p style="color: #2d3748; font-size: 0.95rem; font-weight: 600;">Благодарю всех</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="width: 65px; height: 65px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 0.3rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                            <span style="font-size: 2.2rem;">🙏</span>
+                        </div>
+                        <p style="color: #2d3748; font-size: 0.95rem; font-weight: 600;">За поддержку</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="width: 65px; height: 65px; border-radius: 50%; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 0.3rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                            <span style="font-size: 2.2rem;">❤️</span>
+                        </div>
+                        <p style="color: #2d3748; font-size: 0.95rem; font-weight: 600;">С любовью</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 13: Заключение -->
+        <div class="slide slide-13">
+            <div class="slide-number">13</div>
+            <div class="decoration decoration-1"></div>
+            <div class="decoration decoration-2"></div>
+            <div class="decoration decoration-star" style="top: 25%; left: 20%;">⭐</div>
+            <div class="decoration decoration-star" style="bottom: 25%; right: 20%;">⭐</div>
+            <div class="decoration decoration-book" style="top: 40%; right: 30%;">📚</div>
+            <div class="decoration decoration-star" style="top: 60%; left: 15%;">✨</div>
+            
+            <div class="content">
+                <h1 style="font-size: 2.6rem; margin-bottom: 1.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); font-weight: 800;">Спасибо за внимание!</h1>
+                
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <div style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.5rem; border-radius: 30px; box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4); margin-bottom: 1.2rem;">
+                        <img src="img/qr_Elib_site.png" alt="QR-код электронной библиотеки" style="width: 160px; height: 160px; display: block; border-radius: 20px; background: white; padding: 10px;">
+                    </div>
+                    <p style="font-size: 1.2rem; font-weight: bold; color: #2d3748; margin-bottom: 0.5rem;">Отсканируй QR-код</p>
+                </div>
+                
+                <div class="welcome-text" style="margin-top: 2rem; font-size: 1.3rem; font-weight: 700; color: #2d3748;">Добро пожаловать в нашу библиотеку! 🎉</div>
+            </div>
+        </div>
+
+        <!-- Навигационные кнопки -->
+        <div class="nav-buttons">
+            <button class="nav-btn" id="prevBtn">◀</button>
+            <button class="nav-btn" id="nextBtn">▶</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+

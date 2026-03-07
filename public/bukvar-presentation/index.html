@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Букваринск — Презентация проекта</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:      #020617;
+      --surface: #0f172a;
+      --card:    #1e293b;
+      --border:  #334155;
+      --accent:  #f59e0b;
+      --accent2: #34d399;
+      --accent3: #fb923c;
+      --purple:  #a78bfa;
+      --text:    #f1f5f9;
+      --muted:   #94a3b8;
+      --subtle:  #cbd5e1;
+    }
+
+    /* ── Light theme overrides ── */
+    [data-theme="light"] {
+      --bg:      #f8fafc;
+      --surface: #f1f5f9;
+      --card:    #ffffff;
+      --border:  #cbd5e1;
+      --text:    #0f172a;
+      --muted:   #64748b;
+      --subtle:  #475569;
+    }
+    [data-theme="light"] .card {
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    }
+    [data-theme="light"] #nav {
+      box-shadow: 0 -1px 8px rgba(0,0,0,.06);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    /* ── Slides ── */
+    #slides { flex:1; position:relative; overflow:hidden; }
+    .slide {
+      position: absolute; inset:0;
+      display: flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      padding: 3rem 4rem;
+      opacity:0;
+      pointer-events:none;
+      transition: opacity .35s ease, transform .35s ease;
+      transform: translateX(60px);
+      overflow-y: auto;
+    }
+    .slide.active { opacity:1; pointer-events:auto; transform:translateX(0); }
+    .slide.prev   { opacity:0; transform:translateX(-60px); }
+
+    /* ── Typography ── */
+    h1.display { font-size: clamp(2.4rem,5vw,4rem); font-weight:900; letter-spacing:-.04em; line-height:1.05; }
+    h2.title   { font-size: clamp(1.5rem,3vw,2.2rem); font-weight:800; letter-spacing:-.03em; }
+    h3.card-h  { font-size:1.05rem; font-weight:700; color: var(--accent); margin-bottom:.3rem; }
+    p.lead     { font-size:clamp(1rem,2vw,1.2rem); color:var(--subtle); line-height:1.6; }
+    .label     { font-size:.75rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:.5rem; }
+
+    /* ── Color utilities ── */
+    .accent  { color: var(--accent);  }
+    .accent2 { color: var(--accent2); }
+    .accent3 { color: var(--accent3); }
+    .purple  { color: var(--purple);  }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--card);
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:1.25rem 1.5rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,.4);
+    }
+    .card-row  { display:flex; align-items:center; gap:1.25rem; }
+    .card-icon { font-size:2.4rem; flex-shrink:0; line-height:1; }
+    .cards-col  { display:flex; flex-direction:column; gap:1rem; width:100%; max-width:860px; }
+    .cards-grid { display:grid; gap:1rem; width:100%; max-width:860px; }
+    .cards-grid.g2 { grid-template-columns: repeat(2,1fr); }
+    .cards-grid.g3 { grid-template-columns: repeat(3,1fr); }
+    .card.center { text-align:center; display:flex; flex-direction:column; align-items:center; gap:.5rem; }
+
+    /* ── Slide counter ── */
+    .counter {
+      position:absolute; bottom:1rem; right:1.5rem;
+      font-size:.8rem; color:var(--muted); font-weight:600;
+    }
+
+    /* ── Navigation ── */
+    #nav {
+      display:flex; justify-content:center; align-items:center;
+      gap:1rem; padding:.75rem 1.5rem;
+      background:var(--surface); border-top:1px solid var(--border);
+      flex-shrink:0;
+    }
+    .nav-btn {
+      background:var(--card); color:var(--accent);
+      border:1px solid var(--accent); border-radius:8px;
+      padding:.45rem 1.25rem; font-size:.9rem; font-weight:700;
+      cursor:pointer; transition:background .2s;
+      font-family:inherit;
+    }
+    .nav-btn:hover    { background:rgba(245,158,11,.15); }
+    .nav-btn:disabled { opacity:.35; cursor:default; }
+    #slide-info { font-size:.9rem; color:var(--subtle); font-weight:600; min-width:60px; text-align:center; }
+
+    /* ── Badges ── */
+    .badge {
+      display:inline-flex; align-items:center; gap:.35rem;
+      background:rgba(245,158,11,.12); border:1px solid rgba(245,158,11,.3);
+      border-radius:8px; padding:.3rem .75rem; font-size:.8rem; font-weight:700;
+      color:var(--accent);
+    }
+    .badge.green  { background:rgba(52,211,153,.12);  border-color:rgba(52,211,153,.3);  color:var(--accent2); }
+    .badge.orange { background:rgba(251,146,60,.12);  border-color:rgba(251,146,60,.3);  color:var(--accent3); }
+    .badge.purple { background:rgba(167,139,250,.12); border-color:rgba(167,139,250,.3); color:var(--purple);  }
+    .badges-row   { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem; }
+
+    /* ── Big stat ── */
+    .big-stat { text-align:center; }
+    .big-stat .num { font-size:clamp(3rem,7vw,5.5rem); font-weight:900; letter-spacing:-.05em; line-height:1; }
+    .big-stat .lbl { font-size:.9rem; font-weight:600; color:var(--muted); margin-top:.25rem; }
+
+    /* ── Timeline ── */
+    .timeline { display:flex; flex-direction:column; gap:.75rem; max-width:700px; width:100%; }
+    .tl-item  { display:flex; gap:1rem; align-items:flex-start; }
+    .tl-dot   { width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; margin-top:.15rem; }
+
+    /* ── Split layout ── */
+    .split        { display:flex; gap:3rem; align-items:center; width:100%; max-width:960px; }
+    .split .left  { flex:1; }
+    .split .right { flex-shrink:0; }
+
+    /* ── Gradient texts ── */
+    .grad  { background: linear-gradient(135deg, #f59e0b, #fb923c); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .grad2 { background: linear-gradient(135deg, #34d399, #059669); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .grad3 { background: linear-gradient(135deg, #a78bfa, #7c3aed); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+
+    /* ── Browser mockup ── */
+    .browser {
+      width: 300px; flex-shrink:0;
+      background: #0f172a;
+      border: 2px solid #334155;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,.6), 0 0 0 1px #475569;
+    }
+    .browser-bar {
+      height: 32px;
+      background: #1e293b;
+      display: flex; align-items: center;
+      padding: 0 10px; gap: 6px;
+      border-bottom: 1px solid #334155;
+    }
+    .b-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+    .b-dot.r { background:#ef4444; }
+    .b-dot.y { background:#f59e0b; }
+    .b-dot.g { background:#22c55e; }
+    .b-url {
+      flex:1; background:#0f172a; border-radius:4px;
+      padding:3px 8px; font-size:8px; color:#94a3b8; font-weight:500;
+      text-overflow:ellipsis; overflow:hidden; white-space:nowrap;
+    }
+    .browser-screen { background:#f9fafb; min-height:380px; }
+
+    /* Букваринск UI inside browser */
+    .buk-top {
+      background: linear-gradient(135deg, #f59e0b, #f97316);
+      padding: 10px 12px 8px;
+    }
+    .buk-top-title { font-size:13px; font-weight:900; color:#fff; }
+    .buk-top-sub   { font-size:8px; color:rgba(255,255,255,.85); margin-top:1px; }
+    .buk-body { padding:6px; }
+
+    /* Alphabet grid inside browser */
+    .abc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3px;
+    }
+    .abc-cell {
+      border-radius: 6px;
+      padding: 6px 3px;
+      text-align: center;
+      color: #fff;
+    }
+    .abc-cell .abc-letter { font-size: 15px; font-weight:900; line-height:1; }
+    .abc-cell .abc-name   { font-size: 5.5px; font-weight:700; margin-top:2px; opacity:.9; line-height:1.2; }
+
+    /* ── Profession cards (gallery) ── */
+    .prof-showcase {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:.75rem;
+      max-width:860px; width:100%;
+    }
+    .prof-card {
+      border-radius:14px;
+      padding:1.1rem 1rem;
+      text-align:center;
+      color:#fff;
+      position:relative;
+      overflow:hidden;
+    }
+    .prof-card .pc-letter {
+      font-size:3.5rem; font-weight:900; line-height:1;
+      opacity:.2; position:absolute; top:-6px; right:6px;
+    }
+    .prof-card .pc-emoji { font-size:2.2rem; margin-bottom:.35rem; position:relative; }
+    .prof-card .pc-name  { font-size:1rem; font-weight:800; margin-bottom:.3rem; position:relative; }
+    .prof-card .pc-desc  { font-size:.73rem; opacity:.88; line-height:1.4; position:relative; font-style:italic; }
+
+    /* ── Responsive ── */
+    @media (max-width:700px) {
+      .slide { padding:1.5rem 1.2rem; }
+      h1.display { font-size:2rem; }
+      .cards-grid.g3 { grid-template-columns:1fr 1fr; }
+      .split { flex-direction:column; }
+      .split .right { display:none; }
+      .prof-showcase { grid-template-columns:repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<div id="slides">
+
+  <!-- ═══════════════════════════════════════════════════════════ SLIDE 1 — TITLE -->
+  <section class="slide active" style="background:radial-gradient(ellipse at 30% 0%, rgba(245,158,11,.18) 0%, transparent 60%), var(--bg);">
+    <div style="text-align:center; max-width:800px;">
+      <img src="img/logo_naash2.jpg" alt="НААШ 186" style="height:72px; object-fit:contain; margin-bottom:1rem; border-radius:10px;">
+      <h1 class="display grad" style="margin-bottom:1rem;">Букваринск</h1>
+      <p class="lead" style="margin-bottom:2rem; font-size:1.3rem;">
+        Интерактивная азбука профессий<br>русского языка
+      </p>
+      <div class="badges-row" style="justify-content:center; margin-bottom:2rem;">
+        <span class="badge">🔤 28 букв А–Я</span>
+        <span class="badge green">🏘️ Город мастеров</span>
+        <span class="badge orange">📸 Живые фотографии</span>
+        <span class="badge purple">🆓 Бесплатно</span>
+      </div>
+      <p style="color:var(--muted); font-size:.95rem; font-weight:600;">
+        Проект Виктора и Николая Игнатьевых&nbsp;·&nbsp;НААШ 186
+      </p>
+      <p style="color:var(--muted); font-size:.95rem; font-weight:600; margin-top:.4rem;">
+        2026
+      </p>
+      <div style="margin-top:1.5rem; display:inline-flex; flex-direction:column; align-items:center; gap:.4rem;">
+        <img src="img/QR_Bukvarinsk_app.svg" alt="QR-код Букваринск" style="width:96px; height:96px; border-radius:10px; padding:6px; background:#fff;">
+      </div>
+    </div>
+    <div class="counter">1 / 11</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ SLIDE 2 — ПРОБЛЕМА -->
+  <section class="slide" style="background:var(--surface);">
+    <h2 class="title" style="text-align:left; width:100%; max-width:860px; margin-bottom:1.5rem;">
+      📖 В чём <span class="accent">проблема?</span>
+    </h2>
+    <div class="cards-col">
+      <div class="card card-row">
+        <div class="card-icon">😴</div>
+        <div>
+          <h3 class="card-h">Скучные традиционные буквари</h3>
+          <p style="color:var(--subtle); font-size:.9rem;">Одна картинка на букву, минимум информации — «А — арбуз, Б — барабан». Дети не запоминают и не узнают ничего нового</p>
+        </div>
+      </div>
+      <div class="card card-row">
+        <div class="card-icon">🤔</div>
+        <div>
+          <h3 class="card-h">Редкие профессии неизвестны детям</h3>
+          <p style="color:var(--subtle); font-size:.9rem;">Бочар, Валяльщик, Лудильщик, Цимбалист — такие слова и профессии дети никогда не слышали. Богатый мир труда остаётся закрытым</p>
+        </div>
+      </div>
+      <div class="card card-row">
+        <div class="card-icon">🎯</div>
+        <div>
+          <h3 class="card-h">Нужна живая, запоминающаяся азбука</h3>
+          <p style="color:var(--subtle); font-size:.9rem;">С реальными фотографиями, яркими персонажами и ритмичными девизами — чтобы каждая буква и профессия надолго оставались в памяти</p>
+        </div>
+      </div>
+    </div>
+    <div class="counter">2 / 11</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ SLIDE 3 — РЕШЕНИЕ -->
+  <section class="slide" style="background:radial-gradient(ellipse at 70% 50%, rgba(52,211,153,.1) 0%, transparent 60%), var(--surface);">
+    <div style="text-align:center; max-width:860px; width:100%;">
+      <div style="font-size:3.5rem; margin-bottom:.75rem;">🏘️</div>
+      <h2 class="title grad2" style="margin-bottom:1rem;">Учёба = Путешествие!</h2>
+      <p class="lead" style="margin-bottom:2rem;">
+        Букваринск превращает знакомство с буквами<br>в путешествие по удивительному городу мастеров
+      </p>
+      <div class="cards-grid g2">
+        <div class="card center" style="border-color:rgba(245,158,11,.3);">
+          <div style="font-size:2.2rem;">🔤</div>
+          <h3 class="card-h">Каждая буква — профессия</h3>
+          <p style="font-size:.82rem; color:var(--subtle);">28 букв А–Я — 28 жителей Букваринска со своей специальностью</p>
+        </div>
+        <div class="card center" style="border-color:rgba(52,211,153,.3);">
+          <div style="font-size:2.2rem;">📸</div>
+          <h3 class="card-h">Реальный фотопортрет</h3>
+          <p style="font-size:.82rem; color:var(--subtle);">Каждый житель представлен живой фотографией — не рисунком</p>
+        </div>
+        <div class="card center" style="border-color:rgba(251,146,60,.3);">
+          <div style="font-size:2.2rem;">📝</div>
+          <h3 class="card-h">Рифмованный девиз</h3>
+          <p style="font-size:.82rem; color:var(--subtle);">Ритмичная фраза помогает запомнить суть профессии надолго</p>
+        </div>
+        <div class="card center" style="border-color:rgba(167,139,250,.3);">
+          <div style="font-size:2.2rem;">🗺️</div>
+          <h3 class="card-h">Карта воображаемого города</h3>
+          <p style="font-size:.82rem; color:var(--subtle);">Букваринск — настоящий город с главной площадью и атмосферой</p>
+        </div>
+      </div>
+    </div>
+    <div class="counter">3 / 11</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ SLIDE 4 — 28 ЖИТЕЛЕЙ -->
+  <section class="slide" style="background:var(--surface);">
+    <div class="split" style="max-width:960px; width:100%;">
+      <div class="left">
+        <div class="label">Алфавит профессий</div>
+        <h2 class="title" style="margin-bottom:1rem;">28 букв — <span class="accent">28 мастеров</span></h2>
+        <div class="cards-col" style="gap:.55rem; margin-bottom:1.25rem;">
+          <div class="card card-row" style="padding:.6rem 1rem; border-color:rgba(245,158,11,.4);">
+            <div style="font-size:1.8rem; flex-shrink:0; font-weight:900; color:var(--accent);">А</div>
+            <div><h3 class="card-h" style="font-size:.9rem;">Аптекарь</h3><p style="font-size:.78rem; color:var(--subtle);">«Аптекарь знает, как здоровье беречь»</p></div>
+          </div>
+          <div class="card card-row" style="padding:.6rem 1rem; border-color:rgba(52,211,153,.4);">
+            <div style="font-size:1.8rem; flex-shrink:0; font-weight:900; color:var(--accent2);">Г</div>
+            <div><h3 class="card-h" style="font-size:.9rem; color:var(--accent2);">Гончар</h3><p style="font-size:.78rem; color:var(--subtle);">«Гончар из глины чудеса создает»</p></div>
+          </div>
+          <div class="card card-row" style="padding:.6rem 1rem; border-color:rgba(251,146,60,.4);">
+            <div style="font-size:1.8rem; flex-shrink:0; font-weight:900; color:var(--accent3);">М</div>
+            <div><h3 class="card-h" style="font-size:.9rem; color:var(--accent3);">Маляр</h3><p style="font-size:.78rem; color:var(--subtle);">«Маляр стены в краски окутывает»</p></div>
+          </div>
+          <div class="card card-row" style="padding:.6rem 1rem; border-color:rgba(167,139,250,.4);">
+            <div style="font-size:1.8rem; flex-shrink:0; font-weight:900; color:var(--purple);">Э</div>
+            <div><h3 class="card-h" style="font-size:.9rem; color:var(--purple);">Электрик</h3><p style="font-size:.78rem; color:var(--subtle);">«Электрик свет в домах зажигает»</p></div>
+          </div>
+        </div>
+        <div style="display:flex; gap:1.5rem;">
+          <div class="big-stat"><div class="num grad">28</div><div class="lbl">профессий</div></div>
+          <div class="big-stat"><div class="num accent2" style="font-size:3rem;">А–Я</div><div class="lbl">все буквы</div></div>
+          <div class="big-stat"><div class="num accent3" style="font-size:3rem;">1</div><div class="lbl">город</div></div>
+        </div>
+      </div>
+      <!-- Browser mockup -->
+      <div class="right">
+        <div class="browser">
+          <div class="browser-bar">
+            <span class="b-dot r"></span><span class="b-dot y"></span><span class="b-dot g"></span>
+            <div class="b-url">artignat2000.github.io/bukvarinsk</div>
+          </div>
+          <div class="browser-screen">
+            <div class="buk-top">
+              <div class="buk-top-title">📚 Азбука</div>
+              <div class="buk-top-sub">Добро пожаловать в Букваринск!</div>
+            </div>
+            <div class="buk-body">
+              <div class="abc-grid">
+                <div class="abc-cell" style="background:linear-gradient(135deg,#f59e0b,#d97706);">
+                  <div class="abc-letter">А</div><div class="abc-name">Аптекарь</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);">
+                  <div class="abc-letter">Б</div><div class="abc-name">Бочар</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#34d399,#059669);">
+                  <div class="abc-letter">В</div><div class="abc-name">Валяльщик</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#ef4444,#b91c1c);">
+                  <div class="abc-letter">Г</div><div class="abc-name">Гончар</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9);">
+                  <div class="abc-letter">Д</div><div class="abc-name">Дробильщик</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#ec4899,#be185d);">
+                  <div class="abc-letter">Е</div><div class="abc-name">Ефрейтор</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#14b8a6,#0f766e);">
+                  <div class="abc-letter">Ж</div><div class="abc-name">Жестянщик</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#f97316,#c2410c);">
+                  <div class="abc-letter">З</div><div class="abc-name">Закройщик</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#6366f1,#4338ca);">
+                  <div class="abc-letter">И</div><div class="abc-name">Историк</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#0ea5e9,#0369a1);">
+                  <div class="abc-letter">К</div><div class="abc-name">Красильщик</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#22c55e,#15803d);">
+                  <div class="abc-letter">Л</div><div class="abc-name">Лудильщик</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#f59e0b,#b45309);">
+                  <div class="abc-letter">М</div><div class="abc-name">Маляр</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#3b82f6,#1e40af);">
+                  <div class="abc-letter">Н</div><div class="abc-name">Носильщик</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#10b981,#065f46);">
+                  <div class="abc-letter">О</div><div class="abc-name">Овчар</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#ec4899,#9d174d);">
+                  <div class="abc-letter">П</div><div class="abc-name">Писатель</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#8b5cf6,#5b21b6);">
+                  <div class="abc-letter">Р</div><div class="abc-name">Радист</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#ef4444,#991b1b);">
+                  <div class="abc-letter">С</div><div class="abc-name">Сапожник</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#14b8a6,#115e59);">
+                  <div class="abc-letter">Т</div><div class="abc-name">Турист</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#f97316,#9a3412);">
+                  <div class="abc-letter">У</div><div class="abc-name">Укротитель</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#a78bfa,#5b21b6);">
+                  <div class="abc-letter">Ф</div><div class="abc-name">Фотолюбитель</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#0ea5e9,#075985);">
+                  <div class="abc-letter">Х</div><div class="abc-name">Художник</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#fbbf24,#d97706);">
+                  <div class="abc-letter">Ц</div><div class="abc-name">Цимбалист</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#34d399,#064e3b);">
+                  <div class="abc-letter">Ч</div><div class="abc-name">Часовщик</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#f43f5e,#9f1239);">
+                  <div class="abc-letter">Ш</div><div class="abc-name">Шофер</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#6366f1,#312e81);">
+                  <div class="abc-letter">Щ</div><div class="abc-name">Щенок Букетик</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#22c55e,#14532d);">
+                  <div class="abc-letter">Э</div><div class="abc-name">Электрик</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#a78bfa,#4c1d95);">
+                  <div class="abc-letter">Ю</div><div class="abc-name">Юрист</div>
+                </div>
+                <div class="abc-cell" style="background:linear-gradient(135deg,#f97316,#7c2d12);">
+                  <div class="abc-letter">Я</div><div class="abc-name">Это я!</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="counter">4 / 11</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ SLIDE 5 — ГАЛЕРЕЯ -->
+  <section class="slide" style="background:radial-gradient(ellipse at 20% 80%, rgba(245,158,11,.1) 0%, transparent 60%), var(--surface);">
+    <h2 class="title" style="text-align:left; width:100%; max-width:860px; margin-bottom:1.5rem;">
+      🖼️ Мастера на <span class="accent">все буквы</span>
+    </h2>
+    <div class="prof-showcase">
+      <div class="prof-card" style="background:linear-gradient(135deg,#f59e0b,#d97706);">
+        <div class="pc-letter">А</div>
+        <div class="pc-emoji">🧪</div>
+        <div class="pc-name">Аптекарь</div>
+        <div class="pc-desc">«Аптекарь знает, как здоровье беречь»</div>
+      </div>
+      <div class="prof-card" style="background:linear-gradient(135deg,#ef4444,#b91c1c);">
+        <div class="pc-letter">Г</div>
+        <div class="pc-emoji">⚱️</div>
+        <div class="pc-name">Гончар</div>
+        <div class="pc-desc">«Гончар из глины чудеса создает»</div>
+      </div>
+      <div class="prof-card" style="background:linear-gradient(135deg,#f97316,#c2410c);">
+        <div class="pc-letter">М</div>
+        <div class="pc-emoji">🖌️</div>
+        <div class="pc-name">Маляр</div>
+        <div class="pc-desc">«Маляр стены в краски окутывает»</div>
+      </div>
+      <div class="prof-card" style="background:linear-gradient(135deg,#ef4444,#991b1b);">
+        <div class="pc-letter">С</div>
+        <div class="pc-emoji">👞</div>
+        <div class="pc-name">Сапожник</div>
+        <div class="pc-desc">«Сапожник обувь в порядок приводит»</div>
+      </div>
+      <div class="prof-card" style="background:linear-gradient(135deg,#22c55e,#15803d);">
+        <div class="pc-letter">Э</div>
+        <div class="pc-emoji">⚡</div>
+        <div class="pc-name">Электрик</div>
+        <div class="pc-desc">«Электрик свет в домах зажигает»</div>
+      </div>
+      <div class="prof-card" style="background:linear-gradient(135deg,#a78bfa,#5b21b6);">
+        <div class="pc-letter">Ю</div>
+        <div class="pc-emoji">⚖️</div>
+        <div class="pc-name">Юрист</div>
+        <div class="pc-desc">«Юрист законы и права защищает»</div>
+      </div>
+    </div>
+    <div class="counter">5 / 11</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ SLIDE 6 — РИФМОВАННЫЕ ДЕВИЗЫ -->
+  <section class="slide" style="background:radial-gradient(ellipse at 50% 100%, rgba(167,139,250,.15) 0%, transparent 60%), var(--surface);">
+    <div style="text-align:center; max-width:860px; width:100%;">
+      <div style="font-size:3rem; margin-bottom:.5rem;">🖋️</div>
+      <h2 class="title grad" style="margin-bottom:.75rem;">Рифмованные девизы</h2>
+      <p class="lead" style="margin-bottom:1.5rem; font-size:1rem;">
+        Каждый житель Букваринска получил уникальный девиз —<br>ритмичную фразу, которая помогает запомнить профессию
+      </p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot" style="background:rgba(245,158,11,.2); color:var(--accent);">🧪</div>
+          <div class="card" style="flex:1; padding:.75rem 1rem; border-color:rgba(245,158,11,.35);">
+            <h3 class="card-h" style="font-size:.9rem;">Аптекарь</h3>
+            <p style="font-size:.82rem; color:var(--subtle); font-style:italic;">«Аптекарь знает, как здоровье беречь»</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:rgba(52,211,153,.2); color:var(--accent2);">⚱️</div>
+          <div class="card" style="flex:1; padding:.75rem 1rem; border-color:rgba(52,211,153,.35);">
+            <h3 class="card-h" style="font-size:.9rem; color:var(--accent2);">Гончар</h3>
+            <p style="font-size:.82rem; color:var(--subtle); font-style:italic;">«Гончар из глины чудеса создает»</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:rgba(251,146,60,.2); color:var(--accent3);">🖌️</div>
+          <div class="card" style="flex:1; padding:.75rem 1rem; border-color:rgba(251,146,60,.35);">
+            <h3 class="card-h" style="font-size:.9rem; color:var(--accent3);">Маляр</h3>
+            <p style="font-size:.82rem; color:var(--subtle); font-style:italic;">«Маляр стены в краски окутывает»</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:rgba(167,139,250,.2); color:var(--purple);">👞</div>
+          <div class="card" style="flex:1; padding:.75rem 1rem; border-color:rgba(167,139,250,.35);">
+            <h3 class="card-h" style="font-size:.9rem; color:var(--purple);">Сапожник</h3>
+            <p style="font-size:.82rem; color:var(--subtle); font-style:italic;">«Сапожник обувь в порядок приводит»</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:rgba(52,211,153,.2); color:var(--accent2);">🕰️</div>
+          <div class="card" style="flex:1; padding:.75rem 1rem; border-color:rgba(52,211,153,.35);">
+            <h3 class="card-h" style="font-size:.9rem; color:var(--accent2);">Часовщик</h3>
+            <p style="font-size:.82rem; color:var(--subtle); font-style:italic;">«Часовщик время в механизмах хранит»</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="counter">6 / 11</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ SLIDE 7 — РЕДКИЕ ПРОФЕССИИ -->
+  <section class="slide" style="background:radial-gradient(ellipse at 80% 20%, rgba(245,158,11,.1) 0%, transparent 50%), var(--surface);">
+    <h2 class="title" style="text-align:left; width:100%; max-width:860px; margin-bottom:.75rem;">
+      🔍 Редкие профессии <span class="accent">Букваринска</span>
+    </h2>
+    <p style="color:var(--subtle); font-size:.95rem; max-width:860px; width:100%; margin-bottom:1.25rem; line-height:1.6;">
+      Букваринск знакомит с профессиями, которые вышли из употребления или стали редкостью — живая история человеческого труда!
+    </p>
+    <div class="cards-grid g3" style="max-width:860px;">
+      <div class="card card-row" style="border-color:rgba(245,158,11,.35);">
+        <div class="card-icon">🪣</div>
+        <div>
+          <h3 class="card-h">Бочар</h3>
+          <p style="font-size:.82rem; color:var(--subtle);">Мастер деревянных бочек — «Бочар дерево в форму сгибает»</p>
+        </div>
+      </div>
+      <div class="card card-row" style="border-color:rgba(52,211,153,.35);">
+        <div class="card-icon">🧶</div>
+        <div>
+          <h3 class="card-h">Валяльщик</h3>
+          <p style="font-size:.82rem; color:var(--subtle);">Создаёт изделия из шерсти — «Валяльщик шерсть в изделие превращает»</p>
+        </div>
+      </div>
+      <div class="card card-row" style="border-color:rgba(251,146,60,.35);">
+        <div class="card-icon">🛠️</div>
+        <div>
+          <h3 class="card-h">Жестянщик</h3>
+          <p style="font-size:.82rem; color:var(--subtle);">Работает с листовой жестью — «Жестянщик латает крыши и баки»</p>
+        </div>
+      </div>
+      <div class="card card-row" style="border-color:rgba(167,139,250,.35);">
+        <div class="card-icon">🔩</div>
+        <div>
+          <h3 class="card-h">Лудильщик</h3>
+          <p style="font-size:.82rem; color:var(--subtle);">Покрывает металл оловом — «Лудильщик металл в защиту облекает»</p>
+        </div>
+      </div>
+      <div class="card card-row" style="border-color:rgba(245,158,11,.35);">
+        <div class="card-icon">⛏️</div>
+        <div>
+          <h3 class="card-h">Дробильщик</h3>
+          <p style="font-size:.82rem; color:var(--subtle);">Измельчает горный камень — «Дробильщик камни в пыль превращает»</p>
+        </div>
+      </div>
+      <div class="card card-row" style="border-color:rgba(52,211,153,.35);">
+        <div class="card-icon">🎵</div>
+        <div>
+          <h3 class="card-h">Цимбалист</h3>
+          <p style="font-size:.82rem; color:var(--subtle);">Играет на цимбалах — «Цимбалист музыку на инструменте рождает»</p>
+        </div>
+      </div>
+    </div>
+    <div class="counter">7 / 11</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ SLIDE 8 — ОСОБЕННОСТИ -->
+  <section class="slide" style="background:radial-gradient(ellipse at 30% 30%, rgba(52,211,153,.1) 0%, transparent 50%), var(--surface);">
+    <h2 class="title" style="text-align:left; width:100%; max-width:860px; margin-bottom:1.5rem;">
+      ✨ Уникальные <span class="grad">особенности</span>
+    </h2>
+    <div class="cards-grid g3" style="max-width:860px;">
+      <div class="card" style="border-color:rgba(245,158,11,.35);">
+        <div style="font-size:2rem; margin-bottom:.5rem;">🔤</div>
+        <h3 class="card-h">Все 28 букв А–Я</h3>
+        <p style="font-size:.85rem; color:var(--subtle);">От Аптекаря до Юриста — каждая буква алфавита получила свою уникальную профессию</p>
+      </div>
+      <div class="card" style="border-color:rgba(52,211,153,.35);">
+        <div style="font-size:2rem; margin-bottom:.5rem;">📸</div>
+        <h3 class="card-h">Живые фотографии</h3>
+        <p style="font-size:.85rem; color:var(--subtle);">У каждого жителя Букваринска настоящий фотопортрет — не рисунок и не иконка</p>
+      </div>
+      <div class="card" style="border-color:rgba(251,146,60,.35);">
+        <div style="font-size:2rem; margin-bottom:.5rem;">📝</div>
+        <h3 class="card-h">Девизы-запоминалки</h3>
+        <p style="font-size:.85rem; color:var(--subtle);">Ритмичные фразы-рифмы делают каждую профессию незабываемой для ребёнка</p>
+      </div>
+      <div class="card" style="border-color:rgba(167,139,250,.35);">
+        <div style="font-size:2rem; margin-bottom:.5rem;">🏘️</div>
+        <h3 class="card-h">Город с картой</h3>
+        <p style="font-size:.85rem; color:var(--subtle);">Букваринск — воображаемый город с красивой картой и тёплой атмосферой</p>
+      </div>
+      <div class="card" style="border-color:rgba(245,158,11,.35);">
+        <div style="font-size:2rem; margin-bottom:.5rem;">🆓</div>
+        <h3 class="card-h">Полностью бесплатно</h3>
+        <p style="font-size:.85rem; color:var(--subtle);">GitHub Pages, открытый исходный код. Никакой рекламы и регистрации</p>
+      </div>
+      <div class="card" style="border-color:rgba(52,211,153,.35);">
+        <div style="font-size:2rem; margin-bottom:.5rem;">📱</div>
+        <h3 class="card-h">Любое устройство</h3>
+        <p style="font-size:.85rem; color:var(--subtle);">Работает в браузере на телефоне, планшете и компьютере — без установки</p>
+      </div>
+    </div>
+    <div class="counter">8 / 11</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ SLIDE 9 — ТЕХНОЛОГИИ -->
+  <section class="slide" style="background:var(--surface);">
+    <h2 class="title" style="text-align:left; width:100%; max-width:860px; margin-bottom:1.5rem;">
+      ⚙️ Технологии <span class="purple">разработки</span>
+    </h2>
+    <div class="cards-col" style="max-width:860px; gap:.75rem;">
+      <div class="card card-row">
+        <div class="card-icon">🌐</div>
+        <div style="flex:1;">
+          <h3 class="card-h">HTML5</h3>
+          <p style="font-size:.85rem; color:var(--subtle);">Семантическая структура страниц, доступность и корректное отображение во всех браузерах</p>
+        </div>
+        <div class="badge" style="font-size:.75rem;">Структура</div>
+      </div>
+      <div class="card card-row">
+        <div class="card-icon">🎨</div>
+        <div style="flex:1;">
+          <h3 class="card-h">CSS3</h3>
+          <p style="font-size:.85rem; color:var(--subtle);">Современные стили, анимации и адаптивный дизайн для всех размеров экранов</p>
+        </div>
+        <div class="badge green" style="font-size:.75rem;">Стили</div>
+      </div>
+      <div class="card card-row">
+        <div class="card-icon">⚡</div>
+        <div style="flex:1;">
+          <h3 class="card-h">JavaScript</h3>
+          <p style="font-size:.85rem; color:var(--subtle);">Интерактивность, навигация по азбуке и динамические элементы интерфейса</p>
+        </div>
+        <div class="badge orange" style="font-size:.75rem;">Логика</div>
+      </div>
+      <div class="card card-row">
+        <div class="card-icon">🚀</div>
+        <div style="flex:1;">
+          <h3 class="card-h">GitHub Pages</h3>
+          <p style="font-size:.85rem; color:var(--subtle);">Бесплатный хостинг — проект мгновенно доступен всему миру по прямой ссылке</p>
+        </div>
+        <div class="badge purple" style="font-size:.75rem;">Хостинг</div>
+      </div>
+    </div>
+    <div class="counter">9 / 11</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ SLIDE 10 — БЛАГОДАРНОСТИ -->
+  <section class="slide" style="background:var(--surface);">
+    <h2 class="title" style="text-align:left; width:100%; max-width:860px; margin-bottom:1.5rem;">
+      💙 <span class="accent">Благодарности</span>
+    </h2>
+    <div class="cards-col" style="max-width:860px; gap:.85rem;">
+      <div class="card card-row" style="border-color:rgba(251,146,60,.35);">
+        <div class="card-icon">👨‍👩‍👦</div>
+        <div>
+          <h3 class="card-h" style="color:var(--accent3);">Моя семья</h3>
+          <p style="font-size:.9rem; color:var(--subtle);">Папа, Мама, Витя, Коля — за поддержку, терпение и вдохновение на каждом шагу</p>
+        </div>
+      </div>
+      <div class="card card-row" style="border-color:rgba(52,211,153,.35);">
+        <div class="card-icon" style="font-size:inherit;"><img src="img/logo_naash2.jpg" alt="НААШ 186" style="width:48px; height:48px; object-fit:contain; border-radius:8px; display:block;"></div>
+        <div>
+          <h3 class="card-h">Учителя НААШ 186</h3>
+          <p style="font-size:.9rem; color:var(--subtle);">За вдохновение создать интерактивную азбуку и помощь в подборе профессий для всех букв</p>
+        </div>
+      </div>
+      <div class="card card-row" style="border-color:rgba(167,139,250,.35);">
+        <div class="card-icon">🌍</div>
+        <div>
+          <h3 class="card-h">Open Source сообщество</h3>
+          <p style="font-size:.9rem; color:var(--subtle);">HTML, CSS, JavaScript, GitHub Pages — бесплатные инструменты, без которых проект был бы невозможен</p>
+        </div>
+      </div>
+    </div>
+    <div class="counter">10 / 11</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ SLIDE 11 — СПАСИБО -->
+  <section class="slide" style="background:radial-gradient(ellipse at 50% 50%, rgba(245,158,11,.15) 0%, rgba(251,146,60,.1) 50%, transparent 70%), var(--bg);">
+    <div style="text-align:center; max-width:800px; width:100%;">
+      <div style="font-size:4rem; margin-bottom:1rem;">🎉</div>
+      <h2 class="title grad" style="margin-bottom:.75rem; font-size:clamp(2rem,5vw,3rem);">Спасибо за внимание!</h2>
+      <p class="lead" style="margin-bottom:2rem;">
+        Букваринск — учимся писать буквы,<br>открывая удивительный мир профессий!
+      </p>
+      <div class="cards-grid g3" style="max-width:720px; margin:0 auto 2rem;">
+        <div class="card center" style="border-color:rgba(245,158,11,.3);">
+          <div style="font-size:1.8rem;">🌐</div>
+          <h3 class="card-h" style="font-size:.85rem;">Сайт</h3>
+          <p style="font-size:.75rem; color:var(--subtle);">artignat2000.github.io/bukvarinsk</p>
+        </div>
+        <div class="card center" style="border-color:rgba(52,211,153,.3);">
+          <div style="font-size:1.8rem;">📚</div>
+          <h3 class="card-h" style="font-size:.85rem; color:var(--accent2);">Азбука</h3>
+          <p style="font-size:.75rem; color:var(--subtle);">28 профессий на все буквы А–Я</p>
+        </div>
+        <div class="card center" style="border-color:rgba(167,139,250,.3);">
+          <div style="font-size:1.8rem;">💻</div>
+          <h3 class="card-h" style="font-size:.85rem; color:var(--purple);">GitHub</h3>
+          <p style="font-size:.75rem; color:var(--subtle);">Открытый исходный код</p>
+        </div>
+      </div>
+      <!-- QR code -->
+      <div style="display:inline-flex; flex-direction:column; align-items:center; gap:.5rem;">
+        <div style="padding:10px; border:3px solid var(--accent); border-radius:16px; box-shadow:0 0 0 6px rgba(245,158,11,.2); background:#fff;">
+          <img src="img/QR_Bukvarinsk_app.svg" alt="QR-код Букваринск" style="width:110px; height:110px; display:block; border-radius:6px;">
+        </div>
+        <p style="font-size:.8rem; color:var(--muted); font-weight:600;">artignat2000.github.io/bukvarinsk</p>
+      </div>
+      <div style="margin-top:1.5rem;">
+        <p style="color:var(--muted); font-size:.85rem; font-weight:600;">Виктор и Николай Игнатьевы&nbsp;·&nbsp;НААШ 186&nbsp;·&nbsp;2026</p>
+      </div>
+    </div>
+    <div class="counter">11 / 11</div>
+  </section>
+
+</div><!-- /slides -->
+
+<!-- Navigation -->
+<div id="nav">
+  <button class="nav-btn" id="prevBtn" onclick="prevSlide()" disabled>← Назад</button>
+  <span id="slide-info">1 / 11</span>
+  <button class="nav-btn" id="nextBtn" onclick="nextSlide()">Вперёд →</button>
+  <button class="nav-btn" id="themeBtn" onclick="toggleTheme()" title="Переключить тему" style="min-width:2.5rem; font-size:1.1rem;">☀️</button>
+</div>
+
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const total  = slides.length;
+  let cur = 0;
+
+  function go(n) {
+    slides[cur].classList.remove('active');
+    slides[cur].classList.add('prev');
+    const old = cur;
+    cur = n;
+    setTimeout(() => slides[old].classList.remove('prev'), 400);
+    slides[cur].classList.add('active');
+    document.getElementById('slide-info').textContent = (cur+1) + ' / ' + total;
+    document.getElementById('prevBtn').disabled = cur === 0;
+    document.getElementById('nextBtn').disabled = cur === total-1;
+    localStorage.setItem('bukvarinsk-prez', cur);
+  }
+
+  function nextSlide() { if (cur < total-1) go(cur+1); }
+  function prevSlide() { if (cur > 0)       go(cur-1); }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') nextSlide();
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')                    prevSlide();
+  });
+
+  // Touch / swipe
+  let tx = 0;
+  document.getElementById('slides').addEventListener('touchstart', e => tx = e.touches[0].clientX, {passive:true});
+  document.getElementById('slides').addEventListener('touchend', e => {
+    const dx = tx - e.changedTouches[0].clientX;
+    if (Math.abs(dx) > 50) dx > 0 ? nextSlide() : prevSlide();
+  }, {passive:true});
+
+  // Restore last position
+  const saved = parseInt(localStorage.getItem('bukvarinsk-prez') || '0');
+  if (saved > 0 && saved < total) go(saved);
+
+  // ── Theme switcher ──
+  function toggleTheme() {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    const next = isLight ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', next);
+    document.getElementById('themeBtn').textContent = next === 'light' ? '🌙' : '☀️';
+    localStorage.setItem('bukvarinsk-theme', next);
+  }
+
+  // Restore saved theme
+  const savedTheme = localStorage.getItem('bukvarinsk-theme') || 'dark';
+  if (savedTheme === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.getElementById('themeBtn').textContent = '🌙';
+  }
+</script>
+</body>
+</html>
