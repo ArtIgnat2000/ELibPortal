@@ -1,4 +1,11 @@
 // Детская библиотека - iOS 26 интерфейс
+
+// Safe localStorage wrapper — prevents SecurityError in iOS private browsing or restricted iframe contexts
+const safeStorage = {
+    getItem: function(key) { try { return localStorage.getItem(key); } catch(e) { return null; } },
+    setItem: function(key, val) { try { localStorage.setItem(key, val); } catch(e) {} }
+};
+
 document.addEventListener('DOMContentLoaded', function() {
     // Плавная прокрутка для навигационных ссылок
     const navLinks = document.querySelectorAll('nav a[href^="#"]');
@@ -68,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Счетчик прочитанных книг (localStorage)
     function initReadingTracker() {
         const readButtons = document.querySelectorAll('.read-btn');
-        const readBooks = JSON.parse(localStorage.getItem('readBooks') || '[]');
+        const readBooks = JSON.parse(safeStorage.getItem('readBooks') || '[]');
         
         readButtons.forEach(button => {
             const bookTitle = button.getAttribute('data-book');
@@ -97,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     markAsRead(this, true);
                 }
                 
-                localStorage.setItem('readBooks', JSON.stringify(readBooks));
+                safeStorage.setItem('readBooks', JSON.stringify(readBooks));
                 updateReadingStats();
             });
         });
@@ -132,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function updateReadingStats() {
-        const readBooks = JSON.parse(localStorage.getItem('readBooks') || '[]');
+        const readBooks = JSON.parse(safeStorage.getItem('readBooks') || '[]');
         const totalBooks = document.querySelectorAll('.read-btn').length;
         
         // Создаем элемент статистики, если его нет
@@ -263,7 +270,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        const saved = localStorage.getItem('theme');
+        const saved = safeStorage.getItem('theme');
         const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     const initial = saved || (prefersDark ? 'dark' : 'light');
         applyTheme(initial);
@@ -272,7 +279,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
             const next = current === 'dark' ? 'light' : 'dark';
             applyTheme(next);
-            localStorage.setItem('theme', next);
+            safeStorage.setItem('theme', next);
         });
     }
 
