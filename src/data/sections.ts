@@ -77,6 +77,5 @@ export const SECTIONS: SectionMeta[] = [
     colorBg: '#f0f9ff',
     ageGroups: ['1-4', '5-8', '9-11', 'all'],
     path: '/bot',
-    presentationPath: '/bot/presentation',
   },
 ]
