@@ -1,27 +1,15 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { WORLDS, type WorldInfo } from '../../types';
 import { useProgressStore } from '../../store/progressStore';
 import { useSettingsStore } from '../../store/settingsStore';
 import { ProgressBar } from '../UI';
 import { isMastered } from '../../lib/spacedRepetition';
-import grade1 from '../../data/words/grade1.json';
-import grade2 from '../../data/words/grade2.json';
-import grade3 from '../../data/words/grade3.json';
-import grade4 from '../../data/words/grade4.json';
-import grade5 from '../../data/words/grade5.json';
-import grade6 from '../../data/words/grade6.json';
-import grade7 from '../../data/words/grade7.json';
-import grade8 from '../../data/words/grade8.json';
-import grade9 from '../../data/words/grade9.json';
-import grade10 from '../../data/words/grade10.json';
-import grade11 from '../../data/words/grade11.json';
 
+// Static word counts per grade — no need to load full JSON arrays just for .length
 const GRADE_WORD_COUNT: Record<number, number> = {
-  1: grade1.length, 2: grade2.length, 3: grade3.length,
-  4: grade4.length, 5: grade5.length, 6: grade6.length,
-  7: grade7.length, 8: grade8.length, 9: grade9.length,
-  10: grade10.length, 11: grade11.length,
+  1: 30, 2: 30, 3: 66,  4: 46,  5: 165,
+  6: 80, 7: 102, 8: 97, 9: 83, 10: 45, 11: 35,
 };
 
 interface WorldCardProps {
@@ -153,16 +141,19 @@ export const WorldMap: React.FC<WorldMapProps> = ({ onStartSession }) => {
 
   const isGradeUnlocked = (_grade: number) => true;
 
-  const getWorldStats = (world: WorldInfo) => {
-    const total = world.grades.reduce((sum, g) => sum + (GRADE_WORD_COUNT[g] ?? 0), 0) || world.grades.length * 30;
-    const entries = Object.values(masteryMap).filter(e => {
-      const gradeNum = parseInt(e.wordId.split('_')[0].replace('g', ''));
-      return world.grades.includes(gradeNum);
-    });
-    const practiced = entries.filter(e => e.score > 0).length;
-    const mastered = entries.filter(e => isMastered(e)).length;
-    return { total, practiced, mastered };
-  };
+  const worldStats = useMemo(() =>
+    WORLDS.map(world => {
+      const total = world.grades.reduce((sum, g) => sum + (GRADE_WORD_COUNT[g] ?? 0), 0) || world.grades.length * 30;
+      const entries = Object.values(masteryMap).filter(e => {
+        const gradeNum = parseInt(e.wordId.split('_')[0].replace('g', ''));
+        return world.grades.includes(gradeNum);
+      });
+      const practiced = entries.filter(e => e.score > 0).length;
+      const mastered = entries.filter(e => isMastered(e)).length;
+      return { total, practiced, mastered };
+    }),
+    [masteryMap],
+  );
 
   const handleWorldSelect = (grade: number) => {
     setActiveGrade(grade);
@@ -186,7 +177,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({ onStartSession }) => {
         {WORLDS.map((world, idx) => {
           const isUnlocked = world.grades.some(g => isGradeUnlocked(g));
           const isActive = world.grades.includes(activeGrade);
-          const { total, practiced, mastered } = getWorldStats(world);
+          const { total, practiced, mastered } = worldStats[idx];
 
           return (
             <motion.div

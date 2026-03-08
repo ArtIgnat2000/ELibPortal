@@ -1,28 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useProgressStore } from '../../store/progressStore';
 import { useSettingsStore } from '../../store/settingsStore';
 import { GlassCard, ProgressBar } from '../UI';
 import { isMastered } from '../../lib/spacedRepetition';
 import type { Word } from '../../types';
-import grade1 from '../../data/words/grade1.json';
-import grade2 from '../../data/words/grade2.json';
-import grade3 from '../../data/words/grade3.json';
-import grade4 from '../../data/words/grade4.json';
-import grade5 from '../../data/words/grade5.json';
-import grade6 from '../../data/words/grade6.json';
-import grade7 from '../../data/words/grade7.json';
-import grade8 from '../../data/words/grade8.json';
-import grade9 from '../../data/words/grade9.json';
-import grade10 from '../../data/words/grade10.json';
-import grade11 from '../../data/words/grade11.json';
 
-const GRADE_DATA: Record<number, Word[]> = {
-  1: grade1 as Word[], 2: grade2 as Word[], 3: grade3 as Word[],
-  4: grade4 as Word[], 5: grade5 as Word[], 6: grade6 as Word[],
-  7: grade7 as Word[], 8: grade8 as Word[], 9: grade9 as Word[],
-  10: grade10 as Word[], 11: grade11 as Word[],
-};
+async function loadGradeWords(grade: number): Promise<Word[]> {
+  const mod = await import(`../../data/words/grade${grade}.json`);
+  return mod.default as Word[];
+}
 
 interface QuickStartProps {
   onStartSession: (grade: number) => void;
@@ -32,7 +19,13 @@ export const QuickStartScreen: React.FC<QuickStartProps> = ({ onStartSession }) 
   const { masteryMap, xp, streak } = useProgressStore();
   const { activeGrade, wordsPerSession } = useSettingsStore();
 
-  const words = GRADE_DATA[activeGrade] ?? [];
+  const [words, setWords] = useState<Word[]>([]);
+
+  useEffect(() => {
+    let active = true;
+    loadGradeWords(activeGrade).then(w => { if (active) setWords(w); });
+    return () => { active = false; };
+  }, [activeGrade]);
   const total = words.length;
 
   const entries = words.map(w => masteryMap[w.id]);

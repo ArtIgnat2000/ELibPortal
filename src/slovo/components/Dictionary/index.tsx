@@ -1,33 +1,11 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import type { Word } from '../../types';
 import { GlassCard } from '../UI';
-import grade1  from '../../data/words/grade1.json';
-import grade2  from '../../data/words/grade2.json';
-import grade3  from '../../data/words/grade3.json';
-import grade4  from '../../data/words/grade4.json';
-import grade5  from '../../data/words/grade5.json';
-import grade6  from '../../data/words/grade6.json';
-import grade7  from '../../data/words/grade7.json';
-import grade8  from '../../data/words/grade8.json';
-import grade9  from '../../data/words/grade9.json';
-import grade10 from '../../data/words/grade10.json';
-import grade11 from '../../data/words/grade11.json';
 
-const GRADE_DATA: Record<number, Word[]> = {
-  1:  grade1  as Word[], 2:  grade2  as Word[], 3:  grade3  as Word[],
-  4:  grade4  as Word[], 5:  grade5  as Word[], 6:  grade6  as Word[],
-  7:  grade7  as Word[], 8:  grade8  as Word[], 9:  grade9  as Word[],
-  10: grade10 as Word[], 11: grade11 as Word[],
-};
-
-const ALL_WORDS: Word[] = Object.values(GRADE_DATA).flat();
-
-const ALL_WORDS_UNIQUE: Word[] = [];
-const _seen = new Set<string>();
-for (const w of ALL_WORDS) {
-  const key = w.text.toLowerCase();
-  if (!_seen.has(key)) { _seen.add(key); ALL_WORDS_UNIQUE.push(w); }
+async function loadGradeWords(grade: number): Promise<Word[]> {
+  const mod = await import(`../../data/words/grade${grade}.json`);
+  return mod.default as Word[];
 }
 
 function Highlight({ text, query }: { text: string; query: string }) {
@@ -71,8 +49,42 @@ const TabButton: React.FC<{ label: string; active: boolean; onClick: () => void 
 export const DictionaryScreen: React.FC = () => {
   const [activeGrade, setActiveGrade] = useState<number | 'all'>('all');
   const [search, setSearch] = useState('');
+  const [loadedGrades, setLoadedGrades] = useState<Record<number, Word[]>>({});
+  const [isLoading, setIsLoading] = useState(true);
+  // Use a ref to track which grades are already loaded without triggering the effect
+  const loadedRef = useRef<Set<number>>(new Set());
 
-  const sourceList = activeGrade === 'all' ? ALL_WORDS_UNIQUE : (GRADE_DATA[activeGrade] ?? []);
+  useEffect(() => {
+    const grades = activeGrade === 'all'
+      ? Array.from({ length: 11 }, (_, i) => i + 1)
+      : [activeGrade as number];
+    const missing = grades.filter(g => !loadedRef.current.has(g));
+    if (missing.length === 0) { setIsLoading(false); return; }
+    setIsLoading(true);
+    Promise.all(missing.map(g => loadGradeWords(g).then(words => ({ g, words })))).then(results => {
+      const additions: Record<number, Word[]> = {};
+      for (const { g, words } of results) { additions[g] = words; loadedRef.current.add(g); }
+      setLoadedGrades(prev => ({ ...prev, ...additions }));
+      setIsLoading(false);
+    });
+  }, [activeGrade]);
+
+  const allWordsUnique = useMemo(() => {
+    if (activeGrade !== 'all') return [];
+    const all = Object.values(loadedGrades).flat();
+    const seen = new Set<string>();
+    const unique: Word[] = [];
+    for (const w of all) {
+      const key = w.text.toLowerCase();
+      if (!seen.has(key)) { seen.add(key); unique.push(w); }
+    }
+    return unique;
+  }, [loadedGrades, activeGrade]);
+
+  const sourceList = useMemo(
+    () => (activeGrade === 'all' ? allWordsUnique : (loadedGrades[activeGrade as number] ?? [])),
+    [activeGrade, allWordsUnique, loadedGrades],
+  );
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
@@ -86,8 +98,8 @@ export const DictionaryScreen: React.FC = () => {
   }, [sourceList, search]);
 
   const totalCount = activeGrade === 'all'
-    ? ALL_WORDS_UNIQUE.length
-    : (GRADE_DATA[activeGrade as number]?.length ?? 0);
+    ? allWordsUnique.length
+    : (loadedGrades[activeGrade as number]?.length ?? 0);
 
   return (
     <div className="flex flex-col gap-4">
@@ -138,7 +150,9 @@ export const DictionaryScreen: React.FC = () => {
 
       {/* Word list */}
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.12 }}>
-        {filtered.length === 0 ? (
+        {isLoading ? (
+          <div className="flex items-center justify-center py-10" style={{ color: 'var(--text-secondary)' }}>⏳ Загрузка…</div>
+        ) : filtered.length === 0 ? (
           <GlassCard className="p-8 text-center">
             <p style={{ fontSize: 36, marginBottom: 8 }}>🔍</p>
             <p className="text-headline">Ничего не найдено</p>

@@ -8,24 +8,12 @@ import { useMascot } from '../Mascot';
 import { ProgressBar, StarRating, IosButton } from '../UI';
 import { useSound } from '../../hooks/useSound';
 import { Dictation, WordBuilder, FillBlank, FixRobot, SpeedTrain, PhraseArrange } from '../MiniGames';
-import grade1 from '../../data/words/grade1.json';
-import grade2 from '../../data/words/grade2.json';
-import grade3 from '../../data/words/grade3.json';
-import grade4 from '../../data/words/grade4.json';
-import grade5 from '../../data/words/grade5.json';
-import grade6 from '../../data/words/grade6.json';
-import grade7 from '../../data/words/grade7.json';
-import grade8 from '../../data/words/grade8.json';
-import grade9 from '../../data/words/grade9.json';
-import grade10 from '../../data/words/grade10.json';
-import grade11 from '../../data/words/grade11.json';
 
-const GRADE_DATA: Record<number, Word[]> = {
-  1: grade1 as Word[], 2: grade2 as Word[], 3: grade3 as Word[],
-  4: grade4 as Word[], 5: grade5 as Word[], 6: grade6 as Word[],
-  7: grade7 as Word[], 8: grade8 as Word[], 9: grade9 as Word[],
-  10: grade10 as Word[], 11: grade11 as Word[],
-};
+async function loadGradeWords(grade: number): Promise<Word[]> {
+  const clamp = Math.min(Math.max(grade, 1), 11);
+  const mod = await import(`../../data/words/grade${clamp}.json`);
+  return mod.default as Word[];
+}
 
 const GAME_SEQUENCE: GameType[] = ['dictation', 'wordBuilder', 'fillBlank', 'fixRobot', 'dictation'];
 
@@ -169,12 +157,26 @@ export const SessionEngine: React.FC<SessionEngineProps> = ({ grade, onComplete 
   const { setMood } = useMascot();
   const sound = useSound();
 
-  const wordList = GRADE_DATA[grade] ?? GRADE_DATA[1];
+  const [wordList, setWordList] = useState<Word[] | null>(null);
+  // Capture store values in refs so the load effect doesn't need them as deps
+  const masteryMapRef = useRef(masteryMap);
+  masteryMapRef.current = masteryMap;
+  const wordsPerSessionRef = useRef(wordsPerSession);
+  wordsPerSessionRef.current = wordsPerSession;
 
   const sessionWordsRef = useRef<Word[]>([]);
-  if (sessionWordsRef.current.length === 0) {
-    sessionWordsRef.current = getNextWords(masteryMap, wordList, wordsPerSession);
-  }
+
+  useEffect(() => {
+    let active = true;
+    sessionWordsRef.current = [];
+    loadGradeWords(grade).then(words => {
+      if (!active) return;
+      sessionWordsRef.current = getNextWords(masteryMapRef.current, words, wordsPerSessionRef.current);
+      setWordList(words);
+    });
+    return () => { active = false; };
+  }, [grade]);
+
   const sessionWords = sessionWordsRef.current;
 
   const [idx, setIdx] = useState(0);
@@ -220,6 +222,14 @@ export const SessionEngine: React.FC<SessionEngineProps> = ({ grade, onComplete 
       }
     }, 800);
   }, [currentWord, currentGame, idx, results, localStreak, recordAnswer, addXP, addCrystals, sound, setMood, sessionWords.length]);
+
+  if (!wordList) {
+    return (
+      <div className="flex items-center justify-center py-16">
+        <p className="text-title" style={{ color: 'var(--text-secondary)' }}>Загрузка слов…</p>
+      </div>
+    );
+  }
 
   if (done) {
     return (

@@ -4,23 +4,11 @@ import { useProgressStore } from '../../store/progressStore';
 import { GlassCard, ProgressBar } from '../UI';
 import { WORLDS } from '../../types';
 import { isMastered } from '../../lib/spacedRepetition';
-import grade1 from '../../data/words/grade1.json';
-import grade2 from '../../data/words/grade2.json';
-import grade3 from '../../data/words/grade3.json';
-import grade4 from '../../data/words/grade4.json';
-import grade5 from '../../data/words/grade5.json';
-import grade6 from '../../data/words/grade6.json';
-import grade7 from '../../data/words/grade7.json';
-import grade8 from '../../data/words/grade8.json';
-import grade9 from '../../data/words/grade9.json';
-import grade10 from '../../data/words/grade10.json';
-import grade11 from '../../data/words/grade11.json';
 
+// Static word counts per grade — no need to load full JSON arrays just for .length
 const GRADE_WORD_COUNT: Record<number, number> = {
-  1: grade1.length, 2: grade2.length, 3: grade3.length,
-  4: grade4.length, 5: grade5.length, 6: grade6.length,
-  7: grade7.length, 8: grade8.length, 9: grade9.length,
-  10: grade10.length, 11: grade11.length,
+  1: 30, 2: 30, 3: 66, 4: 46,  5: 165,
+  6: 80, 7: 102, 8: 97, 9: 83, 10: 45, 11: 35,
 };
 
 export const ProgressScreen: React.FC = () => {

@@ -10,6 +10,17 @@ export default defineConfig(({ command }) => ({
       '@': path.resolve(__dirname, 'src'),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react':  ['react', 'react-dom', 'react-router-dom'],
+          'vendor-motion': ['framer-motion'],
+          'vendor-state':  ['zustand'],
+        },
+      },
+    },
+  },
   plugins: [
     react(),
     tailwindcss(),
@@ -19,6 +30,18 @@ export default defineConfig(({ command }) => ({
       workbox: {
         navigateFallback: '/ELibPortal/index.html',
         navigateFallbackDenylist: [/^\/ELibPortal\/(bukvar|reading-room|encyclopedia|dictionary-presentation|bukvar-presentation|reading-room-presentation)\//],
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+        maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
+        runtimeCaching: [
+          {
+            urlPattern: /\.json$/,
+            handler: 'CacheFirst' as const,
+            options: {
+              cacheName: 'word-data',
+              expiration: { maxAgeSeconds: 60 * 60 * 24 * 30 },
+            },
+          },
+        ],
       },
       manifest: {
         name: 'Школьная библиотека',
