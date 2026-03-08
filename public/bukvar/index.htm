@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Азбука профессий: Путешествие в Букваринск</title>
   
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind CSS (pre-generated, no CDN required) -->
+  <link rel="stylesheet" href="tailwind.css">
   
-  <!-- React and ReactDOM CDN -->
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  
-  <!-- Application Scripts (pre-compiled, no Babel needed) -->
-  <script src="js/data.compiled.js"></script>
-  <script src="js/components.compiled.js"></script>
-  <script src="js/app.compiled.js"></script>
+  <!-- React and ReactDOM (local, no CDN required) -->
+  <script src="js/react.production.min.js"></script>
+  <script src="js/react-dom.production.min.js"></script>
 </head>
 <body>
   <div id="root"></div>
+
+  <!-- Application Scripts (pre-compiled, must run after body/root div exists) -->
+  <script src="js/data.compiled.js"></script>
+  <script src="js/components.compiled.js"></script>
+  <script src="js/app.compiled.js"></script>
 </body>
 </html>

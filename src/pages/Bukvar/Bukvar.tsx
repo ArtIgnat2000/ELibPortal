@@ -4,7 +4,7 @@ const BASE = import.meta.env.BASE_URL.replace(/\/$/, '')
 
 export function Bukvar() {
   useEffect(() => {
-    window.location.href = `${BASE}/bukvar/`
+    window.location.replace(`${BASE}/bukvar/`)
   }, [])
 
   return (
