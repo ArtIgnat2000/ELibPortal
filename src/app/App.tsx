@@ -14,10 +14,21 @@ const SlovoApp                 = React.lazy(() => import('@/slovo/SlovoApp'))
 const EncyclopediaOil          = React.lazy(() => import('@/pages/Encyclopedia/EncyclopediaOil').then(m => ({ default: m.EncyclopediaOil })))
 const EncyclopediaContainership = React.lazy(() => import('@/pages/Encyclopedia/EncyclopediaContainership').then(m => ({ default: m.EncyclopediaContainership })))
 
+const spinnerStyle: React.CSSProperties = {
+  width: 40, height: 40,
+  border: '3px solid var(--color-border, #e2e8f0)',
+  borderTopColor: 'var(--color-primary, #16a34a)',
+  borderRadius: '50%',
+  animation: 'page-spin 0.7s linear infinite',
+}
+
 const PageLoader: React.FC = () => (
-  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '40vh', fontSize: 28 }}>
-    ⏳
-  </div>
+  <>
+    <style>{`@keyframes page-spin { to { transform: rotate(360deg); } }`}</style>
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '40vh' }}>
+      <div style={spinnerStyle} />
+    </div>
+  </>
 )
 
 const S = ({ children }: { children: React.ReactNode }) => (

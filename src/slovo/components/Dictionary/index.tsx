@@ -182,11 +182,18 @@ export const DictionaryScreen: React.FC = () => {
                   display: 'flex',
                   flexDirection: 'column',
                   gap: 3,
+                  contentVisibility: 'auto',
+                  containIntrinsicSize: '0 72px',
                 }}
               >
                 <span style={{ fontSize: 18, fontWeight: 800, color: 'var(--text-color)', letterSpacing: '-0.01em', wordBreak: 'break-word' }}>
                   <Highlight text={word.text} query={search.trim()} />
                 </span>
+                {word.hint && (
+                  <span style={{ fontSize: 11, color: 'var(--text-secondary)', lineHeight: 1.4, wordBreak: 'break-word' }}>
+                    <Highlight text={word.hint} query={search.trim()} />
+                  </span>
+                )}
               </motion.div>
             ))}
           </div>

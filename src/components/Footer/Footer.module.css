@@ -65,3 +65,8 @@
   background: #0077b5;
   transform: translateY(-1px);
 }
+
+@media (max-width: 640px) {
+  .links { display: none; }
+  .inner { gap: 0.875rem; }
+}

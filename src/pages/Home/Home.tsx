@@ -28,6 +28,14 @@ export function Home() {
 
   return (
     <main className={styles.main}>
+      {/* Welcome hero */}
+      <section className={styles.hero}>
+        <div className="page-container">
+          <h1 className={styles.heroTitle}>📚 Школьная библиотека</h1>
+          <p className={styles.heroSub}>Интерактивные учебные материалы для школьников 1–11 класса</p>
+        </div>
+      </section>
+
       {/* Age selector */}
       <section className={styles.ageSection}>
         <div className="page-container">
