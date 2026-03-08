@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { SECTIONS } from '@/data/sections'
+
 import { BOOKS } from '@/data/books'
 import { useAgeStore } from '@/store/ageStore'
 import { useProgressStore } from '@/store/progressStore'
@@ -27,22 +28,6 @@ export function Home() {
 
   return (
     <main className={styles.main}>
-      {/* Hero */}
-      <section className={styles.hero}>
-        <motion.div
-          className={styles.heroInner}
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className={styles.heroEmoji}>📚</div>
-          <h1 className={styles.heroTitle}>Школьная библиотека</h1>
-          <p className={styles.heroSubtitle}>
-            Учись легко, с радостью и в игровой форме — от Азбуки до сложных вопросов&nbsp;старшеклассников.
-          </p>
-        </motion.div>
-      </section>
-
       {/* Age selector */}
       <section className={styles.ageSection}>
         <div className="page-container">

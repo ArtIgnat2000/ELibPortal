@@ -94,11 +94,48 @@
   background: var(--color-border);
 }
 
-/* Mobile: hide nav labels, show only first letter */
-@media (max-width: 640px) {
+.themeBtnDesktop {
+  display: flex;
+}
+
+/* Hamburger button — mobile only */
+.menuBtn {
+  display: none;
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.menuBtn:hover { background: var(--color-border); }
+
+.menuIcon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 18px;
+}
+
+.menuIcon span {
+  display: block;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+  transition: background var(--transition);
+}
+
+/* Mobile: hide desktop nav and theme btn, show hamburger */
+@media (max-width: 767px) {
   .logoTagline { display: none; }
-  .nav { gap: 0; }
-  .navLink { padding: 0.375rem 0.5rem; font-size: 0.8125rem; }
+  .nav { display: none; }
+  .themeBtnDesktop { display: none; }
+  .menuBtn { display: flex; }
 }
 
 @media (max-width: 480px) {

@@ -1,9 +1,12 @@
+import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { useThemeStore } from '@/store/themeStore'
+import { MobileDrawer } from './MobileDrawer'
 import styles from './Header.module.css'
 
 export function Header() {
   const { theme, toggle } = useThemeStore()
+  const [drawerOpen, setDrawerOpen] = useState(false)
 
   return (
     <header className={styles.header}>
@@ -17,7 +20,7 @@ export function Header() {
           </div>
         </Link>
 
-        {/* Main nav */}
+        {/* Main nav — hidden on mobile */}
         <nav className={styles.nav} aria-label="Разделы">
           <NavLink to="/bukvar"       className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}>Букварь</NavLink>
           <NavLink to="/reading-room" className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}>Читальный зал</NavLink>
@@ -26,16 +29,32 @@ export function Header() {
           <NavLink to="/bot"          className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}>Бот</NavLink>
         </nav>
 
-        {/* Theme toggle */}
+        {/* Theme toggle — desktop only */}
         <button
-          className={styles.themeBtn}
+          className={`${styles.themeBtn} ${styles.themeBtnDesktop}`}
           onClick={toggle}
           aria-label={`Переключить тему (сейчас: ${theme === 'light' ? 'светлая' : 'тёмная'})`}
           title={theme === 'light' ? 'Тёмная тема' : 'Светлая тема'}
         >
           {theme === 'light' ? '🌙' : '☀️'}
         </button>
+
+        {/* Hamburger — mobile only */}
+        <button
+          className={styles.menuBtn}
+          onClick={() => setDrawerOpen(true)}
+          aria-label="Открыть меню"
+          aria-expanded={drawerOpen}
+        >
+          <span className={styles.menuIcon}>
+            <span />
+            <span />
+            <span />
+          </span>
+        </button>
       </div>
+
+      <MobileDrawer isOpen={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </header>
   )
 }
