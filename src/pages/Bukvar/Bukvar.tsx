@@ -1,13 +1,15 @@
+import { useEffect } from 'react'
+
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, '')
 
 export function Bukvar() {
+  useEffect(() => {
+    window.location.href = `${BASE}/bukvar/`
+  }, [])
+
   return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 9999 }}>
-      <iframe
-        src={`${BASE}/bukvar/index.htm`}
-        style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
-        title="Букварь — Букваринск"
-      />
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100dvh', fontSize: '2rem' }}>
+      ⏳
     </div>
   )
 }
