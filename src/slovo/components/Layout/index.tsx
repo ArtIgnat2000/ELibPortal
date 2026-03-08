@@ -125,7 +125,7 @@ export const DesktopSidebar: React.FC<SidebarProps> = ({ active, onChange, child
 
     {/* Back to portal link */}
     <a
-      href="/"
+      href={import.meta.env.BASE_URL || '/'}
       className="flex items-center gap-2 px-3 py-2 rounded-[14px] text-left w-full mt-2"
       style={{
         color: 'var(--text-secondary)',

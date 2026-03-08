@@ -16,11 +16,12 @@ import './styles/main.css';
 // ─── Onboarding ───────────────────────────────────────────────────────────────
 
 const Onboarding: React.FC<{ onDone: () => void }> = ({ onDone }) => {
-  const { setChildName } = useSettingsStore();
+  const { setChildName, setOnboardingDone } = useSettingsStore();
   const [name, setName] = useState('');
 
   const handleStart = () => {
-    if (name.trim()) setChildName(name.trim());
+    setChildName(name.trim());
+    setOnboardingDone(true);
     onDone();
   };
 
@@ -53,7 +54,6 @@ const Onboarding: React.FC<{ onDone: () => void }> = ({ onDone }) => {
           style={{ fontSize: 18 }}
           maxLength={20}
           onKeyDown={e => e.key === 'Enter' && handleStart()}
-          autoFocus
         />
         <motion.button
           whileTap={{ scale: 0.95 }}
@@ -109,14 +109,8 @@ const AppContent: React.FC = () => {
 
   const [page, setPage] = useState<NavPage>('study');
   const [sessionGrade, setSessionGrade] = useState<number | null>(null);
-  const [onboarded, setOnboarded] = useState(() => {
-    try {
-      const raw = localStorage.getItem('slovo-settings');
-      return !!raw && !!JSON.parse(raw)?.state?.childName;
-    } catch {
-      return false;
-    }
-  });
+  const onboardingDone = useSettingsStore(s => s.onboardingDone);
+  const [onboarded, setOnboarded] = useState(() => onboardingDone);
 
   const handleStartSession = (grade: number) => {
     setSessionGrade(grade);
@@ -128,7 +122,7 @@ const AppContent: React.FC = () => {
     setPage('map');
   };
 
-  if (!onboarded) {
+if (!onboarded && !onboardingDone) {
     return (
       <AnimatePresence>
         <Onboarding onDone={() => setOnboarded(true)} />
