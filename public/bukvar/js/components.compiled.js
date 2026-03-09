@@ -30,6 +30,12 @@ window.HomePage = ({
     setIsSidebarOpen(initialMenuOpen);
   }, [initialMenuOpen]);
   React.useEffect(() => {
+    document.body.classList.toggle('bukvar-menu-open', isSidebarOpen);
+    return () => {
+      document.body.classList.remove('bukvar-menu-open');
+    };
+  }, [isSidebarOpen]);
+  React.useEffect(() => {
     if (lastViewedProfessionId) {
       const element = document.getElementById(`profession-${lastViewedProfessionId}`);
       if (element) {
@@ -134,7 +140,7 @@ window.HomePage = ({
   }, t('welcome')), /*#__PURE__*/React.createElement("div", {
     className: "w-full flex justify-center"
   }, /*#__PURE__*/React.createElement("img", {
-    src: "img/common/main.jpg",
+    src: "./img/common/main.jpg",
     alt: "\u041A\u0430\u0440\u0442\u0430 \u0411\u0443\u043A\u0432\u0430\u0440\u0438\u043D\u0441\u043A\u0430",
     className: "w-full max-w-4xl h-auto rounded-xl shadow-lg object-contain",
     onError: e => {
@@ -349,7 +355,7 @@ window.PrintPage = ({
   }, /*#__PURE__*/React.createElement("div", {
     className: "flex items-center gap-6"
   }, /*#__PURE__*/React.createElement("img", {
-    src: "img/common/main.jpg",
+    src: "./img/common/main.jpg",
     className: "w-48 h-24 object-cover rounded-lg shadow-md grayscale hover:grayscale-0 transition-all duration-500",
     alt: "Map"
   }), /*#__PURE__*/React.createElement("div", {
@@ -397,7 +403,7 @@ window.PrintPage = ({
   }, /*#__PURE__*/React.createElement("div", {
     className: "col-span-2 row-span-1 bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-2 flex flex-col items-center justify-center text-center relative overflow-hidden shadow-inner border border-slate-200 h-[40mm]"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "absolute inset-0 opacity-10 bg-[url('img/common/main.jpg')] bg-cover bg-center grayscale mix-blend-multiply"
+    className: "absolute inset-0 opacity-10 bg-slate-100 grayscale mix-blend-multiply"
   }), /*#__PURE__*/React.createElement("div", {
     className: "relative z-10 box-border flex flex-col items-center justify-center h-full"
   }, /*#__PURE__*/React.createElement("span", {

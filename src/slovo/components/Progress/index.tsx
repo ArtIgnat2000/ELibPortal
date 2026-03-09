@@ -42,10 +42,59 @@ export const ProgressScreen: React.FC = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: i * 0.08 }}
           >
-            <GlassCard className="p-4 text-center">
-              <div style={{ fontSize: 36 }}>{s.emoji}</div>
-              <div className="text-title" style={{ color: s.color }}>{s.value}</div>
-              <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--text-secondary)', marginTop: 2 }}>{s.label}</div>
+            <GlassCard className="px-4 py-3">
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '52px 44px minmax(0, 1fr)',
+                  alignItems: 'center',
+                  columnGap: 10,
+                  minHeight: 44,
+                }}
+              >
+                <div
+                  aria-hidden="true"
+                  style={{
+                    width: 44,
+                    height: 44,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: 28,
+                    lineHeight: 1,
+                    borderRadius: 14,
+                    background: `color-mix(in srgb, ${s.color} 12%, white)`,
+                    boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.7)',
+                  }}
+                >
+                  {s.emoji}
+                </div>
+
+                <div
+                  style={{
+                    fontSize: 24,
+                    fontWeight: 800,
+                    lineHeight: 1,
+                    color: s.color,
+                    textAlign: 'center',
+                    fontVariantNumeric: 'tabular-nums',
+                  }}
+                >
+                  {s.value}
+                </div>
+
+                <div
+                  style={{
+                    fontSize: 14,
+                    fontWeight: 700,
+                    color: 'var(--text-secondary)',
+                    lineHeight: 1.25,
+                    letterSpacing: '-0.01em',
+                  }}
+                >
+                  {s.label}
+                </div>
+              </div>
             </GlassCard>
           </motion.div>
         ))}

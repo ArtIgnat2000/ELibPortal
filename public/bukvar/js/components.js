@@ -18,6 +18,14 @@ window.HomePage = ({ t, professions, fullAlphabet, setSelectedProfession, setCur
         setIsSidebarOpen(initialMenuOpen);
     }, [initialMenuOpen]);
 
+  React.useEffect(() => {
+    document.body.classList.toggle('bukvar-menu-open', isSidebarOpen);
+
+    return () => {
+      document.body.classList.remove('bukvar-menu-open');
+    };
+  }, [isSidebarOpen]);
+
     React.useEffect(() => {
         if (lastViewedProfessionId) {
             const element = document.getElementById(`profession-${lastViewedProfessionId}`);
@@ -103,7 +111,7 @@ window.HomePage = ({ t, professions, fullAlphabet, setSelectedProfession, setCur
             <h2 className="text-base md:text-4xl font-bold text-gray-800 mb-1 md:mb-4">{t('welcome')}</h2>
             <div className="w-full flex justify-center">
               <img 
-                src="img/common/main.jpg" 
+                src="./img/common/main.jpg" 
                 alt="Карта Букваринска" 
                 className="w-full max-w-4xl h-auto rounded-xl shadow-lg object-contain"
                 onError={(e) => {e.target.onerror = null; e.target.src="https://placehold.co/800x400/png?text=Карта+Букваринска"}}
@@ -346,7 +354,7 @@ window.PrintPage = ({ professions, setCurrentView, variant = 1 }) => {
                 <div className="flex items-center justify-between mb-6 border-b-2 border-slate-800 pb-4">
                      <div className="flex items-center gap-6">
                         <img 
-                            src="img/common/main.jpg" 
+                            src="./img/common/main.jpg" 
                             className="w-48 h-24 object-cover rounded-lg shadow-md grayscale hover:grayscale-0 transition-all duration-500"
                             alt="Map"
                         />
@@ -401,7 +409,7 @@ window.PrintPage = ({ professions, setCurrentView, variant = 1 }) => {
             <div className="flex-grow grid grid-cols-6 gap-3 w-full content-start mt-4">
                  {/* Large Hero Block - spans 2 columns, 1 row */}
                  <div className="col-span-2 row-span-1 bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-2 flex flex-col items-center justify-center text-center relative overflow-hidden shadow-inner border border-slate-200 h-[40mm]">
-                    <div className="absolute inset-0 opacity-10 bg-[url('img/common/main.jpg')] bg-cover bg-center grayscale mix-blend-multiply"></div>
+                    <div className="absolute inset-0 opacity-10 bg-slate-100 grayscale mix-blend-multiply"></div>
                     <div className="relative z-10 box-border flex flex-col items-center justify-center h-full">
                         <span className="text-4xl mb-1 block">🎓</span>
                         <h2 className="text-xl font-bold text-slate-700 mb-0 font-serif leading-tight">Мир Знаний</h2>

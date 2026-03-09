@@ -1,57 +1,60 @@
 import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
-import { useThemeStore } from '@/store/themeStore'
+import { Link, useLocation } from 'react-router-dom'
 import { MobileDrawer } from './MobileDrawer'
 import styles from './Header.module.css'
 
+function getHeaderMeta(pathname: string) {
+  if (pathname === '/encyclopedia') {
+    return {
+      to: '/encyclopedia',
+      title: 'Энциклопедия',
+      tagline: 'Интерактивные презентации',
+    }
+  }
+
+  if (pathname === '/presentations') {
+    return {
+      to: '/presentations',
+      title: 'Презентации',
+      tagline: 'Материалы для быстрого запуска',
+    }
+  }
+
+  return {
+    to: '/',
+    title: 'Школьная библиотека',
+    tagline: 'Учись с радостью',
+  }
+}
+
 export function Header() {
-  const { theme, toggle } = useThemeStore()
   const [drawerOpen, setDrawerOpen] = useState(false)
+  const location = useLocation()
+  const headerMeta = getHeaderMeta(location.pathname)
 
   return (
     <header className={styles.header}>
       <div className={`page-container ${styles.inner}`}>
-        {/* Logo */}
-        <Link to="/" className={styles.logo}>
-          <span className={styles.logoIcon}>📚</span>
-          <div>
-            <span className={styles.logoTitle}>Школьная библиотека</span>
-            <span className={styles.logoTagline}>Учись с радостью</span>
-          </div>
-        </Link>
-
-        {/* Main nav — hidden on mobile */}
-        <nav className={styles.nav} aria-label="Разделы">
-          <NavLink to="/bukvar"       className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}>Букварь</NavLink>
-          <NavLink to="/reading-room" className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}>Читальный зал</NavLink>
-          <NavLink to="/dictionary"   className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}>Словарь</NavLink>
-          <NavLink to="/encyclopedia" className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}>Энциклопедия</NavLink>
-          <NavLink to="/bot"          className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}>Бот</NavLink>
-        </nav>
-
-        {/* Theme toggle — desktop only */}
         <button
-          className={`${styles.themeBtn} ${styles.themeBtnDesktop}`}
-          onClick={toggle}
-          aria-label={`Переключить тему (сейчас: ${theme === 'light' ? 'светлая' : 'тёмная'})`}
-          title={theme === 'light' ? 'Тёмная тема' : 'Светлая тема'}
-        >
-          {theme === 'light' ? '🌙' : '☀️'}
-        </button>
-
-        {/* Hamburger — mobile only */}
-        <button
-          className={styles.menuBtn}
-          onClick={() => setDrawerOpen(true)}
-          aria-label="Открыть меню"
+          className={`${styles.menuBtn} ${drawerOpen ? styles.menuBtnOpen : ''}`}
+          onClick={() => setDrawerOpen((open) => !open)}
+          aria-label={drawerOpen ? 'Закрыть меню' : 'Открыть меню'}
           aria-expanded={drawerOpen}
+          aria-controls="site-mobile-drawer"
         >
-          <span className={styles.menuIcon}>
+          <span className={styles.menuIcon} aria-hidden="true">
             <span />
             <span />
             <span />
           </span>
         </button>
+
+        <Link to={headerMeta.to} className={styles.logo}>
+          <div>
+            <span className={styles.logoTitle}>{headerMeta.title}</span>
+            <span className={styles.logoTagline}>{headerMeta.tagline}</span>
+          </div>
+        </Link>
       </div>
 
       <MobileDrawer isOpen={drawerOpen} onClose={() => setDrawerOpen(false)} />

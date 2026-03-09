@@ -69,6 +69,34 @@ interface SidebarProps {
   streak: number;
 }
 
+const DESKTOP_SIDEBAR_WIDTH = 224;
+
+const getPortalLinkStyle = (isDesktop: boolean): React.CSSProperties => ({
+  position: 'fixed',
+  top: 16,
+  left: isDesktop ? DESKTOP_SIDEBAR_WIDTH + 16 : 16,
+  zIndex: 60,
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: 6,
+  padding: '8px 14px',
+  borderRadius: 999,
+  textDecoration: 'none',
+  fontFamily: 'var(--font-sans)',
+  fontSize: 14,
+  fontWeight: 700,
+  color: '#fff',
+  background: 'linear-gradient(135deg, #0a7cff 0%, #43b0ff 100%)',
+  border: '1px solid rgba(255,255,255,0.28)',
+  boxShadow: '0 8px 22px rgba(0, 102, 255, 0.28)',
+});
+
+const PortalLink: React.FC<{ isDesktop: boolean }> = ({ isDesktop }) => (
+  <a href={import.meta.env.BASE_URL || '/'} style={getPortalLinkStyle(isDesktop)}>
+    ← На портал
+  </a>
+);
+
 export const DesktopSidebar: React.FC<SidebarProps> = ({ active, onChange, childName, xp, streak }) => (
   <aside
     className="fixed left-0 top-0 bottom-0 z-40 flex flex-col py-8 px-4 w-56"
@@ -123,23 +151,6 @@ export const DesktopSidebar: React.FC<SidebarProps> = ({ active, onChange, child
       ))}
     </nav>
 
-    {/* Back to portal link */}
-    <a
-      href={import.meta.env.BASE_URL || '/'}
-      className="flex items-center gap-2 px-3 py-2 rounded-[14px] text-left w-full mt-2"
-      style={{
-        color: 'var(--text-secondary)',
-        fontFamily: 'var(--font-sans)',
-        fontSize: 13,
-        fontWeight: 600,
-        textDecoration: 'none',
-        background: 'transparent',
-        transition: 'color 0.15s',
-      }}
-    >
-      ← Школьная библиотека
-    </a>
-
     <div className="text-caption text-center" style={{ fontSize: 11 }}>
       Академия СЛОВО v1
     </div>
@@ -159,6 +170,7 @@ export const ResponsiveShell: React.FC<ResponsiveShellProps> = ({
   active, onChange, children, childName, xp, streak,
 }) => {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+  const reservedTopSpace = 72;
 
   useEffect(() => {
     const handler = () => setIsDesktop(window.innerWidth >= 1024);
@@ -168,10 +180,11 @@ export const ResponsiveShell: React.FC<ResponsiveShellProps> = ({
 
   return (
     <div style={{ minHeight: '100dvh', background: 'var(--bg-color)' }}>
+      <PortalLink isDesktop={isDesktop} />
       {isDesktop ? (
         <>
           <DesktopSidebar active={active} onChange={onChange} childName={childName} xp={xp} streak={streak} />
-          <main style={{ marginLeft: 224, padding: '32px 48px', minHeight: '100dvh' }}>
+          <main style={{ marginLeft: DESKTOP_SIDEBAR_WIDTH, padding: `${reservedTopSpace}px 48px 32px`, minHeight: '100dvh' }}>
             <div style={{ maxWidth: 720, margin: '0 auto' }}>
               {children}
             </div>
@@ -179,7 +192,7 @@ export const ResponsiveShell: React.FC<ResponsiveShellProps> = ({
         </>
       ) : (
         <>
-          <main style={{ padding: '16px 16px 90px 16px', minHeight: '100dvh' }}>
+          <main style={{ padding: `${reservedTopSpace}px 16px 90px 16px`, minHeight: '100dvh' }}>
             {children}
           </main>
           <BottomNav active={active} onChange={onChange} />

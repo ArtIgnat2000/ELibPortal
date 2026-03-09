@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styles from './Encyclopedia.module.css'
 
 const TOPICS = [
@@ -25,23 +25,14 @@ const TOPICS = [
 ]
 
 export function Encyclopedia() {
-  const navigate = useNavigate()
-
   return (
     <main className={styles.main}>
       <div className="page-container">
-        <div className={styles.header}>
-          <span className={styles.headerEmoji}>🌍</span>
-          <div>
-            <h1 className={styles.title}>Энциклопедия</h1>
-            <p className={styles.subtitle}>Интерактивные презентации на разные темы</p>
-          </div>
-        </div>
-
         <div className={styles.grid}>
           {TOPICS.map((topic) => (
-            <article
+            <Link
               key={topic.id}
+              to={topic.route}
               className={styles.topicCard}
               style={{ '--topic-color': topic.color, '--topic-bg': topic.colorBg } as React.CSSProperties}
             >
@@ -53,13 +44,7 @@ export function Encyclopedia() {
                 <p className={styles.topicSubtitle}>{topic.subtitle}</p>
                 <p className={styles.topicMeta}>{topic.grade} кл.</p>
               </div>
-              <button
-                className={styles.openBtn}
-                onClick={() => navigate(topic.route)}
-              >
-                Смотреть →
-              </button>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

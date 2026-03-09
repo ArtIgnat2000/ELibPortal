@@ -18,7 +18,7 @@ export const SECTIONS: SectionMeta[] = [
   {
     id: 'bukvar',
     slug: 'bukvar',
-    title: 'Букварь',
+    title: 'Азубука',
     subtitle: 'Азбука и первые слова',
     description: 'Учим буквы, слоги и первые слова. Для самых маленьких читателей.',
     icon: '🔤',

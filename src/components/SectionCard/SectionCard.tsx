@@ -3,14 +3,16 @@ import { motion } from 'framer-motion'
 import type { SectionMeta } from '@/data/sections'
 import styles from './SectionCard.module.css'
 
+const MotionLink = motion.create(Link)
+
 interface Props {
   section: SectionMeta
-  badge?: React.ReactNode
 }
 
-export function SectionCard({ section, badge }: Props) {
+export function SectionCard({ section }: Props) {
   return (
-    <motion.article
+    <MotionLink
+      to={section.path}
       className={styles.card}
       style={{
         '--card-color': section.color,
@@ -22,27 +24,18 @@ export function SectionCard({ section, badge }: Props) {
       transition={{ duration: 0.2 }}
       layout
     >
-      <div className={styles.iconWrap}>
-        <span className={styles.icon}>{section.icon}</span>
-      </div>
-      <div className={styles.body}>
-        <div className={styles.titleRow}>
-          <h2 className={styles.title}>{section.title}</h2>
-          {badge}
+      <div className={styles.header}>
+        <div className={styles.iconWrap}>
+          <span className={styles.icon}>{section.icon}</span>
         </div>
-        <p className={styles.subtitle}>{section.subtitle}</p>
-        <p className={styles.description}>{section.description}</p>
+        <div className={styles.body}>
+          <div className={styles.titleRow}>
+            <h2 className={styles.title}>{section.title}</h2>
+          </div>
+          <p className={styles.subtitle}>{section.subtitle}</p>
+        </div>
       </div>
-      <div className={styles.footer}>
-        <Link to={section.path} className={styles.btn}>
-          Открыть →
-        </Link>
-        {section.presentationPath && (
-          <Link to={section.presentationPath} className={styles.btnSecondary}>
-            Презентация
-          </Link>
-        )}
-      </div>
-    </motion.article>
+      <p className={styles.description}>{section.description}</p>
+    </MotionLink>
   )
 }

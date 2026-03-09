@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { NavLink, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useThemeStore } from '@/store/themeStore'
+import { SECTIONS } from '@/data/sections'
 import styles from './MobileDrawer.module.css'
 
 interface MobileDrawerProps {
@@ -10,13 +11,23 @@ interface MobileDrawerProps {
   onClose: () => void
 }
 
+const HOME_ITEM = { to: '/', icon: '🏠', label: 'Главная', end: true }
+
 const NAV_ITEMS = [
-  { to: '/bukvar',       icon: '🔤', label: 'Букварь' },
+  { to: '/bukvar',       icon: '🔤', label: 'Азубука' },
   { to: '/reading-room', icon: '📖', label: 'Читальный зал' },
   { to: '/dictionary',   icon: '✏️', label: 'Словарь' },
   { to: '/encyclopedia', icon: '🌍', label: 'Энциклопедия' },
   { to: '/bot',          icon: '🤖', label: 'Бот' },
 ]
+
+const PRESENTATION_ITEMS = SECTIONS
+  .filter((section) => section.presentationPath)
+  .map((section) => ({
+    to: section.presentationPath!,
+    icon: section.icon,
+    label: section.title,
+  }))
 
 export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
   const { theme, toggle } = useThemeStore()
@@ -56,10 +67,11 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
 
           {/* Drawer panel */}
           <motion.aside
+            id="site-mobile-drawer"
             className={styles.panel}
-            initial={{ x: '100%' }}
+            initial={{ x: '-100%' }}
             animate={{ x: 0 }}
-            exit={{ x: '100%' }}
+            exit={{ x: '-100%' }}
             transition={{ type: 'spring', stiffness: 380, damping: 36 }}
             role="dialog"
             aria-modal="true"
@@ -68,16 +80,24 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
             {/* Header row */}
             <div className={styles.panelHeader}>
               <span className={styles.panelTitle}>Меню</span>
-              <button
-                className={styles.closeBtn}
-                onClick={onClose}
-                aria-label="Закрыть меню"
-              >
-                ✕
-              </button>
             </div>
 
-            {/* Nav links */}
+            <nav className={styles.nav}>
+              <NavLink
+                to={HOME_ITEM.to}
+                end={HOME_ITEM.end}
+                className={({ isActive }) =>
+                  `${styles.navItem} ${isActive ? styles.active : ''}`
+                }
+              >
+                <span className={styles.navIcon}>{HOME_ITEM.icon}</span>
+                <span className={styles.navLabel}>{HOME_ITEM.label}</span>
+              </NavLink>
+            </nav>
+
+            <div className={styles.divider} />
+
+            <div className={styles.sectionTitle}>Разделы</div>
             <nav className={styles.nav}>
               {NAV_ITEMS.map(({ to, icon, label }) => (
                 <NavLink
@@ -85,6 +105,34 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                   to={to}
                   className={({ isActive }) =>
                     `${styles.navItem} ${isActive ? styles.active : ''}`
+                  }
+                >
+                  <span className={styles.navIcon}>{icon}</span>
+                  <span className={styles.navLabel}>{label}</span>
+                </NavLink>
+              ))}
+            </nav>
+
+            <div className={styles.divider} />
+
+            <div className={styles.sectionTitle}>Презентации</div>
+            <nav className={styles.nav}>
+              <NavLink
+                to="/presentations"
+                className={({ isActive }) =>
+                  `${styles.navItem} ${isActive ? styles.active : ''}`
+                }
+              >
+                <span className={styles.navIcon}>🖥️</span>
+                <span className={styles.navLabel}>Все презентации</span>
+              </NavLink>
+
+              {PRESENTATION_ITEMS.map(({ to, icon, label }) => (
+                <NavLink
+                  key={to}
+                  to={to}
+                  className={({ isActive }) =>
+                    `${styles.navItem} ${styles.presentationItem} ${isActive ? styles.active : ''}`
                   }
                 >
                   <span className={styles.navIcon}>{icon}</span>

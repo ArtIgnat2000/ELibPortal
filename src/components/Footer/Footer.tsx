@@ -11,7 +11,7 @@ export function Footer() {
           <span className={styles.copy}>© {year} — Учёба с радостью</span>
         </div>
         <nav className={styles.links}>
-          <Link to="/bukvar">Букварь</Link>
+          <Link to="/bukvar">Азубука</Link>
           <Link to="/reading-room">Читальный зал</Link>
           <Link to="/dictionary">Словарь</Link>
           <Link to="/encyclopedia">Энциклопедия</Link>
