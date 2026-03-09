@@ -320,7 +320,7 @@ window.PrintPage = ({ professions, setCurrentView, variant = 1 }) => {
                 {professions.map((p) => (
                     <div key={p.id} className="w-full border-2 border-blue-100 rounded-lg p-1.5 flex flex-col items-center bg-white shadow-sm overflow-hidden h-[50mm]">
                         <div className="w-full flex-grow mb-1 overflow-hidden rounded bg-gray-50 relative flex items-center justify-center">
-                            <img src={p.image} className="w-full h-full object-contain" alt={p.profession} />
+                <img src={p.image} loading="lazy" className="w-full h-full object-contain" alt={p.profession} />
                         </div>
                         <div className="flex items-end justify-between w-full px-1 h-[6mm] relative">
                             <span className="text-2xl font-extrabold text-red-500 leading-none absolute left-0 bottom-0">{p.letter}</span>
@@ -365,7 +365,7 @@ window.PrintPage = ({ professions, setCurrentView, variant = 1 }) => {
                      {professions.map((p, i) => (
                         <div key={p.id} className="relative group bg-white p-1.5 rounded border border-slate-100 hover:border-slate-300 transition-colors flex flex-col">
                             <div className="w-full flex-grow relative overflow-hidden rounded mb-1 bg-gray-100">
-                                <img src={p.image} className="w-full h-full object-cover" alt={p.profession} />
+                                <img src={p.image} loading="lazy" className="w-full h-full object-cover" alt={p.profession} />
                                 <div className="absolute bottom-0 right-0 bg-slate-800/90 text-white text-xs font-bold px-1.5 py-0.5 rounded-tl">{p.letter}</div>
                             </div>
                             <div className="text-center">
@@ -417,7 +417,7 @@ window.PrintPage = ({ professions, setCurrentView, variant = 1 }) => {
                         <div className="w-full flex-grow relative mb-1 flex items-center justify-center">
                              {/* Circular image container */}
                              <div className="w-[32mm] h-[32mm] rounded-full overflow-hidden bg-slate-50 border-2 border-slate-100 shadow-sm relative z-0">
-                                <img src={p.image} className="w-full h-full object-cover" alt={p.profession} />
+                                <img src={p.image} loading="lazy" className="w-full h-full object-cover" alt={p.profession} />
                              </div>
                              
                              {/* Large Letter Badge */}

@@ -320,6 +320,7 @@ window.PrintPage = ({
     className: "w-full flex-grow mb-1 overflow-hidden rounded bg-gray-50 relative flex items-center justify-center"
   }, /*#__PURE__*/React.createElement("img", {
     src: p.image,
+    loading: "lazy",
     className: "w-full h-full object-contain",
     alt: p.profession
   })), /*#__PURE__*/React.createElement("div", {
@@ -370,6 +371,7 @@ window.PrintPage = ({
     className: "w-full flex-grow relative overflow-hidden rounded mb-1 bg-gray-100"
   }, /*#__PURE__*/React.createElement("img", {
     src: p.image,
+    loading: "lazy",
     className: "w-full h-full object-cover",
     alt: p.profession
   }), /*#__PURE__*/React.createElement("div", {
@@ -413,6 +415,7 @@ window.PrintPage = ({
     className: "w-[32mm] h-[32mm] rounded-full overflow-hidden bg-slate-50 border-2 border-slate-100 shadow-sm relative z-0"
   }, /*#__PURE__*/React.createElement("img", {
     src: p.image,
+    loading: "lazy",
     className: "w-full h-full object-cover",
     alt: p.profession
   })), /*#__PURE__*/React.createElement("div", {
