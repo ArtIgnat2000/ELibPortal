@@ -2,7 +2,18 @@ import { Link } from 'react-router-dom'
 import { SECTIONS } from '@/data/sections'
 import styles from './Presentations.module.css'
 
-const PRESENTATIONS = SECTIONS.filter((section) => section.presentationPath)
+const PRESENTATIONS = [
+  {
+    id: 'project-overview',
+    title: 'Общая защита',
+    subtitle: 'Школьная библиотека — презентация проекта для конкурса',
+    icon: '🎤',
+    color: '#2563eb',
+    colorBg: '#dbeafe',
+    presentationPath: '/project/presentation',
+  },
+  ...SECTIONS.filter((section) => section.presentationPath),
+]
 
 export function Presentations() {
   return (

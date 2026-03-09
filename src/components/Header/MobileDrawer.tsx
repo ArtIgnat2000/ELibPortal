@@ -29,6 +29,14 @@ const PRESENTATION_ITEMS = SECTIONS
     label: section.title,
   }))
 
+const EXTRA_PRESENTATION_ITEMS = [
+  {
+    to: '/project/presentation',
+    icon: '🎤',
+    label: 'Общая защита',
+  },
+]
+
 export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
   const { theme, toggle } = useThemeStore()
   const location = useLocation()
@@ -126,6 +134,19 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                 <span className={styles.navIcon}>🖥️</span>
                 <span className={styles.navLabel}>Все презентации</span>
               </NavLink>
+
+              {EXTRA_PRESENTATION_ITEMS.map(({ to, icon, label }) => (
+                <NavLink
+                  key={to}
+                  to={to}
+                  className={({ isActive }) =>
+                    `${styles.navItem} ${styles.presentationItem} ${isActive ? styles.active : ''}`
+                  }
+                >
+                  <span className={styles.navIcon}>{icon}</span>
+                  <span className={styles.navLabel}>{label}</span>
+                </NavLink>
+              ))}
 
               {PRESENTATION_ITEMS.map(({ to, icon, label }) => (
                 <NavLink
