@@ -4,16 +4,9 @@
   flex-direction: column;
 }
 
-/* Age selector strip */
-.ageSection {
-  padding: 1.1rem 0;
-  border-bottom: 1px solid var(--color-border);
-  background: var(--color-surface);
-}
-
 /* Cards grid */
 .grid {
-  padding: 1.25rem 0 3rem;
+  padding: 1.5rem 0 3rem;
 }
 
 .cards {
