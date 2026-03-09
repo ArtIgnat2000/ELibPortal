@@ -49,10 +49,12 @@ window.HomePage = ({
   }, /*#__PURE__*/React.createElement("div", {
     className: "container mx-auto px-3 md:px-4 py-4 md:py-8"
   }, /*#__PURE__*/React.createElement("header", {
-    className: "flex justify-between items-center mb-4 md:mb-8"
+    className: "flex items-center mb-4 md:mb-8"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "flex space-x-4"
-  }, /*#__PURE__*/React.createElement("button", {
+    className: "w-10 flex-shrink-0"
+  }), /*#__PURE__*/React.createElement("h1", {
+    className: "flex-1 text-lg md:text-3xl font-bold text-white text-center leading-tight"
+  }, t('title')), /*#__PURE__*/React.createElement("button", {
     onClick: () => setIsSidebarOpen(true),
     className: "bg-white rounded-lg text-gray-800 hover:bg-gray-100 transition-colors shadow-md flex flex-col justify-center gap-1.5 w-10 h-10 items-center flex-shrink-0"
   }, /*#__PURE__*/React.createElement("span", {
@@ -61,9 +63,7 @@ window.HomePage = ({
     className: "block w-5 h-0.5 bg-gray-800 rounded-full"
   }), /*#__PURE__*/React.createElement("span", {
     className: "block w-5 h-0.5 bg-gray-800 rounded-full"
-  }))), /*#__PURE__*/React.createElement("h1", {
-    className: "text-lg md:text-3xl font-bold text-white text-right leading-tight"
-  }, t('title'))), isSidebarOpen && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+  }))), isSidebarOpen && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "fixed inset-0 bg-black/50 z-40 transition-opacity backdrop-blur-sm",
     onClick: () => setIsSidebarOpen(false)
   }), /*#__PURE__*/React.createElement("div", {

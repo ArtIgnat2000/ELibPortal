@@ -36,18 +36,17 @@ window.HomePage = ({ t, professions, fullAlphabet, setSelectedProfession, setCur
     <div className="min-h-screen bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 relative">
       <div className="container mx-auto px-3 md:px-4 py-4 md:py-8">
         {/* Header */}
-        <header className="flex justify-between items-center mb-4 md:mb-8">
-          <div className="flex space-x-4">
-            <button 
-              onClick={() => setIsSidebarOpen(true)}
-              className="bg-white rounded-lg text-gray-800 hover:bg-gray-100 transition-colors shadow-md flex flex-col justify-center gap-1.5 w-10 h-10 items-center flex-shrink-0"
-            >
-                <span className="block w-5 h-0.5 bg-gray-800 rounded-full"></span>
-                <span className="block w-5 h-0.5 bg-gray-800 rounded-full"></span>
-                <span className="block w-5 h-0.5 bg-gray-800 rounded-full"></span>
-            </button>
-          </div>
-          <h1 className="text-lg md:text-3xl font-bold text-white text-right leading-tight">{t('title')}</h1>
+        <header className="flex items-center mb-4 md:mb-8">
+          <div className="w-10 flex-shrink-0"></div>
+          <h1 className="flex-1 text-lg md:text-3xl font-bold text-white text-center leading-tight">{t('title')}</h1>
+          <button 
+            onClick={() => setIsSidebarOpen(true)}
+            className="bg-white rounded-lg text-gray-800 hover:bg-gray-100 transition-colors shadow-md flex flex-col justify-center gap-1.5 w-10 h-10 items-center flex-shrink-0"
+          >
+              <span className="block w-5 h-0.5 bg-gray-800 rounded-full"></span>
+              <span className="block w-5 h-0.5 bg-gray-800 rounded-full"></span>
+              <span className="block w-5 h-0.5 bg-gray-800 rounded-full"></span>
+          </button>
         </header>
 
         {/* Side Menu (Drawer) */}
