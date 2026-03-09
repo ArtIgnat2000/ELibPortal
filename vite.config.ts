@@ -4,7 +4,10 @@ import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import path from 'path'
 
-export default defineConfig(({ command }) => ({
+export default defineConfig(({ command }) => {
+  const isGitHubPagesBuild = process.env.GITHUB_ACTIONS === 'true'
+
+  return {
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
@@ -24,7 +27,7 @@ export default defineConfig(({ command }) => ({
   plugins: [
     react(),
     tailwindcss(),
-    VitePWA({
+    !isGitHubPagesBuild && VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
       workbox: {
@@ -54,10 +57,11 @@ export default defineConfig(({ command }) => ({
         ],
       },
     }),
-  ],
+  ].filter(Boolean),
   base: command === 'build' ? '/ELibPortal/' : '/',
   define: {
     __BUILD_NUMBER__: JSON.stringify(process.env.GITHUB_RUN_NUMBER ?? 'dev'),
     __BUILD_DATE__: JSON.stringify(new Date().toISOString().slice(0, 10)),
   },
-}))
+}
+})
