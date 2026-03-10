@@ -478,6 +478,26 @@
       color: var(--muted);
     }
 
+    .screenshot-wrap {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      align-items: stretch;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 28px rgba(23, 32, 51, 0.10);
+    }
+
+    .screenshot {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top left;
+      display: block;
+    }
+
     @media (max-width: 980px) {
       .slide {
         padding: 20px;
@@ -525,13 +545,18 @@
               <div class="tag">👨 Папа — техническая реализация</div>
             </div>
             <div class="two-col">
-              <div class="card soft">
-                <div class="card-title">Главная идея проекта</div>
-                <div class="card-text">Сделать не просто полезный сайт, а такую среду, в которой ребёнку самому хочется заниматься без уговоров взрослых.</div>
+              <div class="stack">
+                <div class="card soft">
+                  <div class="card-title">Главная идея проекта</div>
+                  <div class="card-text">Сделать не просто полезный сайт, а такую среду, в которой ребёнку самому хочется заниматься без уговоров взрослых.</div>
+                </div>
+                <div class="card soft">
+                  <div class="card-title">Для кого проект</div>
+                  <div class="card-text">Для школьников. Особенно для тех детей, которым важно, чтобы всё было ясно, интересно, крупно, логично и без лишних сложностей.</div>
+                </div>
               </div>
-              <div class="card soft">
-                <div class="card-title">Для кого проект</div>
-                <div class="card-text">Для школьников. Особенно для тех детей, которым важно, чтобы всё было ясно, интересно, крупно, логично и без лишних сложностей.</div>
+              <div class="screenshot-wrap">
+                <img class="screenshot" src="img/home.png" alt="Главная страница портала">
               </div>
             </div>
             <div class="footer-note">
@@ -592,26 +617,31 @@
             <div class="eyebrow">Слайд 3 · Идея проекта</div>
             <h2>Наша идея — один понятный портал для школьника</h2>
             <p class="lead">Мы решили объединить в одном проекте всё самое важное: чтение, тренировки, познавательные материалы и дополнительную помощь.</p>
-            <div class="journey">
-              <div class="journey-step">
-                <div class="journey-num">1</div>
-                <div class="journey-title">Читать</div>
-                <div class="journey-text">Ребёнок открывает Читальный зал и получает доступ к книгам в удобной форме.</div>
+            <div class="two-col">
+              <div class="journey">
+                <div class="journey-step">
+                  <div class="journey-num">1</div>
+                  <div class="journey-title">Читать</div>
+                  <div class="journey-text">Ребёнок открывает Читальный зал и получает доступ к книгам в удобной форме.</div>
+                </div>
+                <div class="journey-step">
+                  <div class="journey-num">2</div>
+                  <div class="journey-title">Тренироваться</div>
+                  <div class="journey-text">Можно учить словарные слова и видеть, как растёт прогресс и уверенность.</div>
+                </div>
+                <div class="journey-step">
+                  <div class="journey-num">3</div>
+                  <div class="journey-title">Узнавать новое</div>
+                  <div class="journey-text">Энциклопедические и тематические материалы помогают поддерживать интерес к знаниям.</div>
+                </div>
+                <div class="journey-step">
+                  <div class="journey-num">4</div>
+                  <div class="journey-title">Получать помощь</div>
+                  <div class="journey-text">Telegram-бот дополняет проект и помогает взаимодействовать с ним вне основного сайта.</div>
+                </div>
               </div>
-              <div class="journey-step">
-                <div class="journey-num">2</div>
-                <div class="journey-title">Тренироваться</div>
-                <div class="journey-text">Можно учить словарные слова и видеть, как растёт прогресс и уверенность.</div>
-              </div>
-              <div class="journey-step">
-                <div class="journey-num">3</div>
-                <div class="journey-title">Узнавать новое</div>
-                <div class="journey-text">Энциклопедические и тематические материалы помогают поддерживать интерес к знаниям.</div>
-              </div>
-              <div class="journey-step">
-                <div class="journey-num">4</div>
-                <div class="journey-title">Получать помощь</div>
-                <div class="journey-text">Telegram-бот дополняет проект и помогает взаимодействовать с ним вне основного сайта.</div>
+              <div class="screenshot-wrap">
+                <img class="screenshot" src="img/home.png" alt="Портал — главная страница с разделами">
               </div>
             </div>
             <div class="card soft">
@@ -629,34 +659,39 @@
             <div class="eyebrow">Слайд 4 · Что есть в проекте</div>
             <h2>Основные разделы проекта</h2>
             <p class="lead">Каждый раздел решает свою задачу, но вместе они создают единую образовательную среду для ребёнка.</p>
-            <div class="grid-4">
-              <div class="card feature-card">
-                <div class="icon">📖</div>
-                <div>
-                  <div class="feature-title">Читальный зал</div>
-                  <div class="feature-copy">Книги для чтения, удобный доступ к материалам и спокойная среда для читателя.</div>
+            <div class="two-col">
+              <div class="grid-4">
+                <div class="card feature-card">
+                  <div class="icon">📖</div>
+                  <div>
+                    <div class="feature-title">Читальный зал</div>
+                    <div class="feature-copy">Книги для чтения, удобный доступ к материалам и спокойная среда для читателя.</div>
+                  </div>
+                </div>
+                <div class="card feature-card">
+                  <div class="icon green">✏️</div>
+                  <div>
+                    <div class="feature-title">Словарь</div>
+                    <div class="feature-copy">Тренировка словарных слов в более интересной и мотивирующей форме.</div>
+                  </div>
+                </div>
+                <div class="card feature-card">
+                  <div class="icon orange">🌍</div>
+                  <div>
+                    <div class="feature-title">Энциклопедия</div>
+                    <div class="feature-copy">Наглядные презентации и познавательные материалы по важным темам.</div>
+                  </div>
+                </div>
+                <div class="card feature-card">
+                  <div class="icon purple">🤖</div>
+                  <div>
+                    <div class="feature-title">Telegram-бот</div>
+                    <div class="feature-copy">Помощь и взаимодействие с проектом в привычной для ребёнка цифровой среде.</div>
+                  </div>
                 </div>
               </div>
-              <div class="card feature-card">
-                <div class="icon green">✏️</div>
-                <div>
-                  <div class="feature-title">Словарь</div>
-                  <div class="feature-copy">Тренировка словарных слов в более интересной и мотивирующей форме.</div>
-                </div>
-              </div>
-              <div class="card feature-card">
-                <div class="icon orange">🌍</div>
-                <div>
-                  <div class="feature-title">Энциклопедия</div>
-                  <div class="feature-copy">Наглядные презентации и познавательные материалы по важным темам.</div>
-                </div>
-              </div>
-              <div class="card feature-card">
-                <div class="icon purple">🤖</div>
-                <div>
-                  <div class="feature-title">Telegram-бот</div>
-                  <div class="feature-copy">Помощь и взаимодействие с проектом в привычной для ребёнка цифровой среде.</div>
-                </div>
+              <div class="screenshot-wrap">
+                <img class="screenshot" src="img/reading-room.png" alt="Читальный зал — список книг">
               </div>
             </div>
           </div>
@@ -681,19 +716,8 @@
                   <div class="bullet"><div class="bullet-mark">4</div><div><strong>Интересный формат:</strong> ребёнку хочется вернуться к проекту без уговоров.</div></div>
                 </div>
               </div>
-              <div class="stack">
-                <div class="card">
-                  <div class="card-title">Детская проверка</div>
-                  <div class="card-text">Проект тестировался так, чтобы даже первокласснику было интуитивно понятно и удобно.</div>
-                </div>
-                <div class="card">
-                  <div class="card-title">Продуктовая логика</div>
-                  <div class="card-text">Мы не просто добавляли функции, а убирали всё, что мешает ребёнку быстро начать пользоваться проектом.</div>
-                </div>
-                <div class="card">
-                  <div class="card-title">Главный критерий</div>
-                  <div class="card-text">Ребёнку должно хотеться учиться самому. Это был главный ориентир для всех доработок.</div>
-                </div>
+              <div class="screenshot-wrap">
+                <img class="screenshot" src="img/slovo.png" alt="Словарь СЛОВО — экран тренировки">
               </div>
             </div>
           </div>
@@ -774,12 +798,15 @@
                   <div class="tag">🌍 Познание</div>
                   <div class="tag">🤖 Помощь</div>
                 </div>
+                <div class="score-card" style="margin-top: 18px;">
+                  <div class="score-item"><span>Польза для школьников</span><span class="score-dot"></span></div>
+                  <div class="score-item"><span>Детский взгляд на удобство</span><span class="score-dot"></span></div>
+                  <div class="score-item"><span>Реальный работающий проект</span><span class="score-dot"></span></div>
+                  <div class="score-item"><span>Семейная командная работа</span><span class="score-dot"></span></div>
+                </div>
               </div>
-              <div class="card score-card">
-                <div class="score-item"><span>Польза для школьников</span><span class="score-dot"></span></div>
-                <div class="score-item"><span>Детский взгляд на удобство</span><span class="score-dot"></span></div>
-                <div class="score-item"><span>Реальный работающий проект</span><span class="score-dot"></span></div>
-                <div class="score-item"><span>Семейная командная работа</span><span class="score-dot"></span></div>
+              <div class="screenshot-wrap">
+                <img class="screenshot" src="img/progress.png" alt="Экран прогресса и достижений">
               </div>
             </div>
             <div class="footer-note">
