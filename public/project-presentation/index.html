@@ -284,44 +284,55 @@
     }
 
     .journey {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+      min-height: 0;
     }
 
     .journey-step {
-      padding: 18px;
-      border-radius: 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: 16px;
       background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(242,246,255,0.88));
       border: 1px solid var(--line);
-      min-height: 168px;
+      flex: 1;
+      min-height: 0;
     }
 
     .journey-num {
       display: inline-flex;
-      width: 34px;
-      height: 34px;
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
       border-radius: 999px;
       align-items: center;
       justify-content: center;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 900;
       background: var(--blue);
       color: #fff;
-      margin-bottom: 14px;
+      margin-top: 2px;
+    }
+
+    .journey-body {
+      flex: 1;
     }
 
     .journey-title {
-      font-size: 20px;
+      font-size: 17px;
       font-weight: 800;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
       letter-spacing: -0.02em;
     }
 
     .journey-text {
       color: var(--muted);
-      line-height: 1.45;
-      font-size: 16px;
+      line-height: 1.4;
+      font-size: 14px;
     }
 
     .roles {
@@ -621,23 +632,31 @@
               <div class="journey">
                 <div class="journey-step">
                   <div class="journey-num">1</div>
-                  <div class="journey-title">Читать</div>
-                  <div class="journey-text">Ребёнок открывает Читальный зал и получает доступ к книгам в удобной форме.</div>
+                  <div class="journey-body">
+                    <div class="journey-title">Читать</div>
+                    <div class="journey-text">Ребёнок открывает Читальный зал и получает доступ к книгам в удобной форме.</div>
+                  </div>
                 </div>
                 <div class="journey-step">
                   <div class="journey-num">2</div>
-                  <div class="journey-title">Тренироваться</div>
-                  <div class="journey-text">Можно учить словарные слова и видеть, как растёт прогресс и уверенность.</div>
+                  <div class="journey-body">
+                    <div class="journey-title">Тренироваться</div>
+                    <div class="journey-text">Можно учить словарные слова и видеть, как растёт прогресс и уверенность.</div>
+                  </div>
                 </div>
                 <div class="journey-step">
                   <div class="journey-num">3</div>
-                  <div class="journey-title">Узнавать новое</div>
-                  <div class="journey-text">Энциклопедические и тематические материалы помогают поддерживать интерес к знаниям.</div>
+                  <div class="journey-body">
+                    <div class="journey-title">Узнавать новое</div>
+                    <div class="journey-text">Энциклопедические и тематические материалы помогают поддерживать интерес к знаниям.</div>
+                  </div>
                 </div>
                 <div class="journey-step">
                   <div class="journey-num">4</div>
-                  <div class="journey-title">Получать помощь</div>
-                  <div class="journey-text">Telegram-бот дополняет проект и помогает взаимодействовать с ним вне основного сайта.</div>
+                  <div class="journey-body">
+                    <div class="journey-title">Получать помощь</div>
+                    <div class="journey-text">Telegram-бот дополняет проект и помогает взаимодействовать с ним вне основного сайта.</div>
+                  </div>
                 </div>
               </div>
               <div class="screenshot-wrap">
