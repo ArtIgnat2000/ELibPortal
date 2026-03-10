@@ -512,6 +512,48 @@
       display: block;
     }
 
+    @media (max-width: 1400px) {
+      .slide { padding: 20px 24px; }
+      .frame { height: calc(100vh - 88px); }
+      .content { padding: 20px 28px; gap: 13px; }
+      h1 { font-size: clamp(28px, 3.8vw, 48px); }
+      h2 { font-size: clamp(20px, 2.6vw, 32px); }
+      .lead { font-size: clamp(13px, 1.4vw, 16px); line-height: 1.4; }
+      .card { padding: 13px 15px; }
+      .card-title { font-size: 15px; margin-bottom: 5px; }
+      .card-text { font-size: 13px; line-height: 1.45; }
+      .feature-title { font-size: 15px; margin-bottom: 3px; }
+      .feature-copy { font-size: 12px; line-height: 1.4; }
+      .icon { width: 42px; height: 42px; font-size: 22px; border-radius: 12px; }
+      .two-col { gap: 16px; }
+      .impact { gap: 16px; }
+      .bullet { font-size: 13px; gap: 10px; }
+      .bullet-list { gap: 9px; }
+      .bullet-mark { width: 24px; height: 24px; font-size: 12px; }
+      .hero-badges { gap: 7px; }
+      .tag { font-size: 12px; padding: 6px 10px; }
+      .tag-row { gap: 7px; margin-top: 12px !important; }
+      .role-card { padding: 14px 16px; }
+      .role-list { font-size: 13px; gap: 7px; }
+      .role-name { font-size: 16px; }
+      .role-emoji { width: 40px; height: 40px; font-size: 20px; border-radius: 12px; }
+      .role-head { margin-bottom: 9px; gap: 10px; }
+      .roles { gap: 12px; }
+      .big-quote { font-size: clamp(18px, 2.4vw, 30px); line-height: 1.1; }
+      .score-item { font-size: 13px; padding: 9px 12px; }
+      .score-card { gap: 9px; }
+      .journey { gap: 8px; overflow: hidden; }
+      .journey-step { padding: 9px 13px; gap: 11px; flex: none; }
+      .journey-title { font-size: 14px; margin-bottom: 3px; }
+      .journey-text { font-size: 12px; line-height: 1.35; }
+      .journey-num { width: 28px; height: 28px; font-size: 12px; }
+      .grid-4 { gap: 8px; overflow: hidden; }
+      .feature-card { flex: none; }
+      .nav { padding: 7px 18px 9px; }
+      .nav-btn { padding: 8px 13px; font-size: 13px; }
+      .pager { font-size: 13px; }
+    }
+
     @media (max-width: 980px) {
       .slide {
         padding: 20px;
@@ -631,43 +673,45 @@
             <div class="eyebrow">Слайд 3 · Идея проекта</div>
             <h2>Наша идея — один понятный портал для школьника</h2>
             <p class="lead">Мы решили объединить в одном проекте всё самое важное: чтение, тренировки, познавательные материалы и дополнительную помощь.</p>
-            <div class="two-col">
-              <div class="journey">
-                <div class="journey-step">
-                  <div class="journey-num">1</div>
-                  <div class="journey-body">
-                    <div class="journey-title">Читать</div>
-                    <div class="journey-text">Ребёнок открывает Читальный зал и получает доступ к книгам в удобной форме.</div>
+            <div class="two-col" style="flex:1;min-height:0;">
+              <div style="display:flex;flex-direction:column;gap:10px;min-height:0;overflow:hidden;">
+                <div class="journey">
+                  <div class="journey-step">
+                    <div class="journey-num">1</div>
+                    <div class="journey-body">
+                      <div class="journey-title">Читать</div>
+                      <div class="journey-text">Ребёнок открывает Читальный зал и получает доступ к книгам в удобной форме.</div>
+                    </div>
+                  </div>
+                  <div class="journey-step">
+                    <div class="journey-num">2</div>
+                    <div class="journey-body">
+                      <div class="journey-title">Тренироваться</div>
+                      <div class="journey-text">Можно учить словарные слова и видеть, как растёт прогресс и уверенность.</div>
+                    </div>
+                  </div>
+                  <div class="journey-step">
+                    <div class="journey-num">3</div>
+                    <div class="journey-body">
+                      <div class="journey-title">Узнавать новое</div>
+                      <div class="journey-text">Энциклопедические и тематические материалы помогают поддерживать интерес к знаниям.</div>
+                    </div>
+                  </div>
+                  <div class="journey-step">
+                    <div class="journey-num">4</div>
+                    <div class="journey-body">
+                      <div class="journey-title">Получать помощь</div>
+                      <div class="journey-text">Telegram-бот дополняет проект и помогает взаимодействовать с ним вне основного сайта.</div>
+                    </div>
                   </div>
                 </div>
-                <div class="journey-step">
-                  <div class="journey-num">2</div>
-                  <div class="journey-body">
-                    <div class="journey-title">Тренироваться</div>
-                    <div class="journey-text">Можно учить словарные слова и видеть, как растёт прогресс и уверенность.</div>
-                  </div>
-                </div>
-                <div class="journey-step">
-                  <div class="journey-num">3</div>
-                  <div class="journey-body">
-                    <div class="journey-title">Узнавать новое</div>
-                    <div class="journey-text">Энциклопедические и тематические материалы помогают поддерживать интерес к знаниям.</div>
-                  </div>
-                </div>
-                <div class="journey-step">
-                  <div class="journey-num">4</div>
-                  <div class="journey-body">
-                    <div class="journey-title">Получать помощь</div>
-                    <div class="journey-text">Telegram-бот дополняет проект и помогает взаимодействовать с ним вне основного сайта.</div>
-                  </div>
+                <div class="card soft" style="flex-shrink:0;">
+                  <div class="card-text"><strong>Главная цель:</strong> ребёнок должен быстро понять, что это за проект, зачем он нужен и как им пользоваться без долгих объяснений.</div>
                 </div>
               </div>
               <div class="screenshot-wrap">
                 <img class="screenshot" src="img/home.png" alt="Портал — главная страница с разделами">
               </div>
-            </div>
-            <div class="card soft">
-              <div class="card-text"><strong>Главная цель:</strong> ребёнок должен быстро понять, что это за проект, зачем он нужен и как им пользоваться без долгих объяснений.</div>
             </div>
           </div>
         </div>
