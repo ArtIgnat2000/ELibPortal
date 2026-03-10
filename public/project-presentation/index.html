@@ -187,16 +187,19 @@
     }
 
     .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+      min-height: 0;
     }
 
     .feature-card {
       display: flex;
       gap: 16px;
       align-items: flex-start;
-      min-height: 132px;
+      flex: 1;
+      min-height: 0;
     }
 
     .icon {
@@ -551,8 +554,8 @@
             <h1>Школьная библиотека</h1>
             <p class="lead">Образовательный проект, который помогает детям читать, тренироваться, узнавать новое и получать помощь в понятной, удобной и интересной форме.</p>
             <div class="hero-badges">
-              <div class="tag">👦 Старший брат — постановка задач</div>
-              <div class="tag">🧒 Младший брат — тестирование удобства</div>
+              <div class="tag">👦 Витя — постановка задач</div>
+              <div class="tag">🧒 Коля — тестирование удобства</div>
               <div class="tag">👨 Папа — техническая реализация</div>
             </div>
             <div class="two-col">
@@ -757,7 +760,7 @@
                   <div class="role-emoji">👦</div>
                   <div>
                     <div class="role-label">Роль</div>
-                    <div class="role-name">Старший брат</div>
+                    <div class="role-name">Витя</div>
                   </div>
                 </div>
                 <div class="role-list">
@@ -771,7 +774,7 @@
                   <div class="role-emoji">🧒</div>
                   <div>
                     <div class="role-label">Роль</div>
-                    <div class="role-name">Младший брат</div>
+                    <div class="role-name">Коля</div>
                   </div>
                 </div>
                 <div class="role-list">
