@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Вопросы и ответы — Школьная библиотека</title>
+  <link rel="stylesheet" href="../shared/presentation-return.css">
   <style>
     :root {
       --bg: #f5f7fb;
@@ -327,6 +328,7 @@
   </style>
 </head>
 <body>
+  <a id="back-btn" class="portal-return-btn" data-portal-target="presentations" href="#">← На Портал</a>
   <div class="page-wrap">
 
     <!-- Кнопка печати -->
@@ -634,6 +636,7 @@
 
   </div>
 
+  <script src="../shared/presentation-return.js"></script>
   <script>
     // Убираем кнопку при печати (дублирующий контроль)
     window.addEventListener('beforeprint', () => {

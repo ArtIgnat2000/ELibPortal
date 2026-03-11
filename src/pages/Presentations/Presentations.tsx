@@ -10,7 +10,6 @@ interface PresentationItem {
   color: string
   colorBg: string
   presentationPath?: string
-  href?: string
 }
 
 const PRESENTATIONS: PresentationItem[] = [
@@ -30,7 +29,7 @@ const PRESENTATIONS: PresentationItem[] = [
     icon: '❓',
     color: '#7c3aed',
     colorBg: '#ede9fe',
-    href: '/project-presentation/qa.html',
+    presentationPath: '/project/presentation/qa',
   },
   ...SECTIONS.filter((section) => section.presentationPath),
 ]
@@ -56,13 +55,6 @@ export function Presentations() {
                 </div>
               </>
             )
-            if (item.href) {
-              return (
-                <a key={item.id} href={item.href} className={styles.card} style={cardStyle}>
-                  {content}
-                </a>
-              )
-            }
             return (
               <Link key={item.id} to={item.presentationPath!} className={styles.card} style={cardStyle}>
                 {content}

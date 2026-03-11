@@ -5,6 +5,7 @@ import { Layout } from './Layout'
 const Home                     = React.lazy(() => import('@/pages/Home/Home').then(m => ({ default: m.Home })))
 const Presentations           = React.lazy(() => import('@/pages/Presentations/Presentations').then(m => ({ default: m.Presentations })))
 const ProjectPresentation      = React.lazy(() => import('@/pages/ProjectPresentation/ProjectPresentation').then(m => ({ default: m.ProjectPresentation })))
+const ProjectPresentationQa    = React.lazy(() => import('@/pages/ProjectPresentation/ProjectPresentationQa').then(m => ({ default: m.ProjectPresentationQa })))
 const BotPresentation          = React.lazy(() => import('@/pages/Bot/BotPresentation').then(m => ({ default: m.BotPresentation })))
 const DictionaryPresentation   = React.lazy(() => import('@/pages/Dictionary/DictionaryPresentation').then(m => ({ default: m.DictionaryPresentation })))
 const ReadingRoomPresentation  = React.lazy(() => import('@/pages/ReadingRoom/ReadingRoomPresentation').then(m => ({ default: m.ReadingRoomPresentation })))
@@ -49,6 +50,7 @@ const router = createBrowserRouter(
         { index: true,                             element: <S><Home /></S> },
         { path: 'presentations',                  element: <S><Presentations /></S> },
         { path: 'project/presentation',           element: <S><ProjectPresentation /></S> },
+        { path: 'project/presentation/qa',        element: <S><ProjectPresentationQa /></S> },
         { path: 'bot/presentation',               element: <S><BotPresentation /></S> },
         { path: 'dictionary/presentation',         element: <S><DictionaryPresentation /></S> },
         { path: 'reading-room/presentation',       element: <S><ReadingRoomPresentation /></S> },
