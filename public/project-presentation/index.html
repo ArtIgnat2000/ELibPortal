@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Школьная библиотека — Общая презентация проекта</title>
+  <link rel="stylesheet" href="../shared/presentation-return.css">
   <style>
     :root {
       --bg: #f5f7fb;
@@ -582,7 +583,8 @@
     }
   </style>
 </head>
-<body>
+<body data-portal-target="presentations">
+  <a id="back-btn" class="portal-return-btn" data-portal-target="presentations" href="/presentations">&#8592; На портал</a>
   <div class="presentation">
     <div class="slides" id="slides">
 
@@ -634,9 +636,9 @@
             <h1>Школьная библиотека</h1>
             <p class="lead">Образовательный проект, который помогает детям читать, тренироваться, узнавать новое и получать помощь в понятной, удобной и интересной форме.</p>
             <div class="hero-badges">
-              <div class="tag">👦 Витя — постановка задач</div>
+              <div class="tag">👦 Витя — разработка и задачи</div>
               <div class="tag">🧒 Коля — тестирование удобства</div>
-              <div class="tag">👨 Папа — техническая реализация</div>
+              <div class="tag">👨 Папа — ведущий разработчик</div>
             </div>
             <div class="two-col">
               <div class="stack">
@@ -831,7 +833,7 @@
           <div class="content">
             <div class="eyebrow">Слайд 7 · Команда</div>
             <h2>Кто что делал в проекте</h2>
-            <p class="lead">Проект создавался как семейная команда, но в нём был очень важен именно детский взгляд на задачи и удобство.</p>
+            <p class="lead">Проект создавался как семейная команда: Витя участвовал и как разработчик, и как постановщик задач, Коля — как детский тестировщик, папа — как ведущий программист и наставник.</p>
             <div class="roles">
               <div class="role-card">
                 <div class="role-head">
@@ -842,9 +844,10 @@
                   </div>
                 </div>
                 <div class="role-list">
-                  <div>Определял, какие задачи нужно решить</div>
-                  <div>Формулировал требования к проекту</div>
-                  <div>Помогал сделать проект полезным именно для школьников</div>
+                  <div>Ставил задачи и определял структуру проекта</div>
+                  <div>Уверенно программирует на Scratch, изучает Python и веб-разработку</div>
+                  <div>Активно участвовал в технической реализации рядом с папой</div>
+                  <div>Помогал сделать интерфейс понятным для школьников</div>
                 </div>
               </div>
               <div class="role-card">
@@ -870,9 +873,9 @@
                   </div>
                 </div>
                 <div class="role-list">
-                  <div>Занимался технической реализацией</div>
-                  <div>Помогал воплощать идеи и решения</div>
-                  <div>Поддерживал проект как наставник и разработчик</div>
+                  <div>Вёл техническую реализацию вместе с Витей</div>
+                  <div>Воплощал идеи и архитектурные решения</div>
+                  <div>Поддерживал проект как наставник и ведущий разработчик</div>
                 </div>
               </div>
             </div>
@@ -994,6 +997,7 @@
     </div>
   </div>
 
+  <script src="../shared/presentation-return.js"></script>
   <script>
     const slides = Array.from(document.querySelectorAll('.slide'));
     const pager = document.getElementById('pager');
