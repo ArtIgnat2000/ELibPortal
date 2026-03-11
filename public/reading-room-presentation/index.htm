@@ -5,441 +5,616 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Электронная Библиотека</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../shared/presentation-return.css">
 </head>
-<body>
+<body data-portal-target="presentations">
+
+    <a id="back-btn" class="portal-return-btn" data-portal-target="presentations" href="/presentations">&#8592; На портал</a>
 
     <div class="presentation-container">
-        <!-- Слайд 1: Титульный -->
-        <div class="slide slide-1 active">
+        <section class="slide slide-1 active">
             <div class="slide-number">1</div>
-            <div class="decoration decoration-1"></div>
-            <div class="decoration decoration-2"></div>
-            <div class="decoration decoration-star" style="top: 30%; right: 15%;">★</div>
-            <div class="decoration decoration-book" style="bottom: 25%; left: 10%;">📚</div>
-            
-            <div class="content">
-                <h1 style="font-size: 3.5rem; color: white; text-shadow: 3px 3px 8px rgba(0,0,0,0.3); margin-bottom: 0.5rem; font-weight: 800;">Школьная<br>Библиотека</h1>
-                <div class="subtitle" style="font-size: 1.6rem; color: #667eea; font-weight: 600; margin-bottom: 2rem; display: none;">Умный помощник для чтения ✨</div>
-                <div style="display: inline-block; padding: 1.5rem; border-radius: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); box-shadow: 0 12px 35px rgba(102, 126, 234, 0.35); margin-top: 2.5rem; margin-bottom: 2.5rem;">
-                    <div style="background: white; padding: 0.8rem; border-radius: 12px;">
-                        <img src="img/qr_Elib_site.png" alt="QR-код электронной библиотеки" style="width: 140px; height: 140px; display: block; border-radius: 8px;">
+            <div class="frame">
+                <div class="decor decor-a"></div>
+                <div class="decor decor-b"></div>
+                <div class="decor decor-c"></div>
+
+                <div class="content hero-content">
+                    <div class="eyebrow">Титульный</div>
+
+                    <div class="hero-logo-wrap">
+                        <img src="../project-presentation/img/logo_naash2.jpg" alt="Логотип НААШ" class="hero-logo">
+                    </div>
+
+                    <div class="hero-copy">
+                        <h1>Школьная<br>библиотека</h1>
+                        <p class="lead">Электронная библиотека для школьников</p>
+                    </div>
+
+                    <div class="hero-meta">
+                        <div class="hero-author-block">
+                            <div class="hero-label">Авторы проекта</div>
+                            <div class="hero-author">Витя и Коля<br>Игнатьевы</div>
+                            <div class="hero-year">2026 г.</div>
+                        </div>
+
+                        <div class="hero-qr-block">
+                            <img src="img/qr_Elib_site.png" alt="QR-код электронной библиотеки" class="hero-qr">
+                            <div class="hero-qr-caption">Открыть библиотеку</div>
+                        </div>
                     </div>
                 </div>
-                <p style="font-size: 1rem; color: #667eea; margin-top: 0.8rem; margin-bottom: 1rem; font-weight: 600; display: none;">Отсканируй и начни читать!</p>
-                <div style="background: white; padding: 1rem 2rem; border-radius: 18px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); margin-top: 1.5rem;">
-                    <p style="font-size: 1.05rem; color: #2d3748; font-weight: 700; margin: 0;">Игнатьев Виктор, Игнатьев Николай | НААШ 186</p>
-                </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Слайд 2: Как выглядит приложение -->
-        <div class="slide slide-2">
+        <section class="slide slide-2">
             <div class="slide-number">2</div>
-            <div class="decoration decoration-1"></div>
-            <div class="decoration decoration-2"></div>
-            <div class="decoration decoration-star" style="top: 15%; left: 10%;">✨</div>
-            
-            <div class="content">
-                <h2 style="font-size: 1.8rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.15); margin-bottom: 0.5rem;">Как выглядит приложение</h2>
-                <p style="font-size: 0.95rem; margin-bottom: 0.8rem; font-weight: 500; color: #2d3748;">Главная страница Школьной библиотеки</p>
-                
-                <div style="background: white; padding: 0.8rem; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); max-width: 60%; margin: 0 auto;">
-                    <img src="img/lib_mail_page.png" alt="Главная страница библиотеки" style="width: 100%; max-height: 50vh; object-fit: contain; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.12); display: block;">
-                </div>
-                
-                <div style="display: flex; gap: 0.8rem; justify-content: center; margin-top: 0.8rem; flex-wrap: wrap;">
-                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 0.4rem 1rem; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.12);">
-                        <p style="font-size: 0.8rem; font-weight: 600; color: #2d3748; margin: 0;">📚 Все книги</p>
+            <div class="frame">
+                <div class="decor decor-a"></div>
+                <div class="decor decor-b"></div>
+                <div class="decor decor-c"></div>
+
+                <div class="content">
+                    <div class="eyebrow">Обзор</div>
+                    <h2>Как выглядит приложение</h2>
+                    <p class="lead">Главная страница Школьной библиотеки устроена просто: на ней легко открыть книги, найти нужное и посмотреть свой прогресс.</p>
+
+                    <div class="hero-badges">
+                        <div class="tag tag-blue">📚 Все книги</div>
+                        <div class="tag tag-pink">🎯 Поиск</div>
+                        <div class="tag tag-cyan">📊 Прогресс</div>
                     </div>
-                    <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 0.4rem 1rem; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.12);">
-                        <p style="font-size: 0.8rem; font-weight: 600; color: #2d3748; margin: 0;">🎯 Поиск</p>
-                    </div>
-                    <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 0.4rem 1rem; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.12);">
-                        <p style="font-size: 0.8rem; font-weight: 600; color: #2d3748; margin: 0;">📊 Прогресс</p>
+
+                    <div class="two-col overview-layout">
+                        <div class="stack">
+                            <div class="card soft tone-blue feature-card">
+                                <div class="icon icon-blue">📚</div>
+                                <div>
+                                    <div class="feature-title">Всё под рукой</div>
+                                    <div class="feature-copy">Книги собраны в одном месте, поэтому ребёнку не нужно долго искать, где читать заданное произведение.</div>
+                                </div>
+                            </div>
+                            <div class="card soft tone-pink feature-card">
+                                <div class="icon icon-pink">🔎</div>
+                                <div>
+                                    <div class="feature-title">Понятная навигация</div>
+                                    <div class="feature-copy">Интерфейс быстро подсказывает, куда нажать: открыть подборку, найти книгу или перейти между разделами.</div>
+                                </div>
+                            </div>
+                            <div class="card soft tone-cyan feature-card">
+                                <div class="icon icon-cyan">✨</div>
+                                <div>
+                                    <div class="feature-title">Дружелюбный экран</div>
+                                    <div class="feature-copy">Сайт выглядит мягко и аккуратно, поэтому пользоваться им приятно и дома, и в школе.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="screenshot-wrap screenshot-contain">
+                            <img src="img/lib_mail_page.png" alt="Главная страница библиотеки" class="screenshot">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Слайд 3: Что это такое -->
-        <div class="slide slide-3">
+        <section class="slide slide-3">
             <div class="slide-number">3</div>
-            <div class="decoration decoration-1"></div>
-            <div class="decoration decoration-2"></div>
-            <div class="decoration decoration-book" style="top: 20%; left: 15%;">📖</div>
-            
-            <div class="content">
-                <h2 style="font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.15); margin-bottom: 0.8rem;">Что это такое?</h2>
-                <p style="font-size: 1.1rem; margin-bottom: 1rem; font-weight: 500;">Это волшебное место, где живут сотни интересных книг!</p>
-                
-                <div style="display: flex; gap: 1rem; max-width: 900px; width: 100%; margin-top: 1rem;">
-                    <!-- Блок 1: Книги для чтения на каникулах -->
-                    <div style="flex: 1; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
-                        <h3 style="font-size: 1.1rem; color: #2d3748; font-weight: bold; margin-bottom: 0.8rem; text-align: center;">📚 Книги для чтения на каникулах</h3>
-                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                            <div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 10px;">
-                                <p style="font-size: 0.9rem; color: #2d3748; font-weight: 600; margin: 0;">☀️ Летние</p>
+            <div class="frame">
+                <div class="decor decor-a"></div>
+                <div class="decor decor-b"></div>
+                <div class="decor decor-c"></div>
+
+                <div class="content">
+                    <div class="eyebrow">Что внутри</div>
+                    <h2>Что это такое?</h2>
+                    <p class="lead">Это волшебное место, где живут сотни интересных книг и всё нужное для чтения в течение учебного года и каникул.</p>
+
+                    <div class="grid-2 topic-grid">
+                        <div class="card soft tone-blue">
+                            <div class="card-title">📚 Книги для чтения на каникулах</div>
+                            <div class="pill-list">
+                                <div class="pill">☀️ Летние</div>
+                                <div class="pill">🍂 Осенние</div>
+                                <div class="pill">❄️ Зимние</div>
+                                <div class="pill">🌸 Весенние</div>
                             </div>
-                            <div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 10px;">
-                                <p style="font-size: 0.9rem; color: #2d3748; font-weight: 600; margin: 0;">🍂 Осенние</p>
-                            </div>
-                            <div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 10px;">
-                                <p style="font-size: 0.9rem; color: #2d3748; font-weight: 600; margin: 0;">❄️ Зимние</p>
-                            </div>
-                            <div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 10px;">
-                                <p style="font-size: 0.9rem; color: #2d3748; font-weight: 600; margin: 0;">🌸 Весенние</p>
+                        </div>
+
+                        <div class="card soft tone-pink">
+                            <div class="card-title">📖 Литература в учебные дни</div>
+                            <div class="pill-list">
+                                <div class="pill">✍️ Учить стихи наизусть</div>
+                                <div class="pill">📕 Читать книги и рассказы</div>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Блок 2: Литература в учебные дни -->
-                    <div style="flex: 1; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 1rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
-                        <h3 style="font-size: 1.1rem; color: #2d3748; font-weight: bold; margin-bottom: 0.8rem; text-align: center;">📖 Литература в учебные дни</h3>
-                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                            <div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 10px;">
-                                <p style="font-size: 0.9rem; color: #2d3748; font-weight: 600; margin: 0;">✍️ Учить стихи наизусть</p>
-                            </div>
-                            <div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 10px;">
-                                <p style="font-size: 0.9rem; color: #2d3748; font-weight: 600; margin: 0;">📕 Читать книги и рассказы</p>
-                            </div>
-                        </div>
+
+                    <div class="card soft tone-cyan emphasis-card">
+                        <div class="big-note">Читай то, что задают в школе, когда удобно!</div>
                     </div>
-                </div>
-                
-                <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 1rem; border-radius: 20px; margin-top: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,0.15); max-width: 900px; width: 100%;">
-                    <p style="font-size: 1rem; font-weight: bold; color: #2d3748; line-height: 1.3; margin: 0; text-align: center;">
-                        Читай то, что задают в школе, когда удобно!
-                    </p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Слайд 4: Читать или Слушать -->
-        <div class="slide slide-4">
+        <section class="slide slide-4">
             <div class="slide-number">4</div>
-            <div class="decoration decoration-1"></div>
-            <div class="decoration decoration-2"></div>
-            <div class="decoration decoration-star" style="top: 25%; left: 15%;">🎧</div>
-            <div class="decoration decoration-book" style="bottom: 25%; right: 15%;">📖</div>
-            
-            <div class="content">
-                <h2 style="font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.15); margin-bottom: 0.8rem;">Читать или Слушать</h2>
-                <p style="font-size: 1.1rem; margin-bottom: 1rem; font-weight: 500;">Это пример книги, которую можно читать или слушать</p>
-                
-                <div style="background: white; padding: 0.8rem; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); max-width: 70%; margin: 0 auto 1rem;">
-                    <img src="img/sample_book.png" alt="Пример книги" style="width: 100%; max-height: 45vh; object-fit: contain; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.12); display: block;">
-                </div>
-                
-                <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap;">
-                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 0.8rem 1.5rem; border-radius: 15px; box-shadow: 0 6px 18px rgba(0,0,0,0.15);">
-                        <p style="font-size: 1.1rem; font-weight: 700; color: white; margin: 0;">📖 Читать</p>
+            <div class="frame">
+                <div class="decor decor-a"></div>
+                <div class="decor decor-b"></div>
+                <div class="decor decor-c"></div>
+
+                <div class="content">
+                    <div class="eyebrow">Форматы чтения</div>
+                    <h2>Читать или слушать</h2>
+                    <p class="lead">Это пример книги, которую можно читать глазами или слушать как аудио. Оба формата доступны и понятны ребёнку.</p>
+
+                    <div class="two-col media-layout">
+                        <div class="stack">
+                            <div class="card soft tone-gold">
+                                <div class="card-title">Как пользоваться книгой</div>
+                                <div class="media-actions">
+                                    <div class="media-chip media-chip-blue">📖 Читать</div>
+                                    <div class="media-chip media-chip-pink">🎧 Слушать</div>
+                                </div>
+                                <div class="card-text">Можно выбрать удобный режим и продолжать знакомство с книгой в любом месте.</div>
+                            </div>
+
+                            <div class="journey">
+                                <div class="journey-step">
+                                    <div class="journey-num">1</div>
+                                    <div class="journey-body">
+                                        <div class="journey-title">Перед сном</div>
+                                        <div class="journey-text">Слушай любимую историю вечером, когда хочется отдохнуть.</div>
+                                    </div>
+                                </div>
+                                <div class="journey-step">
+                                    <div class="journey-num">2</div>
+                                    <div class="journey-body">
+                                        <div class="journey-title">В дороге</div>
+                                        <div class="journey-text">Открой книгу в машине или автобусе и не теряй время зря.</div>
+                                    </div>
+                                </div>
+                                <div class="journey-step">
+                                    <div class="journey-num">3</div>
+                                    <div class="journey-body">
+                                        <div class="journey-title">На прогулке или тренировке</div>
+                                        <div class="journey-text">Слушать удобно даже тогда, когда читать с экрана не получается.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="screenshot-wrap screenshot-contain book-shot">
+                            <img src="img/sample_book.png" alt="Пример книги" class="screenshot">
+                        </div>
                     </div>
-                    <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 0.8rem 1.5rem; border-radius: 15px; box-shadow: 0 6px 18px rgba(0,0,0,0.15);">
-                        <p style="font-size: 1.1rem; font-weight: 700; color: white; margin: 0;">🎧 Слушать</p>
-                    </div>
-                </div>
-                
-                <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 1rem 1.5rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); max-width: 800px; width: 100%;">
-                    <p style="font-size: 1rem; font-weight: bold; color: #2d3748; margin-bottom: 0.6rem;">Это очень важно и удобно! ✨</p>
-                    <p style="font-size: 0.9rem; color: #2d3748; font-weight: 600; margin: 0; line-height: 1.4;">
-                        🌙 Слушай перед сном • 🚗 В дороге на машине • 🏃 На беговой тренировке
-                    </p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Слайд 5: Возможности -->
-        <div class="slide slide-5">
+        <section class="slide slide-5">
             <div class="slide-number">5</div>
-            <div class="decoration decoration-1"></div>
-            <div class="decoration decoration-2"></div>
-            <div class="decoration decoration-book" style="top: 20%; right: 15%;">💻</div>
-            
-            <div class="content">
-                <h2 style="font-size: 2.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.15); margin-bottom: 1.2rem;">Возможности</h2>
-                <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 800px;">
-                    <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 1.1rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
-                        <span style="font-size: 2.5rem;">💻</span>
-                        <span style="font-size: 1.1rem; color: white; font-weight: 600;">Читай на компьютере, телефоне или планшете</span>
-                    </div>
-                    <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 1.1rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
-                        <span style="font-size: 2.5rem;">🎯</span>
-                        <span style="font-size: 1.1rem; color: white; font-weight: 600;">Выбирай книги по интересам</span>
-                    </div>
-                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.1rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
-                        <span style="font-size: 2.5rem;">📊</span>
-                        <span style="font-size: 1.1rem; color: white; font-weight: 600;">Отслеживай свой прогресс</span>
+            <div class="frame">
+                <div class="decor decor-a"></div>
+                <div class="decor decor-b"></div>
+                <div class="decor decor-c"></div>
+
+                <div class="content">
+                    <div class="eyebrow">Возможности</div>
+                    <h2>Возможности</h2>
+                    <p class="lead">Платформа помогает читать без лишних сложностей и подстраивается под привычки школьника.</p>
+
+                    <div class="grid-2">
+                        <div class="card soft feature-card tone-pink">
+                            <div class="icon icon-pink">💻</div>
+                            <div>
+                                <div class="feature-title">На любом устройстве</div>
+                                <div class="feature-copy">Читай на компьютере, телефоне или планшете без смены привычного сценария.</div>
+                            </div>
+                        </div>
+                        <div class="card soft feature-card tone-cyan">
+                            <div class="icon icon-cyan">🎯</div>
+                            <div>
+                                <div class="feature-title">По интересам</div>
+                                <div class="feature-copy">Выбирай книги по теме, настроению или школьному заданию.</div>
+                            </div>
+                        </div>
+                        <div class="card soft feature-card tone-blue">
+                            <div class="icon icon-blue">📊</div>
+                            <div>
+                                <div class="feature-title">С прогрессом</div>
+                                <div class="feature-copy">Отслеживай, сколько уже прочитано и что осталось впереди.</div>
+                            </div>
+                        </div>
+                        <div class="card soft tone-gold">
+                            <div class="card-title">Почему это удобно</div>
+                            <div class="card-text">Библиотека помогает ребёнку не теряться в большом списке произведений и быстрее входить в чтение.</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Слайд 6: Три крутые фишки -->
-        <div class="slide slide-6">
+        <section class="slide slide-6">
             <div class="slide-number">6</div>
-            <div class="decoration decoration-1"></div>
-            <div class="decoration decoration-2"></div>
-            <div class="decoration decoration-star" style="top: 15%; right: 20%;">⭐</div>
-            
-            <div class="content">
-                <h2 style="font-size: 2.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.15); margin-bottom: 1.2rem;">Три крутые фишки</h2>
-                <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 850px;">
-                    <div style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); padding: 1.1rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
-                        <span style="font-size: 2.5rem;">✅</span>
-                        <span style="font-size: 1.1rem; color: white; font-weight: 600;"><strong>Видишь свой прогресс</strong> — сколько прочитал, сколько осталось</span>
-                    </div>
-                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.1rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
-                        <span style="font-size: 2.5rem;">🔍</span>
-                        <span style="font-size: 1.1rem; color: white; font-weight: 600;"><strong>Найди любую книгу</strong> за секунду</span>
-                    </div>
-                    <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 1.1rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
-                        <span style="font-size: 2.5rem;">🔄</span>
-                        <span style="font-size: 1.1rem; color: white; font-weight: 600;"><strong>Быстро переходи</strong> между разделами</span>
+            <div class="frame">
+                <div class="decor decor-a"></div>
+                <div class="decor decor-b"></div>
+                <div class="decor decor-c"></div>
+
+                <div class="content">
+                    <div class="eyebrow">Сильные стороны</div>
+                    <h2>Три крутые фишки</h2>
+                    <p class="lead">Самые полезные возможности сделаны так, чтобы их понимал и ребёнок, и взрослый, который помогает ему читать.</p>
+
+                    <div class="grid-2">
+                        <div class="card soft feature-card tone-gold">
+                            <div class="icon icon-gold">✅</div>
+                            <div>
+                                <div class="feature-title">Видишь свой прогресс</div>
+                                <div class="feature-copy">Сразу понятно, сколько уже прочитал и сколько ещё осталось.</div>
+                            </div>
+                        </div>
+                        <div class="card soft feature-card tone-blue">
+                            <div class="icon icon-blue">🔍</div>
+                            <div>
+                                <div class="feature-title">Находишь книгу быстро</div>
+                                <div class="feature-copy">Поиск помогает добраться до нужного произведения буквально за секунду.</div>
+                            </div>
+                        </div>
+                        <div class="card soft feature-card tone-cyan">
+                            <div class="icon icon-cyan">🔄</div>
+                            <div>
+                                <div class="feature-title">Легко переходишь между разделами</div>
+                                <div class="feature-copy">Не нужно заново привыкать к сайту, всё работает предсказуемо и спокойно.</div>
+                            </div>
+                        </div>
+                        <div class="card soft tone-pink">
+                            <div class="card-title">Общий эффект</div>
+                            <div class="card-text">Платформа не перегружает и не отвлекает, а помогает сосредоточиться на чтении.</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Слайд 7: Индикатор прогресса -->
-        <div class="slide slide-7">
+        <section class="slide slide-7">
             <div class="slide-number">7</div>
-            <div class="decoration decoration-1"></div>
-            <div class="decoration decoration-2"></div>
-            <div class="decoration decoration-star" style="bottom: 30%; right: 25%;">🌟</div>
-            
-            <div class="content">
-                <h2 style="font-size: 2.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.15); margin-bottom: 1.2rem;">Видишь свой прогресс</h2>
-                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.3rem 1.8rem; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 1.5rem;">
-                    <p style="font-size: 1.4rem; margin-bottom: 1rem; color: white; font-weight: bold;">Прочитано 13 из 20 книг</p>
-                    
-                    <div style="background: rgba(255,255,255,0.3); border-radius: 50px; height: 45px; position: relative; overflow: hidden; box-shadow: inset 0 4px 8px rgba(0,0,0,0.1);">
-                        <div style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); width: 65%; height: 100%; border-radius: 50px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: bold; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">65%</div>
+            <div class="frame">
+                <div class="decor decor-a"></div>
+                <div class="decor decor-b"></div>
+                <div class="decor decor-c"></div>
+
+                <div class="content">
+                    <div class="eyebrow">Прогресс</div>
+                    <h2>Видишь свой прогресс</h2>
+
+                    <div class="two-col progress-layout">
+                        <div class="stack">
+                            <div class="card progress-card">
+                                <div class="progress-stat">Прочитано 13 из 20 книг</div>
+                                <div class="progress-track">
+                                    <div class="progress-fill">65%</div>
+                                </div>
+                                <div class="progress-note">Осталось ещё 7 книг — ты на пути! 🎯</div>
+                            </div>
+
+                            <div class="card soft tone-cyan">
+                                <div class="card-title">Зачем это нужно</div>
+                                <div class="card-text">Когда ребёнок видит движение вперёд, читать становится интереснее и легче поддерживать привычку.</div>
+                            </div>
+                        </div>
+
+                        <div class="stack">
+                            <div class="card soft feature-card tone-blue">
+                                <div class="icon icon-blue">👀</div>
+                                <div>
+                                    <div class="feature-title">Результат виден сразу</div>
+                                    <div class="feature-copy">Не нужно вспоминать по памяти, сколько книг уже освоено.</div>
+                                </div>
+                            </div>
+                            <div class="card soft feature-card tone-pink">
+                                <div class="icon icon-pink">🌟</div>
+                                <div>
+                                    <div class="feature-title">Есть мотивация продолжать</div>
+                                    <div class="feature-copy">Наглядный процент помогает не бросать чтение на полпути.</div>
+                                </div>
+                            </div>
+                            <div class="card soft feature-card tone-gold">
+                                <div class="icon icon-gold">📘</div>
+                                <div>
+                                    <div class="feature-title">Путь до цели понятен</div>
+                                    <div class="feature-copy">Легко увидеть, сколько книг осталось в списке и как распределить чтение.</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <p style="font-size: 1.2rem; margin-top: 1rem; color: white; font-weight: 600;"><strong>Осталось ещё 7 книг</strong> — ты на пути! 🎯</p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Слайд 8: Поиск и фильтры -->
-        <div class="slide slide-8">
+        <section class="slide slide-8">
             <div class="slide-number">8</div>
-            <div class="decoration decoration-1"></div>
-            <div class="decoration decoration-2"></div>
-            <div class="decoration decoration-book" style="top: 25%; left: 20%;">🔎</div>
-            
-            <div class="content">
-                <h2 style="font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.15); margin-bottom: 1.2rem;">Поиск и фильтры</h2>
-                
-                <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 1rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 1rem; max-width: 600px; width: 100%;">
-                    <div style="font-size: 1rem; color: rgba(255,255,255,0.9); margin-bottom: 0.6rem;">Ты пишешь:</div>
-                    <div style="font-size: 1.4rem; color: white; margin-bottom: 0.8rem; font-weight: bold;">"Остров сокровищ"</div>
-                    <div style="height: 2.3rem; margin-bottom: 0.8rem;"></div>
-                    <div style="background: rgba(255,255,255,0.25); padding: 0.6rem 1rem; border-radius: 15px; font-size: 1rem; color: #2d3748; font-weight: 600;">Бац! Книга найдена! ✅</div>
-                </div>
-                
-                <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 1rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); max-width: 600px; width: 100%;">
-                    <div style="font-size: 1rem; color: rgba(255,255,255,0.9); margin-bottom: 0.6rem;">Или:</div>
-                    <div style="font-size: 1.4rem; color: white; margin-bottom: 0.8rem; font-weight: bold;">"Покажи мне..."</div>
-                    <div style="display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; margin-bottom: 0.8rem;">
-                        <div style="background: rgba(255,255,255,0.3); padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 0.95rem; color: #2d3748; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.15); cursor: pointer; transition: all 0.3s;">фантастику</div>
-                        <div style="background: rgba(255,255,255,0.3); padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 0.95rem; color: #2d3748; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.15); cursor: pointer; transition: all 0.3s;">приключения</div>
-                        <div style="background: rgba(255,255,255,0.3); padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 0.95rem; color: #2d3748; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.15); cursor: pointer; transition: all 0.3s;">классику</div>
+            <div class="frame">
+                <div class="decor decor-a"></div>
+                <div class="decor decor-b"></div>
+                <div class="decor decor-c"></div>
+
+                <div class="content">
+                    <div class="eyebrow">Поиск</div>
+                    <h2>Поиск и фильтры</h2>
+                    <p class="lead">Нужную книгу можно найти по названию или попросить систему показать подборку по жанру и интересу.</p>
+
+                    <div class="two-col search-layout">
+                        <div class="stack">
+                            <div class="search-panel search-panel-pink">
+                                <div class="search-label">Ты пишешь:</div>
+                                <div class="search-value">"Остров сокровищ"</div>
+                                <div class="search-result">Бац! Книга найдена! ✅</div>
+                            </div>
+
+                            <div class="search-panel search-panel-cyan">
+                                <div class="search-label">Или:</div>
+                                <div class="search-value">"Покажи мне..."</div>
+                                <div class="search-tags">
+                                    <span class="search-tag">фантастику</span>
+                                    <span class="search-tag">приключения</span>
+                                    <span class="search-tag">классику</span>
+                                </div>
+                                <div class="search-result search-result-dark">Готово! Только нужные книги ✅</div>
+                            </div>
+                        </div>
+
+                        <div class="stack">
+                            <div class="card soft tone-blue">
+                                <div class="card-title">Два простых способа</div>
+                                <div class="bullet-list">
+                                    <div class="bullet"><span class="bullet-mark">1</span><span><strong>По названию</strong> — если уже знаешь, что хочешь открыть.</span></div>
+                                    <div class="bullet"><span class="bullet-mark">2</span><span><strong>По интересу</strong> — если нужен жанр, настроение или тема.</span></div>
+                                </div>
+                            </div>
+
+                            <div class="card soft tone-gold">
+                                <div class="card-title">Что это даёт</div>
+                                <div class="card-text">Ребёнок не пугается большого списка книг, а быстро получает именно ту подборку, которая ему сейчас подходит.</div>
+                            </div>
+                        </div>
                     </div>
-                    <div style="background: rgba(255,255,255,0.25); padding: 0.6rem 1rem; border-radius: 15px; font-size: 1rem; color: #2d3748; font-weight: 600;">Готово! Только нужные книги ✅</div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Слайд 9: Мультиплатформенность -->
-        <div class="slide slide-9">
+        <section class="slide slide-9">
             <div class="slide-number">9</div>
-            <div class="decoration decoration-1"></div>
-            <div class="decoration decoration-2"></div>
-            <div class="decoration decoration-star" style="top: 20%; right: 15%;">✨</div>
-            
-            <div class="content">
-                <h2 style="font-size: 2.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.15); margin-bottom: 0.8rem;">Работает везде!</h2>
-                <p style="font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 500;">На компьютере, в дороге на телефоне, на планшете — везде красиво и удобно!</p>
-                
-                <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 450px; width: 100%;">
-                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
-                        <div style="background: white; padding: 0.8rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); flex-shrink: 0;">
-                            <img src="img/computer.svg" alt="Компьютер" style="width: 50px; height: 50px; display: block;">
+            <div class="frame">
+                <div class="decor decor-a"></div>
+                <div class="decor decor-b"></div>
+                <div class="decor decor-c"></div>
+
+                <div class="content">
+                    <div class="eyebrow">Устройства</div>
+                    <h2>Работает везде!</h2>
+                    <p class="lead">На компьютере, в дороге на телефоне и на планшете библиотека остаётся красивой, понятной и удобной.</p>
+
+                    <div class="impact device-layout">
+                        <div class="stack">
+                            <p class="big-quote">Одна библиотека для <span>компьютера</span>, <span>телефона</span> и <span>планшета</span>.</p>
+                            <div class="card soft tone-cyan">
+                                <div class="card-title">Мультиплатформенность</div>
+                                <div class="card-text">Ребёнок может продолжить чтение дома, в школе или в дороге без смены привычного сценария.</div>
+                            </div>
                         </div>
-                        <div style="font-size: 1.2rem; color: white; font-weight: 700; text-align: left;">Компьютер</div>
-                    </div>
-                    <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 1rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
-                        <div style="background: white; padding: 0.8rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); flex-shrink: 0;">
-                            <img src="img/phone.svg" alt="Телефон" style="width: 50px; height: 50px; display: block;">
+
+                        <div class="device-list">
+                            <div class="device-card tone-blue">
+                                <div class="device-icon-wrap"><img src="img/computer.svg" alt="Компьютер" class="device-icon"></div>
+                                <div>
+                                    <div class="device-title">Компьютер</div>
+                                    <div class="device-copy">Подходит для спокойного чтения дома и в классе.</div>
+                                </div>
+                            </div>
+                            <div class="device-card tone-pink">
+                                <div class="device-icon-wrap"><img src="img/phone.svg" alt="Телефон" class="device-icon"></div>
+                                <div>
+                                    <div class="device-title">Телефон</div>
+                                    <div class="device-copy">Удобно открыть книгу или аудио по дороге.</div>
+                                </div>
+                            </div>
+                            <div class="device-card tone-cyan">
+                                <div class="device-icon-wrap"><img src="img/tablet.svg" alt="Планшет" class="device-icon"></div>
+                                <div>
+                                    <div class="device-title">Планшет</div>
+                                    <div class="device-copy">Подходит для длинного чтения с большим экраном.</div>
+                                </div>
+                            </div>
                         </div>
-                        <div style="font-size: 1.2rem; color: white; font-weight: 700; text-align: left;">Телефон</div>
-                    </div>
-                    <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 1rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
-                        <div style="background: white; padding: 0.8rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); flex-shrink: 0;">
-                            <img src="img/tablet.svg" alt="Планшет" style="width: 50px; height: 50px; display: block;">
-                        </div>
-                        <div style="font-size: 1.2rem; color: white; font-weight: 700; text-align: left;">Планшет</div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Слайд 10: Главное -->
-        <div class="slide slide-10">
+        <section class="slide slide-10">
             <div class="slide-number">10</div>
-            <div class="decoration decoration-1"></div>
-            <div class="decoration decoration-2"></div>
-            <div class="decoration decoration-book" style="bottom: 20%; left: 25%;">❤️</div>
-            
-            <div class="content">
-                <h2 style="font-size: 2.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.15); margin-bottom: 1.5rem;">Главное — это просто!</h2>
-                
-                <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 800px; margin-bottom: 1.5rem;">
-                    <div style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); padding: 1.2rem 1.5rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
-                        <span style="font-size: 2.5rem;">🔍</span>
-                        <span style="font-size: 1.2rem; color: white; font-weight: 600;"><strong>Легко найти</strong> интересную книгу</span>
+            <div class="frame">
+                <div class="decor decor-a"></div>
+                <div class="decor decor-b"></div>
+                <div class="decor decor-c"></div>
+
+                <div class="content">
+                    <div class="eyebrow">Главное</div>
+                    <h2>Главное — это просто!</h2>
+
+                    <div class="impact">
+                        <div class="stack">
+                            <p class="big-quote">Читать становится <span>легко</span>, <span>понятно</span> и <span>с удовольствием</span>.</p>
+                            <div class="card soft tone-pink">
+                                <div class="card-title">Вот и вся магия! ✨</div>
+                                <div class="card-text">Когда интерфейс не мешает, ребёнок быстрее находит книгу и остаётся внутри чтения.</div>
+                            </div>
+                        </div>
+
+                        <div class="stack">
+                            <div class="card soft feature-card tone-gold">
+                                <div class="icon icon-gold">🔍</div>
+                                <div>
+                                    <div class="feature-title">Легко найти</div>
+                                    <div class="feature-copy">Интересную книгу или произведение из школьного списка.</div>
+                                </div>
+                            </div>
+                            <div class="card soft feature-card tone-blue">
+                                <div class="icon icon-blue">📈</div>
+                                <div>
+                                    <div class="feature-title">Легко видеть рост</div>
+                                    <div class="feature-copy">Прогресс помогает замечать собственный путь и маленькие победы.</div>
+                                </div>
+                            </div>
+                            <div class="card soft feature-card tone-cyan">
+                                <div class="icon icon-cyan">😊</div>
+                                <div>
+                                    <div class="feature-title">Легко читать с удовольствием</div>
+                                    <div class="feature-copy">Никаких лишних шагов, только книги и удобная подача.</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.2rem 1.5rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
-                        <span style="font-size: 2.5rem;">📈</span>
-                        <span style="font-size: 1.2rem; color: white; font-weight: 600;"><strong>Видеть,</strong> как ты растёшь</span>
-                    </div>
-                    <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 1.2rem 1.5rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1.2rem;">
-                        <span style="font-size: 2.5rem;">😊</span>
-                        <span style="font-size: 1.2rem; color: white; font-weight: 600;"><strong>Читать</strong> с удовольствием!</span>
-                    </div>
-                </div>
-                
-                <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 1rem 2rem; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); display: inline-block;">
-                    <div style="font-size: 1.4rem; color: white; font-weight: bold;">Вот и вся магия! ✨</div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Слайд 11: Задачи в разработке -->
-        <div class="slide slide-11">
+        <section class="slide slide-11">
             <div class="slide-number">11</div>
-            <div class="decoration decoration-1"></div>
-            <div class="decoration decoration-2"></div>
-            <div class="decoration decoration-star" style="top: 18%; right: 18%;">🚀</div>
-            <div class="decoration decoration-book" style="bottom: 22%; left: 15%;">🧩</div>
-            
-            <div class="content">
-                <h2 style="font-size: 2.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.12); margin-bottom: 0.8rem;">Задачи в разработке</h2>
-                <p style="font-size: 1.1rem; margin-bottom: 1.2rem; font-weight: 600; color: #2d3748;">Что появится дальше в Школьной библиотеке</p>
-                
-                <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 850px; width: 100%;">
-                    <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 1.2rem 1.4rem; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1rem;">
-                        <span style="font-size: 2.4rem;">📥</span>
-                        <div style="text-align: left;">
-                            <div style="font-size: 1.2rem; color: white; font-weight: 700;">Добавлять свои книги</div>
-                            <div style="font-size: 0.95rem; color: rgba(255,255,255,0.9); font-weight: 500;">Личные подборки для каждого класса</div>
+            <div class="frame">
+                <div class="decor decor-a"></div>
+                <div class="decor decor-b"></div>
+                <div class="decor decor-c"></div>
+
+                <div class="content">
+                    <div class="eyebrow">Развитие</div>
+                    <h2>Задачи в разработке</h2>
+                    <p class="lead">Что появится дальше в Школьной библиотеке и как проект будет становиться ещё полезнее.</p>
+
+                    <div class="grid-2">
+                        <div class="card soft feature-card tone-cyan">
+                            <div class="icon icon-cyan">📥</div>
+                            <div>
+                                <div class="feature-title">Добавлять свои книги</div>
+                                <div class="feature-copy">Личные подборки для каждого класса и новые материалы внутри библиотеки.</div>
+                            </div>
                         </div>
-                    </div>
-                    <div style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); padding: 1.2rem 1.4rem; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1rem;">
-                        <span style="font-size: 2.4rem;">🛠️</span>
-                        <div style="text-align: left;">
-                            <div style="font-size: 1.2rem; color: white; font-weight: 700;">Загрузка и корректировка базового списка</div>
-                            <div style="font-size: 0.95rem; color: rgba(255,255,255,0.9); font-weight: 500;">Без участия программиста</div>
+                        <div class="card soft feature-card tone-gold">
+                            <div class="icon icon-gold">🛠️</div>
+                            <div>
+                                <div class="feature-title">Корректировать базовый список</div>
+                                <div class="feature-copy">Загрузка и обновление списков без участия программиста.</div>
+                            </div>
                         </div>
-                    </div>
-                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.2rem 1.4rem; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 1rem;">
-                        <span style="font-size: 2.4rem;">🤖</span>
-                        <div style="text-align: left;">
-                            <div style="font-size: 1.2rem; color: white; font-weight: 700;">Интеграция с Телеграм-ботом</div>
-                            <div style="font-size: 0.95rem; color: rgba(255,255,255,0.9); font-weight: 500;">Уведомления и быстрый доступ к книгам</div>
+                        <div class="card soft feature-card tone-blue">
+                            <div class="icon icon-blue">🤖</div>
+                            <div>
+                                <div class="feature-title">Интеграция с Телеграм-ботом</div>
+                                <div class="feature-copy">Уведомления и быстрый доступ к книгам через привычный канал общения.</div>
+                            </div>
+                        </div>
+                        <div class="card soft tone-pink">
+                            <div class="card-title">Общий смысл развития</div>
+                            <div class="card-text">Библиотека должна становиться удобнее не только для чтения, но и для наполнения, сопровождения и школьной коммуникации.</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Слайд 12: Благодарности -->
-        <div class="slide slide-12">
+        <section class="slide slide-12">
             <div class="slide-number">12</div>
-            <div class="decoration decoration-1"></div>
-            <div class="decoration decoration-2"></div>
-            <div class="decoration decoration-star" style="top: 20%; right: 15%;">⭐</div>
-            
-            <div class="content">
-                <h2 style="font-size: 2.2rem; margin-bottom: 0.8rem;">Благодарности</h2>
-                <div style="display: flex; flex-direction: column; gap: 0.8rem; max-width: 900px; width: 100%; margin-top: 1rem;">
-                    <div class="feature" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 0.8rem; border-radius: 16px; display: flex; align-items: center; gap: 0.8rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-                        <span class="feature-icon" style="font-size: 2.5rem;">👨‍👩‍👦</span>
-                        <div style="text-align: left;">
-                            <div style="font-size: 1.4rem; font-weight: bold; color: white; margin-bottom: 0.2rem;">Моя семья</div>
-                            <div style="font-size: 1.05rem; color: #2d3748; font-weight: 600;">Папа, Мама — за поддержку и вдохновение</div>
+            <div class="frame">
+                <div class="decor decor-a"></div>
+                <div class="decor decor-b"></div>
+                <div class="decor decor-c"></div>
+
+                <div class="content">
+                    <div class="eyebrow">Благодарности</div>
+                    <h2>Благодарности</h2>
+
+                    <div class="two-col gratitude-layout">
+                        <div class="stack">
+                            <div class="card soft feature-card tone-blue">
+                                <div class="icon icon-blue">👨‍👩‍👦</div>
+                                <div>
+                                    <div class="feature-title">Моя семья</div>
+                                    <div class="feature-copy">Папа, Мама — за поддержку и вдохновение.</div>
+                                </div>
+                            </div>
+                            <div class="card soft feature-card tone-pink">
+                                <div class="icon icon-pink">🤝</div>
+                                <div>
+                                    <div class="feature-title">Родители одноклассников</div>
+                                    <div class="feature-copy">За обратную связь и помощь в тестировании сайта.</div>
+                                </div>
+                            </div>
+                            <div class="card soft gratitude-school tone-cyan">
+                                <img src="img/logo_naash2.jpg" alt="Логотип НААШ" class="gratitude-logo">
+                                <div>
+                                    <div class="feature-title">НААШ 186</div>
+                                    <div class="feature-copy">За возможность развиваться и создавать проекты.</div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="feature" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 0.8rem; border-radius: 16px; display: flex; align-items: center; gap: 0.8rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-                        <span class="feature-icon" style="font-size: 2.5rem;">🤝</span>
-                        <div style="text-align: left;">
-                            <div style="font-size: 1.4rem; font-weight: bold; color: white; margin-bottom: 0.2rem;">Родители одноклассников</div>
-                            <div style="font-size: 1.05rem; color: #2d3748; font-weight: 600;">За обратную связь и помощь в тестировании сайта</div>
+
+                        <div class="stack">
+                            <div class="card soft tone-gold">
+                                <div class="card-title">Спасибо всем, кто был рядом</div>
+                                <div class="card-text">Этот проект вырос благодаря поддержке, обратной связи и общему желанию сделать чтение ближе к детям.</div>
+                            </div>
+                            <div class="gratitude-badges">
+                                <div class="gratitude-badge tone-pink">
+                                    <span class="gratitude-emoji">💝</span>
+                                    <span>Благодарю всех</span>
+                                </div>
+                                <div class="gratitude-badge tone-blue">
+                                    <span class="gratitude-emoji">🙏</span>
+                                    <span>За поддержку</span>
+                                </div>
+                                <div class="gratitude-badge tone-gold">
+                                    <span class="gratitude-emoji">❤️</span>
+                                    <span>С любовью</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="feature" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 0.8rem; border-radius: 16px; display: flex; align-items: center; gap: 0.8rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-                        <img src="img/logo_naash2.jpg" alt="Логотип НААШ" style="width: 55px; height: 55px; border-radius: 50%; object-fit: cover; background: white; padding: 4px;">
-                        <div style="text-align: left;">
-                            <div style="font-size: 1.4rem; font-weight: bold; color: white; margin-bottom: 0.2rem;">НААШ 186</div>
-                            <div style="font-size: 1.05rem; color: #2d3748; font-weight: 600;">За возможность развиваться и создавать проекты</div>
-                        </div>
-                    </div>
-                </div>
-                <div style="display: flex; justify-content: center; gap: 1.2rem; margin-top: 1rem;">
-                    <div style="text-align: center;">
-                        <div style="width: 65px; height: 65px; border-radius: 50%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 0.3rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-                            <span style="font-size: 2.2rem;">💝</span>
-                        </div>
-                        <p style="color: #2d3748; font-size: 0.95rem; font-weight: 600;">Благодарю всех</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="width: 65px; height: 65px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 0.3rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-                            <span style="font-size: 2.2rem;">🙏</span>
-                        </div>
-                        <p style="color: #2d3748; font-size: 0.95rem; font-weight: 600;">За поддержку</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="width: 65px; height: 65px; border-radius: 50%; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 0.3rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-                            <span style="font-size: 2.2rem;">❤️</span>
-                        </div>
-                        <p style="color: #2d3748; font-size: 0.95rem; font-weight: 600;">С любовью</p>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Слайд 13: Заключение -->
-        <div class="slide slide-13">
+        <section class="slide slide-13">
             <div class="slide-number">13</div>
-            <div class="decoration decoration-1"></div>
-            <div class="decoration decoration-2"></div>
-            <div class="decoration decoration-star" style="top: 25%; left: 20%;">⭐</div>
-            <div class="decoration decoration-star" style="bottom: 25%; right: 20%;">⭐</div>
-            <div class="decoration decoration-book" style="top: 40%; right: 30%;">📚</div>
-            <div class="decoration decoration-star" style="top: 60%; left: 15%;">✨</div>
-            
-            <div class="content">
-                <h1 style="font-size: 2.6rem; margin-bottom: 1.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); font-weight: 800;">Спасибо за внимание!</h1>
-                
-                <div style="text-align: center; margin-top: 1.5rem;">
-                    <div style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.5rem; border-radius: 30px; box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4); margin-bottom: 1.2rem;">
-                        <img src="img/qr_Elib_site.png" alt="QR-код электронной библиотеки" style="width: 160px; height: 160px; display: block; border-radius: 20px; background: white; padding: 10px;">
-                    </div>
-                    <p style="font-size: 1.2rem; font-weight: bold; color: #2d3748; margin-bottom: 0.5rem;">Отсканируй QR-код</p>
-                </div>
-                
-                <div class="welcome-text" style="margin-top: 2rem; font-size: 1.3rem; font-weight: 700; color: #2d3748;">Добро пожаловать в нашу библиотеку! 🎉</div>
-            </div>
-        </div>
+            <div class="frame">
+                <div class="decor decor-a"></div>
+                <div class="decor decor-b"></div>
+                <div class="decor decor-c"></div>
 
-        <!-- Навигационные кнопки -->
+                <div class="content closing-content">
+                    <div class="eyebrow">Финал</div>
+                    <h2>Спасибо за внимание!</h2>
+
+                    <div class="closing-card">
+                        <div class="qr-shell">
+                            <img src="img/qr_Elib_site.png" alt="QR-код электронной библиотеки" class="closing-qr">
+                        </div>
+                        <div class="closing-title">Отсканируй QR-код</div>
+                        <div class="closing-note">Добро пожаловать в нашу библиотеку! 🎉</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <div class="nav-buttons">
             <button class="nav-btn" id="prevBtn">◀</button>
             <button class="nav-btn" id="nextBtn">▶</button>
         </div>
     </div>
 
+    <script src="../shared/presentation-return.js"></script>
     <script src="script.js"></script>
 
 </body>
