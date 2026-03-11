@@ -1,0 +1,40 @@
+.portal-return-btn {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 10000;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    background: linear-gradient(135deg, #0a7cff 0%, #43b0ff 100%);
+    box-shadow: 0 8px 22px rgba(0, 102, 255, 0.28);
+    color: #ffffff;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+}
+
+.portal-return-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 26px rgba(0, 102, 255, 0.34);
+}
+
+.portal-return-btn:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.85);
+    outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+    .portal-return-btn {
+        top: 10px;
+        left: 10px;
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}

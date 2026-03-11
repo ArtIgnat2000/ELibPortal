@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Bot для школьников</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../shared/presentation-return.css">
+</head>
+<body class="theme-dark" data-portal-target="presentations">
+    <a id="back-btn" class="portal-return-btn" data-portal-target="presentations" href="/presentations">&#8592; На портал</a>
+    <button class="theme-toggle" onclick="toggleTheme()">☀️ День</button>
+
+    <!-- Slide 1: Title Slide -->
+    <section class="slide bot-title-slide" data-slide-id="1">
+        <div class="title-frame">
+            <div class="title-decor title-decor-a"></div>
+            <div class="title-decor title-decor-b"></div>
+            <div class="title-decor title-decor-c"></div>
+            <div class="title-content">
+                <div class="title-eyebrow">Слайд 1 · Титульный</div>
+
+                <div class="title-logo-wrap">
+                    <img src="../project-presentation/img/logo_naash2.jpg" alt="Логотип НААШ" class="title-logo">
+                </div>
+
+                <div class="title-copy">
+                    <h1 class="title-heading">Бот-<br>помощник</h1>
+                    <p class="title-lead">Telegram-бот для школьников и родителей</p>
+                </div>
+
+                <div class="title-meta">
+                    <div class="title-author-block">
+                        <div class="title-label">Автор проекта</div>
+                        <div class="title-author">Виктор Игратьев</div>
+                        <div class="title-year">2026 г.</div>
+                    </div>
+                    <div class="title-qr-block">
+                        <img src="images/Liik_Prezent.png" alt="QR-код бота" class="title-qr">
+                        <div class="title-qr-caption">Открыть бот</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">1/18</div>
+    </section>
+
+    <!-- Slide 2: Bot Interface Part 1 -->
+    <section class="slide col center hidden" data-slide-id="2" style="background-color: #0f172a; color: #f1f5f9;">
+        <h2 class="mb-4" style="color: #38bdf8; text-align: center; font-size: 1.8rem;">Интерфейс бота</h2>
+        <p style="color: #cbd5e1; text-align: center; margin-bottom: 1.5rem; font-size: 1rem;">Удобный и интуитивный — всё под рукой</p>
+        <div style="display: flex; justify-content: center; gap: 3rem; max-width: 900px; width: 100%;">
+            <!-- Main Page -->
+            <div style="background-color: #1e293b; border-radius: 12px; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); display: flex; flex-direction: column; align-items: center; gap: 1rem; max-width: 400px;">
+                <div style="width: 100%; max-width: 280px; border-radius: 8px; overflow: hidden; border: 3px solid #334155;">
+                    <img src="images/bot_main_page.png" alt="Главная страница" style="width: 100%; height: auto; display: block;">
+                </div>
+                <div style="text-align: center;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem; font-size: 1.2rem;">🏠 Главная</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.4;">Быстрый доступ ко всем функциям</p>
+                </div>
+            </div>
+            <!-- Help -->
+            <div style="background-color: #1e293b; border-radius: 12px; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); display: flex; flex-direction: column; align-items: center; gap: 1rem; max-width: 400px;">
+                <div style="width: 100%; max-width: 280px; border-radius: 8px; overflow: hidden; border: 3px solid #334155;">
+                    <img src="images/bot_help.png" alt="Помощь" style="width: 100%; height: auto; display: block;">
+                </div>
+                <div style="text-align: center;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem; font-size: 1.2rem;">❓ Помощь</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.4;">Справка и поддержка</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">2/18</div>
+    </section>
+
+    <!-- Slide 3: Bot Schedule Details -->
+    <section class="slide col center hidden" data-slide-id="3" style="background-color: #0f172a; color: #f1f5f9;">
+        <h2 class="mb-4" style="color: #38bdf8; text-align: center; font-size: 1.8rem;">Расписание</h2>
+        <p style="color: #cbd5e1; text-align: center; margin-bottom: 1.5rem; font-size: 1rem;">Все виды расписаний в одном месте</p>
+        <div style="display: flex; justify-content: center; gap: 1.5rem; max-width: 1000px; width: 100%;">
+            <!-- Schedule Main -->
+            <div style="background-color: #1e293b; border-radius: 12px; padding: 1rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); display: flex; flex-direction: column; align-items: center; max-width: 280px; height: 640px;">
+                <div style="width: 100%; max-width: 200px; border-radius: 8px; overflow: hidden; border: 3px solid #334155;">
+                    <img src="images/Bot_schedule.png" alt="Расписание" style="width: 100%; height: auto; display: block;">
+                </div>
+                <div style="text-align: center; margin-top: auto; padding-top: 2rem;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.25rem; font-size: 1.1rem;">📅 Расписание</h3>
+                    <p style="color: #cbd5e1; font-size: 0.85rem; line-height: 1.3;">Уроков, звонков, шкала оценок</p>
+                </div>
+            </div>
+            <!-- Schedule Holiday -->
+            <div style="background-color: #1e293b; border-radius: 12px; padding: 1rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); display: flex; flex-direction: column; align-items: center; max-width: 280px; height: 640px;">
+                <div style="width: 100%; max-width: 200px; border-radius: 8px; overflow: hidden; border: 3px solid #334155;">
+                    <img src="images/Bot_schedule_Holyday.png" alt="Каникулы" style="width: 100%; height: auto; display: block;">
+                </div>
+                <div style="text-align: center; margin-top: auto; padding-top: 2rem;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.25rem; font-size: 1.1rem;">🏖️ Каникулы</h3>
+                    <p style="color: #cbd5e1; font-size: 0.85rem; line-height: 1.3;">Расписание каникул</p>
+                </div>
+            </div>
+            <!-- Schedule Meal -->
+            <div style="background-color: #1e293b; border-radius: 12px; padding: 1rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); display: flex; flex-direction: column; align-items: center; max-width: 280px; height: 640px;">
+                <div style="width: 100%; max-width: 200px; border-radius: 8px; overflow: hidden; border: 3px solid #334155;">
+                    <img src="images/Bot_schedule_meal.png" alt="Питание" style="width: 100%; height: auto; display: block;">
+                </div>
+                <div style="text-align: center; margin-top: auto; padding-top: 2rem;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.25rem; font-size: 1.1rem;">🍽️ Питание</h3>
+                    <p style="color: #cbd5e1; font-size: 0.85rem; line-height: 1.3;">Время приема пищи</p>
+                </div>
+            </div>
+            <!-- Schedule Add -->
+            <div style="background-color: #1e293b; border-radius: 12px; padding: 1rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); display: flex; flex-direction: column; align-items: center; max-width: 280px; height: 640px;">
+                <div style="width: 100%; max-width: 200px; border-radius: 8px; overflow: hidden; border: 3px solid #334155;">
+                    <img src="images/Bot_schedule_Add.png" alt="Дополнительно" style="width: 100%; height: auto; display: block;">
+                </div>
+                <div style="text-align: center; margin-top: auto; padding-top: 2rem;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.25rem; font-size: 1.1rem;">➕ Дополнительно</h3>
+                    <p style="color: #cbd5e1; font-size: 0.85rem; line-height: 1.3;">Кружки и секции</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">3/18</div>
+    </section>
+
+    <!-- Slide 4: V Labs -->
+    <section class="slide col center hidden" data-slide-id="4" style="background-color: #0f172a; color: #f1f5f9;">
+        <h2 class="mb-4" style="color: #38bdf8; text-align: center; font-size: 1.8rem;">Онлайн школа программирования V-Labs</h2>
+        <p style="color: #cbd5e1; text-align: center; margin-bottom: 1.5rem; font-size: 1rem;">Создадим игры, а не просто играем!</p>
+        <div style="display: flex; justify-content: center; gap: 1.5rem; max-width: 1000px; width: 100%;">
+            <!-- V Labs Main -->
+            <div style="background-color: #1e293b; border-radius: 12px; padding: 1rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); display: flex; flex-direction: column; align-items: center; max-width: 280px; height: 640px;">
+                <div style="width: 100%; max-width: 200px; border-radius: 8px; overflow: hidden; border: 3px solid #334155;">
+                    <img src="images/Bot_Vlabs.png" alt="V Labs" style="width: 100%; height: auto; display: block;">
+                </div>
+                <div style="text-align: center; margin-top: auto; padding-top: 2rem;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.25rem; font-size: 1.1rem;">💻 V Labs</h3>
+                    <p style="color: #cbd5e1; font-size: 0.85rem; line-height: 1.3;">Онлайн школа программирования для детей</p>
+                </div>
+            </div>
+            <!-- V Labs Courses -->
+            <div style="background-color: #1e293b; border-radius: 12px; padding: 1rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); display: flex; flex-direction: column; align-items: center; max-width: 280px; height: 640px;">
+                <div style="width: 100%; max-width: 200px; border-radius: 8px; overflow: hidden; border: 3px solid #334155;">
+                    <img src="images/vlabs_kurses.png" alt="Курсы" style="width: 100%; height: auto; display: block;">
+                </div>
+                <div style="text-align: center; margin-top: auto; padding-top: 2rem;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.25rem; font-size: 1.1rem;">📚 Курсы</h3>
+                    <p style="color: #cbd5e1; font-size: 0.85rem; line-height: 1.3;">Разнообразные программы обучения</p>
+                </div>
+            </div>
+            <!-- V Labs Scratch -->
+            <div style="background-color: #1e293b; border-radius: 12px; padding: 1rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); display: flex; flex-direction: column; align-items: center; max-width: 280px; height: 640px;">
+                <div style="width: 100%; max-width: 200px; border-radius: 8px; overflow: hidden; border: 3px solid #334155;">
+                    <img src="images/vlabs_scrath.png" alt="Scratch" style="width: 100%; height: auto; display: block;">
+                </div>
+                <div style="text-align: center; margin-top: auto; padding-top: 2rem;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.25rem; font-size: 1.1rem;">🎮 Scratch</h3>
+                    <p style="color: #cbd5e1; font-size: 0.85rem; line-height: 1.3;">Визуальное программирование</p>
+                </div>
+            </div>
+            <!-- V Labs Create -->
+            <div style="background-color: #1e293b; border-radius: 12px; padding: 1rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); display: flex; flex-direction: column; align-items: center; max-width: 280px; height: 640px;">
+                <div style="width: 100%; max-width: 200px; border-radius: 8px; overflow: hidden; border: 3px solid #334155;">
+                    <img src="images/vlabs_create.png" alt="Создание" style="width: 100%; height: auto; display: block;">
+                </div>
+                <div style="text-align: center; margin-top: auto; padding-top: 2rem;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.25rem; font-size: 1.1rem;">🚀 Создание</h3>
+                    <p style="color: #cbd5e1; font-size: 0.85rem; line-height: 1.3;">Проектная деятельность</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">4/18</div>
+    </section>
+
+    <!-- Slide 5: For Whom -->
+    <section class="slide col center hidden" data-slide-id="5" style="background-color: #0f172a; color: #f1f5f9;">
+        <h2 class="mb-6" style="color: #38bdf8; text-align: left;">Для кого этот бот?</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 900px; width: 100%;">
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">👨‍🎓</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Школьники</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Помощник в учёбе и организации дня</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">👨‍👩‍👧</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Родители</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Контроль расписания и успехов</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">👵👴</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Бабушки и дедушки</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Следить за новостями из школы</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">5/18</div>
+    </section>
+
+    <!-- Slide 6: What Bot Can Do -->
+    <section class="slide col center hidden" data-slide-id="3" style="background-color: #0f172a; color: #f1f5f9;">
+        <h2 class="mb-6" style="color: #38bdf8; text-align: left;">Что умеет делать бот?</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 900px; width: 100%;">
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">📅</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Расписание</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Уроков, звонков, питания, каникул, тренировок, кружков</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">📊</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Шкала оценок</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Полезная информация</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">💻</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">V labs</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Онлайн школа программирования</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">📚</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Учебники</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Доступ к любой странице по номеру</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">📖</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Библиотека</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Каталог книг и материалов</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">6/18</div>
+    </section>
+
+    <!-- Slide 7: How It Works -->
+    <section class="slide col center hidden" data-slide-id="4" style="background-color: #0f172a; color: #f1f5f9;">
+        <h2 class="mb-6" style="color: #38bdf8; text-align: left;">Как всё работает?</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 900px; width: 100%;">
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">⚡</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Быстро</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Мгновенный ответ</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">✨</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Удобно</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">В Telegram, без логина</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">🕐</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">24/7</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Всегда доступен</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">7/18</div>
+    </section>
+
+    <!-- Slide 8: What is Telegram Bot -->
+    <section class="slide col center hidden" data-slide-id="5" style="background-color: #0f172a; color: #f1f5f9;">
+        <h2 class="mb-6" style="color: #38bdf8; text-align: left;">Что такое Telegram-бот?</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 900px; width: 100%;">
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">⚙️</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Специальная программа</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Реагирует на команды в Telegram</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">🔄</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Автоматическая обработка</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Обрабатывает сообщения и отправляет ответы</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">⏰</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Круглосуточная работа</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Работает 24/7 на серверах Telegram</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">🎯</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Полезные задачи</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Выполняет различные задачи для пользователей</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">8/18</div>
+    </section>
+
+    <!-- Slide 9: Why Create Bots -->
+    <section class="slide col center hidden" data-slide-id="6" style="background-color: #0f172a; color: #f1f5f9;">
+        <h2 class="mb-6" style="color: #38bdf8; text-align: left;">Зачем нужны Telegram-боты?</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 900px; width: 100%;">
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">🔁</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Автоматизация</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Автоматизация повторяющихся задач</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">📝</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Помощь в учёбе</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Организация времени и учебного процесса</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">🎮</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Развлечения</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Игры и развлечения для пользователей</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">📢</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Рассылка информации</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Рассылка важной информации</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">9/18</div>
+    </section>
+
+    <!-- Slide 10: Technologies -->
+    <section class="slide col center hidden" data-slide-id="7" style="background-color: #0f172a; color: #f1f5f9;">
+        <h2 class="mb-6" style="color: #38bdf8; text-align: left;">Технологии для создания</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 900px; width: 100%;">
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">🐍</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Python</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Язык программирования</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">🔌</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Telegram Bot API</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Интерфейс для работы с платформой</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">⚡</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Aiogram</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Асинхронная библиотека для создания Telegram-ботов на Python</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="flex-shrink: 0;">
+                    <img src="images/bot_father.jpg" alt="BotFather" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover; border: 2px solid #334155; background-color: #f8fafc;">
+                </div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">BotFather</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Инструмент для регистрации ботов</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">10/18</div>
+    </section>
+
+    <!-- Slide 11: How Bot Works -->
+    <section class="slide col center hidden" data-slide-id="8" style="background-color: #0f172a; color: #f1f5f9;">
+        <h2 class="mb-6" style="color: #38bdf8; text-align: left;">Как работает бот?</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 900px; width: 100%;">
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">👤</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Пользователь</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Отправляет сообщения и команды боту</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">📡</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Telegram API</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Передает запросы между пользователем и ботом</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">🤖</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Бот (Python)</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Обрабатывает запросы и отправляет ответы</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">11/18</div>
+    </section>
+
+    <!-- Slide 12: Bot Commands -->
+    <section class="slide col center hidden" data-slide-id="9" style="background-color: #0f172a; color: #f1f5f9;">
+        <h2 class="mb-6" style="color: #38bdf8; text-align: left;">Команды бота</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 900px; width: 100%;">
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">▶️</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">/start</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Начать работу</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">📋</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">/menu</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Главное меню</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">❓</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">/help</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Справка о доступных командах</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">ℹ️</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">/info</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Информация</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">12/18</div>
+    </section>
+
+    <!-- Slide 13: Python Code Example -->
+    <section class="slide col center hidden" data-slide-id="10" style="background-color: #0f172a; color: #f1f5f9;">
+        <h2 class="mb-4" style="color: #38bdf8; text-align: center;">Пример кода на Python</h2>
+        <pre style="background-color: #1e293b; color: #d4d4d4; padding: 1.5rem; border-radius: 8px; font-size: 0.9rem; overflow-x: auto; margin-top: 1rem; text-align: left; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; line-height: 1.5;"><code><span style="color: #c586c0;">from</span> <span style="color: #4ec9b0;">telegram</span> <span style="color: #c586c0;">import</span> <span style="color: #4ec9b0;">Update</span>
+<span style="color: #c586c0;">from</span> <span style="color: #4ec9b0;">telegram.ext</span> <span style="color: #c586c0;">import</span> <span style="color: #4ec9b0;">Application</span>
+
+<span style="color: #c586c0;">async</span> <span style="color: #c586c0;">def</span> <span style="color: #dcdcaa;">start</span>(<span style="color: #9cdcfe;">update</span>, <span style="color: #9cdcfe;">context</span>):
+    <span style="color: #c586c0;">await</span> update.message.<span style="color: #dcdcaa;">reply_text</span>(
+        <span style="color: #ce9178;">'Привет! Я твой помощник 🤖'</span>
+    )
+
+<span style="color: #c586c0;">async</span> <span style="color: #c586c0;">def</span> <span style="color: #dcdcaa;">help_command</span>(<span style="color: #9cdcfe;">update</span>, <span style="color: #9cdcfe;">context</span>):
+    <span style="color: #c586c0;">await</span> update.message.<span style="color: #dcdcaa;">reply_text</span>(
+        <span style="color: #ce9178;">'/start - начало\n/help - помощь'</span>
+    )</code></pre>
+        <div class="slide-counter">13/18</div>
+    </section>
+
+    <!-- Slide 14: Getting Started -->
+    <section class="slide col center hidden" data-slide-id="11" style="background-color: #0f172a; color: #f1f5f9;">
+        <h2 class="mb-6" style="color: #38bdf8; text-align: left;">Как разработать?</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 900px; width: 100%;">
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">1️⃣</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Установить Python</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Установить Python на компьютер</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">2️⃣</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Создать бота</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Создать бота через @BotFather и получить токен</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">3️⃣</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Установить библиотеку</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Установить библиотеку Aiogram</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">4️⃣</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Написать код</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Написать код программы</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">5️⃣</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Запустить и тестировать</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Запустить бота и тестировать</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">14/18</div>
+    </section>
+
+    <!-- Slide 15: Tasks in Development -->
+    <section class="slide col center hidden" data-slide-id="12" style="background-color: #0f172a; color: #f1f5f9;">
+        <h2 class="mb-6" style="color: #38bdf8; text-align: left;">Задачи в разработке</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 900px; width: 100%;">
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">📚</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Учебники</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Доступ к любой странице по номеру</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">🏫</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Библиотека</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Каталог книг и материалов</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">🤖</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">ИИ ассистент</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Помощь с домашней работой и объяснением тем</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">15/18</div>
+    </section>
+
+    <!-- Slide 16: Technical Details -->
+    <section class="slide col center hidden" data-slide-id="13" style="background-color: #0f172a; color: #f1f5f9;">
+        <h2 class="mb-6" style="color: #38bdf8; text-align: left;">Технические детали для разработчиков</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 900px; width: 100%;">
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">🐍</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Асинхронный Python + Docker</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">asyncio, aiogram, контейнеризация для одинакового окружения везде</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">☁️</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Serverless-деплой в Yandex Cloud</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Webhook-эндпоинт, автоскейлинг, без управления серверами</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">📦</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Репозиторий в SourceCraft</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">CI/CD, Docker-сборки, бесшовный деплой в Yandex Cloud</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">16/18</div>
+    </section>
+
+    <!-- Slide 17: Acknowledgments -->
+    <section class="slide col center hidden" data-slide-id="14" style="background-color: #0f172a; color: #f1f5f9;">
+        <h2 class="mb-6" style="color: #38bdf8; text-align: left;">Благодарности</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 900px; width: 100%;">
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">👨‍👩‍👦</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Моя семья</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Папа, Мама, Коля — за поддержку и вдохновение</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="font-size: 3rem; flex-shrink: 0;">🤝</div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Родители одноклассников</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">За обратную связь и помощь в тестировании бота</p>
+                </div>
+            </div>
+            <div style="background-color: #1e293b; color: #f1f5f9; padding: 1.5rem; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 8px; display: flex; align-items: center; gap: 1.5rem;">
+                <div style="flex-shrink: 0;">
+                    <img src="images/logo_naash2.jpg" alt="Логотип НААШ 186" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover; border: 2px solid #334155; background-color: #f8fafc;">
+                </div>
+                <div style="text-align: left;">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">Школа 186 НААШ</h3>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">За возможность развиваться и создавать проекты</p>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 1rem;">
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; background-color: #38bdf8; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem;">
+                        <span style="font-size: 2.5rem;">💝</span>
+                    </div>
+                    <p style="color: #cbd5e1; font-size: 0.9rem;">Благодарю всех</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; background-color: #38bdf8; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem;">
+                        <span style="font-size: 2.5rem;">🙏</span>
+                    </div>
+                    <p style="color: #cbd5e1; font-size: 0.9rem;">За поддержку</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; background-color: #38bdf8; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem;">
+                        <span style="font-size: 2.5rem;">❤️</span>
+                    </div>
+                    <p style="color: #cbd5e1; font-size: 0.9rem;">С любовью</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">17/18</div>
+    </section>
+
+    <!-- Slide 18: Thank You -->
+    <section class="slide bot-title-slide closing-slide hidden" data-slide-id="15">
+        <div class="title-frame closing-frame">
+            <div class="title-decor title-decor-a"></div>
+            <div class="title-decor title-decor-b"></div>
+            <div class="title-decor title-decor-c"></div>
+            <div class="closing-content">
+                <div class="title-eyebrow">Слайд 18 · Спасибо за внимание</div>
+                <div class="closing-emoji">🎉</div>
+                <h2 class="closing-title">Спасибо за внимание!</h2>
+                <div class="closing-qr-card">
+                    <img src="images/Liik_Prezent.png" alt="QR-код бота" class="closing-qr-image">
+                    <div class="closing-qr-title">Открыть бота</div>
+                    <p class="closing-qr-caption">Запуск через Telegram по QR-коду</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">18/18</div>
+    </section>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+        <button class="nav-btn" id="prevBtn" onclick="prevSlide()">← Назад</button>
+        <span class="slide-info"><span id="currentSlide">1</span>/<span id="totalSlides">18</span></span>
+        <button class="nav-btn" id="nextBtn" onclick="nextSlide()">Вперёд →</button>
+    </div>
+
+    <script src="../shared/presentation-return.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
