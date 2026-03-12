@@ -12,7 +12,13 @@ interface PresentationItem {
   presentationPath?: string
 }
 
+const SECTION_PRESENTATIONS = new Map(
+  SECTIONS.filter((section) => section.presentationPath).map((section) => [section.id, section]),
+)
+
 const PRESENTATIONS: PresentationItem[] = [
+  SECTION_PRESENTATIONS.get('reading-room')!,
+  SECTION_PRESENTATIONS.get('bot')!,
   {
     id: 'project-overview',
     title: 'Общая защита',
@@ -22,6 +28,8 @@ const PRESENTATIONS: PresentationItem[] = [
     colorBg: '#dbeafe',
     presentationPath: '/project/presentation',
   },
+  SECTION_PRESENTATIONS.get('dictionary')!,
+  SECTION_PRESENTATIONS.get('bukvar')!,
   {
     id: 'qa',
     title: 'Вопросы и ответы',
@@ -49,7 +57,6 @@ const PRESENTATIONS: PresentationItem[] = [
     colorBg: '#d9efff',
     presentationPath: '/bot/presentation/qa',
   },
-  ...SECTIONS.filter((section) => section.presentationPath),
 ]
 
 export function Presentations() {
