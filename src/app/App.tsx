@@ -7,8 +7,10 @@ const Presentations           = React.lazy(() => import('@/pages/Presentations/P
 const ProjectPresentation      = React.lazy(() => import('@/pages/ProjectPresentation/ProjectPresentation').then(m => ({ default: m.ProjectPresentation })))
 const ProjectPresentationQa    = React.lazy(() => import('@/pages/ProjectPresentation/ProjectPresentationQa').then(m => ({ default: m.ProjectPresentationQa })))
 const BotPresentation          = React.lazy(() => import('@/pages/Bot/BotPresentation').then(m => ({ default: m.BotPresentation })))
+const BotPresentationQa        = React.lazy(() => import('@/pages/Bot/BotPresentationQa').then(m => ({ default: m.BotPresentationQa })))
 const DictionaryPresentation   = React.lazy(() => import('@/pages/Dictionary/DictionaryPresentation').then(m => ({ default: m.DictionaryPresentation })))
 const ReadingRoomPresentation  = React.lazy(() => import('@/pages/ReadingRoom/ReadingRoomPresentation').then(m => ({ default: m.ReadingRoomPresentation })))
+const ReadingRoomPresentationQa = React.lazy(() => import('@/pages/ReadingRoom/ReadingRoomPresentationQa').then(m => ({ default: m.ReadingRoomPresentationQa })))
 const BukvarPresentation       = React.lazy(() => import('@/pages/Bukvar/BukvarPresentation').then(m => ({ default: m.BukvarPresentation })))
 const Encyclopedia             = React.lazy(() => import('@/pages/Encyclopedia/Encyclopedia').then(m => ({ default: m.Encyclopedia })))
 const Bot                      = React.lazy(() => import('@/pages/Bot/Bot').then(m => ({ default: m.Bot })))
@@ -52,8 +54,10 @@ const router = createBrowserRouter(
         { path: 'project/presentation',           element: <S><ProjectPresentation /></S> },
         { path: 'project/presentation/qa',        element: <S><ProjectPresentationQa /></S> },
         { path: 'bot/presentation',               element: <S><BotPresentation /></S> },
+        { path: 'bot/presentation/qa',            element: <S><BotPresentationQa /></S> },
         { path: 'dictionary/presentation',         element: <S><DictionaryPresentation /></S> },
         { path: 'reading-room/presentation',       element: <S><ReadingRoomPresentation /></S> },
+        { path: 'reading-room/presentation/qa',    element: <S><ReadingRoomPresentationQa /></S> },
         { path: 'bukvar/presentation',             element: <S><BukvarPresentation /></S> },
         { path: 'encyclopedia',                    element: <S><Encyclopedia /></S> },
         { path: 'bot',                             element: <S><Bot /></S> },

@@ -31,6 +31,24 @@ const PRESENTATIONS: PresentationItem[] = [
     colorBg: '#ede9fe',
     presentationPath: '/project/presentation/qa',
   },
+  {
+    id: 'reading-room-qa',
+    title: 'Читальный зал — Q&A',
+    subtitle: 'Отдельная презентация с вопросами и ответами по разделу «Читальный зал»',
+    icon: '📖',
+    color: '#2563eb',
+    colorBg: '#dbeafe',
+    presentationPath: '/reading-room/presentation/qa',
+  },
+  {
+    id: 'bot-qa',
+    title: 'Бот-помощник — Q&A',
+    subtitle: 'Отдельная презентация с вопросами и ответами по проекту Telegram-бота',
+    icon: '🤖',
+    color: '#0f6cbd',
+    colorBg: '#d9efff',
+    presentationPath: '/bot/presentation/qa',
+  },
   ...SECTIONS.filter((section) => section.presentationPath),
 ]
 
