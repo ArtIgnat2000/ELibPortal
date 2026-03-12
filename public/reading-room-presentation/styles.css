@@ -583,10 +583,29 @@ h2 {
     margin-bottom: 10px;
 }
 
+.search-entry {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.search-entry .search-label {
+    margin-bottom: 0;
+    flex: 0 0 auto;
+}
+
 .search-value {
     font-size: clamp(24px, 2.2vw, 32px);
     font-weight: 900;
     margin-bottom: 14px;
+}
+
+.slide-8 .search-value {
+    white-space: nowrap;
+    font-size: clamp(20px, 1.9vw, 28px);
+    letter-spacing: -0.02em;
+    margin-bottom: 0;
 }
 
 .search-result {
@@ -1019,6 +1038,11 @@ h2 {
         margin-bottom: 8px;
     }
 
+    .search-entry {
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
     .search-value {
         font-size: clamp(20px, 1.9vw, 26px);
         margin-bottom: 10px;
@@ -1217,6 +1241,11 @@ h2 {
     .pill {
         font-size: 13px;
         padding: 8px 12px;
+    }
+
+    .search-entry {
+        flex-wrap: wrap;
+        gap: 6px;
     }
 
     .icon {
