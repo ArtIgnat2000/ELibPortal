@@ -194,6 +194,27 @@
       flex: 1;
       min-height: 0;
     }
+    /* Hide per-slide eyebrow numbering */
+    .eyebrow {
+      display: none !important;
+    }
+
+    /* Reduce vertical size for the 4 cards on slide "Благодарности" */
+    .slide.thanks .card {
+      padding: 12px 16px;
+    }
+
+    .slide.thanks .feature-card {
+      gap: 12px;
+      align-items: center;
+    }
+
+    .slide.thanks .icon {
+      width: 44px;
+      height: 44px;
+      font-size: 22px;
+      border-radius: 12px;
+    }
 
     .feature-card {
       display: flex;
@@ -626,7 +647,7 @@
         </div>
       </section>
 
-      <section class="slide">
+      <section class="slide thanks">
         <div class="frame">
           <div class="decor a"></div>
           <div class="decor b"></div>
