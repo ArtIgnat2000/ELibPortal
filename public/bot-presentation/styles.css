@@ -790,6 +790,30 @@ li:last-child { margin-bottom: 0; }
     color: #94a3b8;
 }
 
+/* Hide per-slide numbering (top-left eyebrow and bottom-right counter) */
+.title-eyebrow,
+.slide-eyebrow,
+.slide-counter {
+    display: none !important;
+}
+
+/* Image frames inside slides: fixed height and crop from bottom (keep top) */
+.card-image {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 512px; /* increased by 60% from 320px */
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover; /* crop to fill frame */
+    object-position: top center; /* keep top, crop bottom */
+}
+
 /* Navigation Controls */
 .nav-controls {
     display: flex;
